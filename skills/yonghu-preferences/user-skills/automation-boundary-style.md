@@ -46,6 +46,8 @@ Define when Codex should act automatically, suggest, or ask first.
 - `yonghu-preferences`: A2 only for explicit or repeated durable cross-project preferences; A3 for inferred candidates.
 - `global-memory-capture-style.md`: A2 for passive explicit safe memory, A3 for active inferred memory, A0/A4 for sensitive or ambiguous memory.
 - Distribution zips: A2 after prompt/skill/package changes; rebuild automatically unless the user asks not to.
+- Project memory maintenance config and Git hooks: A2 only when user explicitly requests setup or repair; otherwise check and report.
+- System scheduled tasks such as macOS launchd or Windows Task Scheduler: A4 unless user explicitly requests setup through install/setup commands.
 
 ## Forbidden Behaviors
 

@@ -2,7 +2,9 @@
 param(
   [string]$CodexHome = $env:CODEX_HOME,
   [string]$Overlay,
-  [switch]$Force
+  [switch]$Force,
+  [switch]$SetupMaintenance,
+  [switch]$MaintenanceForce
 )
 
 $ErrorActionPreference = 'Stop'
@@ -81,6 +83,20 @@ if (-not [string]::IsNullOrWhiteSpace($Overlay)) {
   $overlayApplied = $true
 }
 
+$maintenance = $null
+if ($SetupMaintenance) {
+  $setupScript = Join-Path $RepoRoot 'scripts\setup-memory-maintenance.ps1'
+  if (-not (Test-Path -LiteralPath $setupScript)) {
+    throw "Missing maintenance setup script: $setupScript"
+  }
+  $maintenanceArgs = @('-CodexHome', $CodexHome)
+  if ($MaintenanceForce) {
+    $maintenanceArgs += '-Force'
+  }
+  $maintenanceRaw = & $setupScript @maintenanceArgs
+  $maintenance = $maintenanceRaw | ConvertFrom-Json
+}
+
 [pscustomobject]@{
   codexHome = $CodexHome
   destination = $DestSkills
@@ -91,5 +107,6 @@ if (-not [string]::IsNullOrWhiteSpace($Overlay)) {
   overlay = $Overlay
   overlayApplied = $overlayApplied
   force = [bool]$Force
+  maintenance = $maintenance
   restartRequired = $true
 } | ConvertTo-Json -Depth 3

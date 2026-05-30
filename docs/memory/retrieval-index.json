@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-30T16:13:35.736Z",
+  "updatedAt": "2026-05-30T17:21:36.213Z",
   "projectRoot": "/Users/a520/Documents/Codex/2026-05-30/skills-396001000-qianzong-nb-https-github/work/qianzong-NB",
   "projectMarker": ".ai_project.md",
-  "aiProjectHash": "sha256:11830ac352a7cc6c1d75934a6784d229e85bde5e3e7ea4ae7615bf47c7e657bb",
-  "docsCount": 9,
+  "aiProjectHash": "sha256:1e07cc8ddf7cbbfb0763b9010b4350fb0c15b8784e9c21213de27bd52a53aa13",
+  "docsCount": 10,
   "coreFiles": [
     {
       "path": ".ai_project.md",
@@ -85,6 +85,14 @@
       "validation": "JSON parses and paths exist or are marked missing."
     },
     {
+      "path": "docs/memory/maintenance.json",
+      "purpose": "Project memory maintenance setup and safety policy.",
+      "readWhen": "Before changing project maintenance hooks or schedules.",
+      "owner": "Project Assistant / Rule Governor",
+      "updateTrigger": "Maintenance setup, hook policy, or schedule assumptions change.",
+      "validation": "JSON parses and setup remains idempotent."
+    },
+    {
       "path": "docs/memory/evidence/index.jsonl",
       "purpose": "Evidence records for durable project memory and KG entries.",
       "readWhen": "Before verifying durable memory claims.",
@@ -157,6 +165,14 @@
       "owner": "Project Assistant",
       "updateTrigger": "Durable docs, summaries, or memory routes change.",
       "validation": "JSON parses and paths exist or are marked missing."
+    },
+    {
+      "path": "docs/memory/maintenance.json",
+      "purpose": "Project memory maintenance setup and safety policy.",
+      "readWhen": "Before changing project maintenance hooks or schedules.",
+      "owner": "Project Assistant / Rule Governor",
+      "updateTrigger": "Maintenance setup, hook policy, or schedule assumptions change.",
+      "validation": "JSON parses and setup remains idempotent."
     },
     {
       "path": "docs/memory/evidence/index.jsonl",

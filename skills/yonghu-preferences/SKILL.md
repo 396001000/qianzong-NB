@@ -45,6 +45,8 @@ Do not record guesses.
 - `scripts/init-project-memory.mjs`: conversational project memory initialization entry for "初始化本项目"; self-checks, initializes, summarizes, and re-audits.
 - `scripts/audit-memory-system.mjs`: full v2.2 memory system audit helper.
 - `scripts/summarize-project-memory.mjs`: compact project memory summary helper.
+- `scripts/maintain-memory.mjs`: scheduled/manual memory maintenance runner for global and project checks.
+- `scripts/setup-project-maintenance.mjs`: idempotent project setup for `docs/memory/maintenance.json` and Git pre-push audit hook.
 - `scripts/audit-skill-lifecycle.mjs`: snapshot and audit active skill inventory changes.
 
 ## What To Record

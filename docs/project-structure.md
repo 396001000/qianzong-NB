@@ -34,10 +34,14 @@
 - `skills/yonghu-preferences/user-skills/`: Executable global user behavior and routing rules.
 - `skills/yonghu-preferences/scripts/`: Memory, routing, project-memory, and lifecycle audit helpers.
 - `skills/yonghu-preferences/scripts/init-project-memory.mjs`: Single conversational initializer for `初始化本项目`; runs pre-audit, init, summary, and final audit.
+- `skills/yonghu-preferences/scripts/maintain-memory.mjs`: Shared maintenance runner for daily, weekly, global, and project memory checks.
+- `skills/yonghu-preferences/scripts/setup-project-maintenance.mjs`: Idempotent project maintenance setup for `docs/memory/maintenance.json` and a read-only Git pre-push audit hook.
 - `skills/yonghu-preferences/references/skill-lifecycle-allowlist.json`: Exact-match accepted lifecycle scanner findings with rationale.
 - `skills/yonghu-preferences/references/skill-inventory-snapshot.json`: Accepted skill inventory snapshot used to detect unreviewed add/remove/change drift.
 - `scripts/install-macos.sh`: macOS installer for copying only valid skill directories into `$CODEX_HOME/skills`.
 - `scripts/install.ps1`: Windows installer for copying only valid skill directories into `$CODEX_HOME\skills`.
+- `scripts/setup-memory-maintenance-macos.sh`: macOS launchd setup for global daily light checks and weekly deep audits.
+- `scripts/setup-memory-maintenance.ps1`: Windows Task Scheduler setup for global daily light checks and weekly deep audits.
 - `scripts/verify-skills.mjs`: macOS/Node package verifier for skill frontmatter, route targets, and v2.2 memory checks.
 - `scripts/audit-commercial-content.mjs`: Default-distribution lint for owner-specific markers and draft residue.
 - `scripts/audit-skill-sources.mjs`: Inventory source-review and commercial-use audit.
@@ -52,6 +56,7 @@
 - The repository is skills-only and must not distribute `AGENTS.md`, system prompts, runtime prompts, or prompt templates.
 - Default `skills/yonghu-preferences/` files must stay commercial-safe; owner-specific local behavior belongs in `overlays/qianzong-personal/`.
 - Commercial release artifacts must be generated without `overlays/`; personal overlays are applied only on owner-local installs.
+- Maintenance setup scripts are optional and idempotent; they must skip existing config/tasks unless force options are used.
 
 ## Avoid Editing Without Reason
 
@@ -60,3 +65,4 @@
 - Do not distribute empty local directories without `SKILL.md` as skills.
 - Do not route new or external skills by default before safety and lifecycle review.
 - Do not put owner-specific address, assistant name, or fixed ending text back into the default package files.
+- Do not silently install system-level scheduled tasks; require explicit setup flags.

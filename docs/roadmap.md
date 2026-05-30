@@ -26,6 +26,7 @@
 - After any local skill change, resync valid local skill directories into `skills/`, regenerate inventory, and rerun lifecycle audit.
 - After any route change, verify all route target skills exist in the package or mark them explicit-only.
 - After any package change, regenerate `skills-inventory.json` and rerun validation.
+- Keep macOS and Windows memory maintenance setup idempotent and optional.
 - Keep lifecycle snapshot and allowlist current after accepted skill changes.
 - Keep commercial default files free of owner-specific profile/persona content; use explicit overlays for private installs.
 - Build commercial release artifacts with `scripts/build-commercial-release.mjs` so owner-specific overlays are excluded.
@@ -39,3 +40,4 @@
 - Broad lifecycle scanner allowlists would weaken poisoning protection; accepted findings must stay exact-match with rationale.
 - Public redistribution still requires manual license review for skills marked `manual-license-review-required`.
 - This repository is skills-only; adding prompt templates or project-level `AGENTS.md` would violate the current distribution boundary.
+- System-level maintenance setup must remain explicit; project initialization may check setup by default and configure only with setup flags.

@@ -35,8 +35,14 @@ const startDir = path.resolve(arg("cwd", process.cwd()));
 const dryRun = has("dry-run");
 const force = has("force");
 const withKnowledge = has("with-kg") || has("knowledge");
+const setupMaintenance = has("setup-maintenance");
+const repairMaintenance = has("repair-maintenance");
+const checkMaintenance = !has("no-maintenance-check") || setupMaintenance || repairMaintenance;
 
 const preAudit = run("audit-project-memory.mjs", ["--cwd", startDir]);
+const preMaintenance = checkMaintenance
+  ? run("setup-project-maintenance.mjs", ["--cwd", startDir, "--dry-run"])
+  : { ok: true, parsed: { skipped: true } };
 if (dryRun) {
   process.stdout.write(
     `${JSON.stringify(
@@ -47,7 +53,10 @@ if (dryRun) {
         preAuditOk: preAudit.ok,
         wouldInitialize: !preAudit.ok,
         withKnowledge,
-        preAudit: preAudit.parsed
+        setupMaintenance,
+        repairMaintenance,
+        preAudit: preAudit.parsed,
+        maintenance: preMaintenance.parsed
       },
       null,
       2
@@ -66,8 +75,18 @@ if (init.ok && !init.parsed?.projectless) {
   summary = run("summarize-project-memory.mjs", ["--cwd", init.parsed.projectRoot || startDir, "--write"]);
 }
 
+let maintenance = preMaintenance;
+if (init.ok && !init.parsed?.projectless) {
+  const maintenanceArgs = ["--cwd", init.parsed.projectRoot || startDir];
+  if (setupMaintenance) maintenanceArgs.push("--setup");
+  else if (repairMaintenance) maintenanceArgs.push("--repair");
+  else maintenanceArgs.push("--dry-run");
+  if (force) maintenanceArgs.push("--force");
+  maintenance = run("setup-project-maintenance.mjs", maintenanceArgs);
+}
+
 const finalAudit = run("audit-project-memory.mjs", ["--cwd", init.parsed?.projectRoot || startDir]);
-const ok = init.ok && summary.ok && finalAudit.ok;
+const ok = init.ok && summary.ok && maintenance.ok && finalAudit.ok;
 
 process.stdout.write(
   `${JSON.stringify(
@@ -77,9 +96,12 @@ process.stdout.write(
       cwd: startDir,
       withKnowledge,
       force,
+      setupMaintenance,
+      repairMaintenance,
       preAudit: preAudit.parsed,
       init: init.parsed,
       summary: summary.parsed || summary,
+      maintenance: maintenance.parsed || maintenance,
       finalAudit: finalAudit.parsed
     },
     null,

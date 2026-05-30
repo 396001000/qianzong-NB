@@ -4,6 +4,8 @@ set -euo pipefail
 CODEX_HOME_DIR="${CODEX_HOME:-$HOME/.codex}"
 FORCE=0
 OVERLAY=""
+SETUP_MAINTENANCE=0
+MAINTENANCE_FORCE=0
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -18,6 +20,14 @@ while [[ $# -gt 0 ]]; do
     --overlay)
       OVERLAY="$2"
       shift 2
+      ;;
+    --setup-maintenance)
+      SETUP_MAINTENANCE=1
+      shift
+      ;;
+    --maintenance-force)
+      MAINTENANCE_FORCE=1
+      shift
       ;;
     *)
       echo "Unknown argument: $1" >&2
@@ -98,6 +108,15 @@ if [[ -n "$OVERLAY" ]]; then
   overlay_applied=true
 fi
 
+maintenance_json="null"
+if [[ "$SETUP_MAINTENANCE" -eq 1 ]]; then
+  maintenance_args=(--codex-home "$CODEX_HOME_DIR")
+  if [[ "$MAINTENANCE_FORCE" -eq 1 ]]; then
+    maintenance_args+=(--force)
+  fi
+  maintenance_json="$(bash "$REPO_ROOT/scripts/setup-memory-maintenance-macos.sh" "${maintenance_args[@]}")"
+fi
+
 node -e 'console.log(JSON.stringify({
   codexHome: process.argv[1],
   destination: process.argv[2],
@@ -108,6 +127,7 @@ node -e 'console.log(JSON.stringify({
   overlayApplied: process.argv[7] === "true",
   overlayBackedUp: Number(process.argv[8]),
   force: process.argv[9] === "1",
+  maintenance: JSON.parse(process.argv[10]),
   restartRequired: true
 }, null, 2))' \
-  "$CODEX_HOME_DIR" "$DEST_SKILLS" "$installed" "$skipped" "$backed_up" "$OVERLAY" "$overlay_applied" "$overlay_backed_up" "$FORCE"
+  "$CODEX_HOME_DIR" "$DEST_SKILLS" "$installed" "$skipped" "$backed_up" "$OVERLAY" "$overlay_applied" "$overlay_backed_up" "$FORCE" "$maintenance_json"

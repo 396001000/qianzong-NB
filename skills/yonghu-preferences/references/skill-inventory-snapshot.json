@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-30T16:15:50.673Z",
+  "updatedAt": "2026-05-30T17:24:23.850Z",
   "skillsRoot": "/Users/a520/Documents/Codex/2026-05-30/skills-396001000-qianzong-nb-https-github/work/qianzong-NB/skills",
   "skillCount": 143,
   "allowlistPath": "/Users/a520/Documents/Codex/2026-05-30/skills-396001000-qianzong-nb-https-github/work/qianzong-NB/skills/yonghu-preferences/references/skill-lifecycle-allowlist.json",
@@ -860,7 +860,7 @@
       "name": "yonghu-preferences",
       "description": "Use when the user expresses stable preferences, recurring requirements, project habits, UI taste, architecture rules, skill-pack governance opinions, prompt behavior expectations, repeated corrections, or personal workflow patterns that should influence future Codex work without guessing or storing sensitive data.",
       "relativeDir": "yonghu-preferences",
-      "hash": "587f8afd87df6d8095124cbc448041bfe8d164c5e55243d71b2edd098b8fbf2b"
+      "hash": "97b326dc4230ffc0706c417e9ad7370ffb918f3c3199dd50ec76a035bfd6165e"
     }
   ]
 }

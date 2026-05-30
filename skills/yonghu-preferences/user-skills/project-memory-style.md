@@ -181,9 +181,11 @@ Supported options:
 
 - `--dry-run`: inspect current memory gaps without writing.
 - `--with-kg`: initialize `docs/knowledge/` together with core project memory.
+- `--setup-maintenance`: create missing `docs/memory/maintenance.json` and install a project Git pre-push memory audit hook.
+- `--repair-maintenance`: fill missing maintenance setup without replacing existing custom configuration.
 - `--force`: allow initialization in a projectless directory only when the user explicitly intends the current directory to become the project root.
 
-Default behavior should refuse projectless initialization, preserve existing docs, create only missing files, update `docs/memory/retrieval-index.json`, and re-run the project memory audit.
+Default behavior should refuse projectless initialization, preserve existing docs, create only missing files, check maintenance setup, update `docs/memory/retrieval-index.json`, and re-run the project memory audit. Maintenance setup must be idempotent: existing config, hooks, and user edits are skipped unless force is explicit.
 
 ## Project Root Markers
 

@@ -64,7 +64,9 @@ const requiredScripts = [
   "capture-global-memory.mjs",
   "resolve-memory-context.mjs",
   "audit-memory-system.mjs",
-  "summarize-project-memory.mjs"
+  "summarize-project-memory.mjs",
+  "maintain-memory.mjs",
+  "setup-project-maintenance.mjs"
 ];
 
 const missingUserSkills = hasAll(userSkillsRoot, requiredUserSkills);
