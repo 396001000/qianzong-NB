@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-30",
+  "purpose": "Reviewed lifecycle scanner findings accepted for this skills pack. Entries are exact-match allowlist items, not broad suppressions.",
+  "findings": [
+    {
+      "skill": "browser-testing-with-devtools",
+      "file": "SKILL.md",
+      "rule": "instruction-override",
+      "rationale": "The phrase appears inside a defensive browser-content handling rule, not as an instruction to override the agent hierarchy."
+    },
+    {
+      "skill": "cloudflare-deploy",
+      "file": "references/cron-triggers/configuration.md",
+      "rule": "macos-persistence-hook",
+      "rationale": "Cloudflare Cron Triggers documentation references cron as a platform feature; it does not install local persistence."
+    },
+    {
+      "skill": "cloudflare-deploy",
+      "file": "references/cron-triggers/gotchas.md",
+      "rule": "macos-persistence-hook",
+      "rationale": "Cloudflare Cron Triggers documentation references cron as a platform feature; it does not install local persistence."
+    },
+    {
+      "skill": "cloudflare-deploy",
+      "file": "references/pipelines/configuration.md",
+      "rule": "secret-exfiltration",
+      "rationale": "Security terms appear in provider documentation examples; external actions still require host gating."
+    },
+    {
+      "skill": "cloudflare-deploy",
+      "file": "references/sandbox/patterns.md",
+      "rule": "remote-shell-pipe",
+      "rationale": "Reference material includes shell patterns; deployment commands remain high-risk and gated."
+    },
+    {
+      "skill": "cloudflare-deploy",
+      "file": "references/stream/README.md",
+      "rule": "secret-exfiltration",
+      "rationale": "Security terms appear in provider documentation examples; external actions still require host gating."
+    },
+    {
+      "skill": "cloudflare-deploy",
+      "file": "references/tunnel/patterns.md",
+      "rule": "macos-persistence-hook",
+      "rationale": "Tunnel docs mention service/persistence concepts; local machine persistence remains prohibited without explicit approval."
+    },
+    {
+      "skill": "cloudflare-deploy",
+      "file": "references/turnstile/gotchas.md",
+      "rule": "secret-exfiltration",
+      "rationale": "Security terms appear in provider documentation examples; external actions still require host gating."
+    },
+    {
+      "skill": "cloudflare-deploy",
+      "file": "references/workers-for-platforms/gotchas.md",
+      "rule": "secret-exfiltration",
+      "rationale": "Security terms appear in provider documentation examples; external actions still require host gating."
+    },
+    {
+      "skill": "production-audit",
+      "file": "SKILL.md",
+      "rule": "secret-exfiltration",
+      "rationale": "The skill audits for secret exposure; it does not request exfiltration."
+    },
+    {
+      "skill": "render-deploy",
+      "file": "SKILL.md",
+      "rule": "remote-shell-pipe",
+      "rationale": "Reference install command is provider CLI documentation; deployment commands remain high-risk and gated."
+    },
+    {
+      "skill": "screenshot",
+      "file": "scripts/ensure_macos_permissions.sh",
+      "rule": "hidden-prompt-disclosure",
+      "rationale": "Scanner matched a shell script permission prompt phrase, not hidden-agent prompt disclosure."
+    },
+    {
+      "skill": "security",
+      "file": "SKILL.md",
+      "rule": "secret-exfiltration",
+      "rationale": "The skill identifies and prevents secret exposure; it does not request exfiltration."
+    },
+    {
+      "skill": "security-best-practices",
+      "file": "references/python-django-web-server-security.md",
+      "rule": "secret-exfiltration",
+      "rationale": "Security reference discusses secret exposure prevention."
+    },
+    {
+      "skill": "security-best-practices",
+      "file": "references/python-flask-web-server-security.md",
+      "rule": "secret-exfiltration",
+      "rationale": "Security reference discusses secret exposure prevention."
+    },
+    {
+      "skill": "sentry",
+      "file": "SKILL.md",
+      "rule": "remote-shell-pipe",
+      "rationale": "Reference install command is third-party CLI documentation; external install remains gated."
+    },
+    {
+      "skill": "tauri",
+      "file": "references/distribution.md",
+      "rule": "remote-shell-pipe",
+      "rationale": "Reference command appears in upstream Tauri documentation; execution remains gated."
+    },
+    {
+      "skill": "tauri",
+      "file": "references/llms-full.md",
+      "rule": "secret-exfiltration",
+      "rationale": "Large upstream reference includes security wording; execution remains governed by host safety gates."
+    },
+    {
+      "skill": "tauri",
+      "file": "references/llms-full.md",
+      "rule": "remote-shell-pipe",
+      "rationale": "Large upstream reference includes installer examples; execution remains governed by host safety gates."
+    },
+    {
+      "skill": "tauri",
+      "file": "references/llms-full.md",
+      "rule": "shell-profile-modification",
+      "rationale": "Large upstream reference mentions shell profiles; local profile edits remain high-risk and gated."
+    },
+    {
+      "skill": "tauri",
+      "file": "references/other.md",
+      "rule": "shell-profile-modification",
+      "rationale": "Upstream reference mentions shell profiles; local profile edits remain high-risk and gated."
+    },
+    {
+      "skill": "tauri",
+      "file": "references/reference.md",
+      "rule": "secret-exfiltration",
+      "rationale": "Upstream reference includes security-related words; execution remains governed by host safety gates."
+    }
+  ]
+}

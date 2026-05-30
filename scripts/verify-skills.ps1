@@ -7,6 +7,17 @@ $RepoRoot = Split-Path -Parent $PSScriptRoot
 $SkillsRoot = Join-Path $RepoRoot 'skills'
 $AgentsPath = Join-Path $RepoRoot 'AGENTS.md'
 $SystemPath = Join-Path $SkillsRoot '.system'
+$Node = Get-Command node -ErrorAction SilentlyContinue
+
+if ($Node) {
+  $nodeResult = & $Node.Source (Join-Path $PSScriptRoot 'verify-skills.mjs')
+  $exitCode = $LASTEXITCODE
+  $nodeResult
+  if ($exitCode -ne 0) {
+    exit $exitCode
+  }
+  exit 0
+}
 
 if (-not (Test-Path -LiteralPath $SkillsRoot)) {
   throw "Missing skills directory: $SkillsRoot"
@@ -59,10 +70,10 @@ $ok = (
   tinyFiles = @($tiny | ForEach-Object { $_.path })
   includesAgents = Test-Path -LiteralPath $AgentsPath
   includesSystemSkills = Test-Path -LiteralPath $SystemPath
+  nodeVerifierAvailable = $false
+  reason = 'Node.js is required for full v2.2 route, lifecycle, memory, and commercial-content verification.'
   memoryBootstrapOk = $bootstrapOk
   memoryBootstrap = $bootstrap
 } | ConvertTo-Json -Depth 6
 
-if (-not $ok) {
-  exit 1
-}
+exit 1

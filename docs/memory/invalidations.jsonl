@@ -1,0 +1,1 @@
+{"id":"inv.2026-05-30.001","invalidated_at":"2026-05-30T17:10:00.000Z","target_id":"prompt.runtime-v2.2","reason":"Built-in runtime prompt template distribution was removed by owner request; qianzong-NB is now a skills-only package.","evidence":"ev.2026-05-30.001","superseded_by":"distribution.skills-only"}

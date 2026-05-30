@@ -2,12 +2,15 @@
 
 This directory stores evolved user skills: durable, executable preferences and routing rules that help Codex work in the user's preferred way.
 
-User skills are not professional market skills. They are a personal routing and behavior layer: how to choose roles, when to call professional skills, how to maintain project memory, how to reuse debugging experience, and how 女助理 should grow as a lightweight companion persona.
+User skills are not professional market skills. They are a routing and behavior layer: how to choose roles, when to call professional skills, how to maintain project memory, how to reuse debugging experience, and how 女助理 should remain useful without bloating the runtime prompt.
 
 ## Core Rules
 
 - This index is global user memory and routing context. It lives under `$CODEX_HOME/skills/yonghu-preferences/user-skills/`, not inside an individual project.
 - Every turn starts by reading this index, `routing-core.md`, and `communication-style.md`.
+- Use `memory-reliability-style.md` as the single managed memory gateway whenever global memory, project memory, or project root discovery is involved.
+- Use `memory-stack-style.md` to choose L0-L3 read depth and avoid loading more memory than the turn needs.
+- Use `memory-evidence-style.md` whenever durable project memory or knowledge graph entries need evidence, source hashes, invalidation, or superseding.
 - Then read only the matching user-skill files by `Read When`; do not bulk-load every file.
 - User skills guide behavior and routing; they do not replace source code, project docs, official docs, or professional `SKILL.md` files.
 - Create or update user skills only from explicit or repeated preferences.
@@ -31,7 +34,13 @@ Default Windows path:
 %USERPROFILE%\.codex\skills\yonghu-preferences\user-skills\INDEX.md
 ```
 
-If this file is unavailable, first try the global path resolution rules in `routing-core.md`. If it is incomplete, run:
+If this file is unavailable, first try the global path resolution rules in `routing-core.md`. On macOS, if it is incomplete, run:
+
+```bash
+node scripts/verify-memory-bootstrap.mjs --repair
+```
+
+On Windows, use the PowerShell fallback:
 
 ```powershell
 scripts/verify-memory-bootstrap.ps1 -Repair
@@ -50,7 +59,7 @@ Repair is limited to index structure and references to existing `user-skills/*.m
 
 | Skill | Status | Purpose | Read When |
 |---|---|---|---|
-| `persona-style.md` | Active | 女助理 lightweight persona: playful, cute, warm, but professionally efficient. | Every turn where tone/persona matters; always before emotionally sensitive replies. |
+| `persona-style.md` | Active | 女助理 lightweight persona: warm, concise, and professionally efficient. | Every turn where tone/persona matters; always before emotionally sensitive replies. |
 | `emotion-support-style.md` | Active | Recognize frustration, low mood, stress; provide light comfort before continuing work. | When user sounds upset, tired, frustrated, discouraged, or asks for comfort/fun. |
 | `user-profile-growth-style.md` | Active | Evolve durable user preferences, UI taste, hobbies, requirements, and work habits. | When user states stable preferences, recurring needs, hobbies, personality/tone preferences, or repeated corrections. |
 
@@ -70,8 +79,14 @@ Repair is limited to index structure and references to existing `user-skills/*.m
 | Skill | Status | Purpose | Read When |
 |---|---|---|---|
 | `project-memory-style.md` | Active | `.ai_project.md`, `AGENTS.md`, `docs/`, L0-L3 sync, Read When/Owner/Validation rules. | Before software project changes or project memory maintenance. |
+| `memory-stack-style.md` | Active | L0-L3 memory read stack, context budget, and downgrade/upgrade rules. | Every non-trivial turn before project docs, knowledge graph, or professional skill reads. |
+| `memory-evidence-style.md` | Active | Evidence, source hash, invalidation, superseding, and verification rules for durable memory. | Before writing durable project memory, docs, debug reports, ADRs, roadmap items, or KG nodes/edges. |
+| `knowledge-graph-memory-style.md` | Active | Normalized project knowledge graph activation, schema, ownership, and update rules. | When project work may need relationship lookup, impact analysis, long-term continuity, or cross-layer memory. |
+| `memory-reliability-style.md` | Active | Single gateway that keeps global memory and project memory separate. | When resolving global/project memory, project roots, or memory bootstrap repair. |
+| `global-memory-capture-style.md` | Active | Active/passive global memory capture with write gates and final-response memory status. | Every non-trivial turn before final response; always when user asks to remember or sets defaults. |
 | `debug-reuse-style.md` | Active | Reuse known issues and debug reports; decide when to write new reports. | Before debugging or after fixing durable/complex bugs. |
 | `skill-router-style.md` | Active | Professional skill selection rules, conflicts, high-risk gates, minimal skill set. | Before any task that may need professional skills. |
+| `skill-lifecycle-governance-style.md` | Active | Govern installs, deletions, registry refreshes, routing sync, lifecycle audit, and skill poisoning checks. | Before installing, deleting, archiving, restoring, updating, auditing, or routing skills. |
 | `ui-taste-style.md` | Active | UI polish, anti-generic taste, desktop/Web product visual expectations. | Before UI design, redesign, beautification, frontend screens, or visual QA. |
 | `automation-boundary-style.md` | Active | When to auto-write/update, when to suggest, when to ask first. | Before actions that write files, update memory, run high-risk commands, or change persistent rules. |
 | `product-context-style.md` | Active | User's main software context: API-driven desktop apps and Web apps. | Before architecture, UI, API, Tauri, backend, database, or product planning. |
@@ -82,3 +97,8 @@ Repair is limited to index structure and references to existing `user-skills/*.m
 |---|---|---|
 | 2026-05-16 | Expanded index for V5.0 user-skills core routing architecture. | User requested user-skills to guide roles, skills, project memory, debugging, and 女助理 persona. |
 | 2026-05-30 | Added global path and self-repair rules for the user-skills index. | User clarified the index should be global and auto-completed when missing or incomplete. |
+| 2026-05-30 | Added single memory gateway and macOS Node repair script routing. | User requested one memory entry and correct separation of global/project memory across multiple projects on macOS. |
+| 2026-05-30 | Added skill lifecycle governance routing. | User requested safe handling for new/deleted skills and protection against skill poisoning. |
+| 2026-05-30 | Added active/passive global memory capture routing. | User identified incomplete global memory as a serious defect. |
+| 2026-05-30 | Added knowledge graph memory activation routing. | User asked 女助理 to decide when knowledge graph is needed for software development and long-term project updates. |
+| 2026-05-30 | Added v2.2 memory stack and evidence routing. | User requested a complete closed-loop memory system with correct read, write, invalidation, verification, and reuse. |

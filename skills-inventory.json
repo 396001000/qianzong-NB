@@ -1,620 +1,1289 @@
-﻿[
-    {
-        "Dir":  "00-router",
-        "Name":  "router",
-        "Description":  "Route user requests to the right Codex role, output mode, and minimal skill set. Use for every task before deciding whether the answer is simple consultation, architecture, coding, debugging, review, documentation, or rule maintenance.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "01-project-context",
-        "Name":  "project-context",
-        "Description":  "Inspect and summarize project context before coding. Use when Codex needs to modify a repository, understand structure, follow existing conventions, locate scripts, read AGENTS.md, README, package manifests, or project documentation.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "02-ui-design",
-        "Name":  "ui-design",
-        "Description":  "Design practical user interfaces, flows, information architecture, layout systems, component states, and design tokens. Use for page design, UX redesign, dashboards, tools, mobile/web UI, interaction design, and before frontend implementation when visual or workflow decisions matter.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "03-frontend",
-        "Name":  "frontend",
-        "Description":  "Build and modify frontend pages, components, state logic, styling, forms, client-side interactions, and UI behavior in React, Vue, Svelte, vanilla HTML/CSS/JS, or similar frameworks. Use for frontend implementation and frontend bug fixes.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "04-backend-design",
-        "Name":  "backend-design",
-        "Description":  "Design backend architecture, service boundaries, domain models, data flow, async jobs, reliability strategy, error handling, observability, and deployment shape. Use before implementing significant backend systems, APIs, services, queues, integrations, or refactors.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "05-backend",
-        "Name":  "backend",
-        "Description":  "Implement backend services, business logic, API handlers, jobs, integrations, file processing, authentication flows, and server-side fixes. Use for backend coding and debugging in Node, Python, Go, Java, Rust, PHP, or similar stacks.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "06-api-design",
-        "Name":  "api-design",
-        "Description":  "Design REST, GraphQL, RPC, webhook, and internal service APIs. Use for routes, status codes, request/response schemas, error models, pagination, filtering, versioning, idempotency, and OpenAPI or contract documentation.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "07-database",
-        "Name":  "database",
-        "Description":  "Design and modify database schemas, migrations, SQL queries, indexes, transactions, constraints, and query performance. Use for PostgreSQL, MySQL, SQLite, SQL Server, Prisma, ORM changes, migration planning, and data consistency issues.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "08-security",
-        "Name":  "security",
-        "Description":  "Analyze and implement security-sensitive code involving authentication, authorization, tokens, sessions, uploads, payment, encryption, secrets, webhooks, sensitive data, dependency risk, injection, XSS, CSRF, SSRF, SQL injection, and audit logging.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "09-testing",
-        "Name":  "testing",
-        "Description":  "Create, repair, and evaluate tests for unit, integration, end-to-end, contract, regression, CI, and bug-fix workflows. Use when implementing code with meaningful risk, fixing bugs, reviewing test gaps, or investigating failing test suites.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "10-devops",
-        "Name":  "devops",
-        "Description":  "Work on Docker, deployment, CI/CD, environment variables, server configuration, build pipelines, health checks, logs, monitoring, rollbacks, infrastructure scripts, and production operations.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "11-accessibility",
-        "Name":  "accessibility",
-        "Description":  "Check and improve accessibility for web and app UI: semantic HTML, keyboard navigation, focus management, accessible names, ARIA, forms, dialogs, error messaging, color contrast, motion preferences, and WCAG 2.2 AA-oriented implementation.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "12-performance",
-        "Name":  "performance",
-        "Description":  "Diagnose and improve frontend, backend, database, build, memory, CPU, and network performance. Use for slow pages, slow APIs, slow SQL, large bundles, rendering delays, high latency, resource spikes, or performance regressions.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "13-i18n",
-        "Name":  "i18n",
-        "Description":  "Internationalize and localize user interfaces, APIs, documents, and formatting. Use for multilingual apps, locale-sensitive dates, numbers, currency, pluralization, translation keys, lang/dir attributes, RTL layouts, and avoiding hardcoded text.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "14-docs-rules",
-        "Name":  "docs-rules",
-        "Description":  "Create and maintain README files, API docs, usage docs, comments, AGENTS.md, .ai_project.md, prompt rules, skill files, and project conventions. Use for documentation, workflow rules, prompt engineering, knowledge distillation into skills, and Codex behavior refinement.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "15-code-review",
-        "Name":  "code-review",
-        "Description":  "Review code changes for bugs, regressions, security issues, missing tests, API contract breaks, data risks, performance risks, maintainability problems, and release blockers. Use when the user asks for review, audit, risk check, PR review, or to inspect a diff.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "16-ui-polish",
-        "Name":  "ui-polish",
-        "Description":  "Improve visual quality, spacing, hierarchy, typography, color, motion, icons, empty states, and perceived product quality for desktop and web UI. Use when the user asks for UI beautification, visual polish, making an interface look professional, modernizing screens, or improving design quality without changing core functionality.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "17-api-client",
-        "Name":  "api-client",
-        "Description":  "Build and maintain API client layers for desktop and web apps, including request wrappers, typed clients, authentication headers, retries, cancellation, streaming, pagination, error normalization, rate limits, and API-driven UI state.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "18-desktop-app",
-        "Name":  "desktop-app",
-        "Description":  "Build and modify API-driven desktop applications using Electron, Tauri, Qt, .NET, native shells, or similar stacks. Use for desktop UI, native capabilities, local storage, auto-update, packaging, permissions, IPC, filesystem access, and desktop-specific UX.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "19-web-app",
-        "Name":  "web-app",
-        "Description":  "Build and improve API-driven web applications, dashboards, admin panels, SaaS tools, and browser-based product UI. Use for routing, app shell, auth-gated pages, data views, tables, filters, forms, responsive layouts, and production web UX.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "20-data-fetching-state",
-        "Name":  "data-fetching-state",
-        "Description":  "Design and implement client-side data fetching and server state for API-driven desktop and web apps: caching, invalidation, optimistic updates, polling, subscriptions, pagination, stale data, offline behavior, and request race handling.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "21-auth-integration",
-        "Name":  "auth-integration",
-        "Description":  "Implement authentication and authorization integration for API-driven desktop and web apps: login, OAuth/OIDC, API keys, token refresh, session expiry, RBAC/ABAC, protected routes, desktop credential storage, and auth error UX.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "22-release-packaging",
-        "Name":  "release-packaging",
-        "Description":  "Package, release, and update desktop and web applications: Electron/Tauri builds, installers, auto-update, code signing, web builds, environment config, versioning, release notes, rollback, and distribution checks. Use with ship-pro for release readiness.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "23-ui-polish-pro",
-        "Name":  "ui-polish-pro",
-        "Description":  "Professional UI beautification and product visual refinement for desktop and web apps. Use when the user asks to make an interface more beautiful, premium, polished, modern, professional, refined, or visually consistent, especially for API-driven tools, dashboards, SaaS, admin panels, and desktop software. Incorporates high-taste anti-generic UI rules.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "24-tauri-pro",
-        "Name":  "tauri-pro",
-        "Description":  "Professional Tauri desktop application development with Rust commands, webview frontend, permissions, IPC, filesystem access, secure storage, sidecars, updater, packaging, and cross-platform desktop behavior. Use for Tauri apps, Tauri + React/Vue/Svelte, Rust backend commands, desktop APIs, tauri.conf, capabilities, and build/release issues.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "25-api-driven-app",
-        "Name":  "api-driven-app",
-        "Description":  "Architecture and implementation for API-driven desktop and web applications. Use when the app depends heavily on remote APIs, model/API gateways, auth, request orchestration, server state, offline/slow-network handling, streaming, uploads/downloads, rate limits, and API-backed UI workflows.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "26-database-pro",
-        "Name":  "database-pro",
-        "Description":  "Professional database design, migration, transaction, indexing, query optimization, and data integrity skill for SQL databases and ORMs. Use for schema design, migrations, indexes, constraints, query performance, data modeling, consistency, backfills, and database review across PostgreSQL, MySQL, SQLite, Prisma, Drizzle, TypeORM, SQLAlchemy, and similar tools.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "27-postgresql-pro",
-        "Name":  "postgresql-pro",
-        "Description":  "PostgreSQL-specific professional development and optimization. Use for Postgres schema design, migrations, indexes, EXPLAIN, JSONB, full-text search, constraints, transactions, locks, isolation, RLS, partitioning, generated columns, extensions, and query tuning.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "28-diagnose-pro",
-        "Name":  "diagnose-pro",
-        "Description":  "Disciplined debugging and diagnosis workflow for hard bugs, regressions, flaky behavior, performance issues, and unknown failures. Adapted from Matt Pocock-style diagnosis loops for Codex v4.1. Use when root cause is unclear or the bug is not fixed by a direct local change.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "29-tdd-pro",
-        "Name":  "tdd-pro",
-        "Description":  "Test-driven development workflow using red-green-refactor for features, bug fixes, and risky behavior changes. Adapted from Matt Pocock-style TDD for Codex v4.1. Use when tests can clarify requirements, prevent regressions, or guide implementation in small vertical slices.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "30-architecture-review-pro",
-        "Name":  "architecture-review-pro",
-        "Description":  "Review and improve codebase architecture, module boundaries, coupling, domain language, data flow, and long-term maintainability. Adapted from Matt Pocock-style architecture improvement workflows for Codex v4.1. Use for architecture review, refactor planning, complex feature placement, or when code is becoming hard to change.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "31-frontend-design-pro",
-        "Name":  "frontend-design-pro",
-        "Description":  "Professional frontend design and implementation planning for web apps, dashboards, tools, admin panels, API-driven screens, and desktop-like UI. Use when designing or improving frontend screens before or during implementation, especially when component hierarchy, application layout, data states, and usability need to be explicit.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "32-webapp-testing-pro",
-        "Name":  "webapp-testing-pro",
-        "Description":  "Professional web application testing with real browser workflows, Playwright-style checks, accessibility smoke tests, responsive screenshots, API mocks, regression coverage, and QA matrices. Use for browser validation, E2E tests, UI regression checks, and release-readiness testing.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "33-figma-to-code",
-        "Name":  "figma-to-code",
-        "Description":  "Translate Figma designs into production-ready frontend code and design-system rules. Inspired by OpenAI Figma implementation skills and adapted for Codex v4.1. Use when implementing a Figma design, extracting design tokens, matching visual fidelity, or converting design specs to components.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "34-security-review-pro",
-        "Name":  "security-review-pro",
-        "Description":  "Professional security review and threat modeling for repositories, APIs, desktop apps, web apps, authentication, authorization, secrets, dependency risk, and data flows. Inspired by OpenAI security-best-practices and security-threat-model skills, adapted for Codex v4.1.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "35-project-maintenance",
-        "Name":  "project-maintenance",
-        "Description":  "Maintain long-lived project context for software projects. Use when creating or modifying project code, adding features, changing architecture, adding files, changing APIs, database schema, deployment, tests, or documentation. Ensures .ai_project.md and docs/ are read before work and updated after meaningful changes.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "36-project-evolution",
-        "Name":  "project-evolution",
-        "Description":  "Manage project evolution over time: feature lifecycle, ADR decisions, roadmap, technical debt, known issues, refactor candidates, release notes, upgrade history, and durable development process records. Use when adding features, planning upgrades, changing architecture, stabilizing a project, or keeping long-term project knowledge current.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "37-skill-distillation-pro",
-        "Name":  "skill-distillation-pro",
-        "Description":  "Distill books, articles, external repositories, expert workflows, team conventions, and repeated project experience into concise executable Codex skills. Inspired by kangarooking/cangjie-skill and adapted for Codex v4.3. Use when converting knowledge into SKILL.md files, improving skill packs, or extracting reusable methods from references.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "38-ui-taste-pro",
-        "Name":  "ui-taste-pro",
-        "Description":  "High-taste UI judgment for avoiding generic AI-looking interfaces and improving product feel. Inspired by Leonxlnx/taste-skill and adapted for Codex v4.3. Use for UI beauty, frontend aesthetics, visual direction, layout taste, avoiding generic slop, and reviewing whether an interface feels polished or amateur.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "39-design-review-pro",
-        "Name":  "design-review-pro",
-        "Description":  "Professional UI/UX design review for web apps, desktop apps, dashboards, landing pages, and product screens. Inspired by gstack design-review/design-consultation workflows and adapted for Codex v4.3. Use when reviewing screenshots, implemented UI, Figma designs, visual regressions, or proposed layouts.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "40-qa-pro",
-        "Name":  "qa-pro",
-        "Description":  "Release-quality QA workflow for web and desktop software. Inspired by gstack QA workflows and adapted for Codex v4.3. Use before shipping, after feature completion, for regression sweeps, smoke testing, manual QA plans, automated QA, and acceptance validation.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "41-ship-pro",
-        "Name":  "ship-pro",
-        "Description":  "Shipping and release readiness workflow for software changes. Inspired by gstack ship workflows and adapted for Codex v4.3. Use when preparing a feature, desktop app, web app, API change, or release for delivery, including final checks, docs, changelog, versioning, rollback, and deployment readiness.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "42-skill-governance",
-        "Name":  "skill-governance",
-        "Description":  "Govern a growing Codex skill pack: evaluate external skills, prevent duplicate or conflicting skills, version skill changes, track sources, define skill tiers, retire weak skills, and maintain trigger quality. Use when adding, reviewing, merging, pruning, distributing, or upgrading skills.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "43-find-skills-pro",
-        "Name":  "find-skills-pro",
-        "Description":  "Search, evaluate, and select external agent skills from skills.sh, GitHub repositories, curated lists, and local skill packs. Use when the user asks whether external skills are useful, wants to find professional skills, compare skill repositories, or improve the current skill pack with outside sources.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "44-spec-driven-development-pro",
-        "Name":  "spec-driven-development-pro",
-        "Description":  "Turn vague requirements into clear specifications before implementation. Inspired by production-grade engineering lifecycle skills. Use for new features, significant changes, API behavior, UI flows, acceptance criteria, and when requirements are ambiguous or likely to grow.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "45-incremental-implementation-pro",
-        "Name":  "incremental-implementation-pro",
-        "Description":  "Implement software in small, safe, verifiable slices. Use for multi-step features, risky refactors, UI/API/database changes, or any task that should be split into atomic commits or phases.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "46-source-driven-development-pro",
-        "Name":  "source-driven-development-pro",
-        "Description":  "Prefer existing source code, tests, docs, and project conventions over assumptions. Use before modifying unfamiliar repositories, integrating new features, refactoring, debugging, or when examples in docs may not match local code.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "47-code-simplification-pro",
-        "Name":  "code-simplification-pro",
-        "Description":  "Simplify code by reducing accidental complexity, removing dead abstractions, clarifying boundaries, and improving readability without changing behavior. Use for cleanup, refactoring, large files, confusing modules, over-engineered code, and maintainability improvements.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "48-migration-deprecation-pro",
-        "Name":  "migration-deprecation-pro",
-        "Description":  "Plan and execute migrations, deprecations, compatibility transitions, API/schema changes, dependency upgrades, and old-code removal. Use when replacing modules, changing contracts, upgrading frameworks, deprecating features, or moving users/data safely.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "49-context-engineering-pro",
-        "Name":  "context-engineering-pro",
-        "Description":  "Manage project context, memory, docs, prompts, skills, and working notes so future agent sessions can retrieve the right information with minimal noise. Use when project knowledge is growing, docs are fragmented, skills overlap, context is stale, or a project needs durable AI-readable structure.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "50-project-assistant",
-        "Name":  "project-assistant",
-        "Description":  "Use when any software project task may require project memory: code/file changes, new features, refactors, debugging, API/database/UI/desktop/deployment changes, docs updates, or final delivery checks that must keep .ai_project.md and docs/ aligned with the codebase.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "51-project-sync-audit",
-        "Name":  "project-sync-audit",
-        "Description":  "Use when checking whether project memory is synchronized with code after meaningful changes, before final delivery of multi-file work, during project cleanup, or when .ai_project.md/docs may be stale, incomplete, inconsistent, or missing.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "52-docs-index-maintainer",
-        "Name":  "docs-index-maintainer",
-        "Description":  "Use when creating, moving, renaming, deleting, auditing, or reorganizing documentation files, or when .ai_project.md Docs Index must show what each docs/ file is for and when future Codex sessions should read it.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "53-production-readiness-pro",
-        "Name":  "production-readiness-pro",
-        "Description":  "Use when a feature, desktop/web app, API, database change, release, or refactor must meet commercial production quality, including reliability, security, performance, UX, observability, rollback, supportability, tests, docs, and go/no-go decisions.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "api-connector-builder",
-        "Name":  "api-connector-builder",
-        "Description":  "Build a new API connector or provider by matching the target repo\u0027s existing integration pattern exactly. Use when adding one more integration without inventing a second architecture.",
-        "Origin":  "ECC direct-port adaptation"
-    },
-    {
-        "Dir":  "api-integration-specialist",
-        "Name":  "api-integration-specialist",
-        "Description":  "Expert in integrating third-party APIs with proper authentication, error handling, rate limiting, and retry logic. Use when integrating REST APIs, GraphQL endpoints, webhooks, or external services. Specializes in OAuth flows, API key management, request/response transformation, and building robust API clients.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "blueprint",
-        "Name":  "blueprint",
-        "Description":  "\u003e-",
-        "Origin":  "community"
-    },
-    {
-        "Dir":  "ci-cd-and-automation",
-        "Name":  "ci-cd-and-automation",
-        "Description":  "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates, configure test runners in CI, or establish deployment strategies.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "clean-code",
-        "Name":  "clean-code",
-        "Description":  "Pragmatic coding standards - concise, direct, no over-engineering, no unnecessary comments",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "code-tour",
-        "Name":  "code-tour",
-        "Description":  "Create CodeTour `.tour` files — persona-targeted, step-by-step walkthroughs with real file and line anchors. Use for onboarding tours, architecture walkthroughs, PR tours, RCA tours, and structured \"explain how this works\" requests.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "content-hash-cache-pattern",
-        "Name":  "content-hash-cache-pattern",
-        "Description":  "Cache expensive file processing results using SHA-256 content hashes — path-independent, auto-invalidating, with service layer separation.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "debugging-and-error-recovery",
-        "Name":  "debugging-and-error-recovery",
-        "Description":  "Guides systematic root-cause debugging. Use when tests fail, builds break, behavior doesn\u0027t match expectations, or you encounter any unexpected error. Use when you need a systematic approach to finding and fixing the root cause rather than guessing.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "deployment-patterns",
-        "Name":  "deployment-patterns",
-        "Description":  "Deployment workflows, CI/CD pipeline patterns, Docker containerization, health checks, rollback strategies, and production readiness checklists for web applications.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "deprecation-and-migration",
-        "Name":  "deprecation-and-migration",
-        "Description":  "Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one implementation to another. Use when deciding whether to maintain or sunset existing code.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "e2e-testing",
-        "Name":  "e2e-testing",
-        "Description":  "Playwright E2E testing patterns, Page Object Model, configuration, CI/CD integration, artifact management, and flaky test strategies.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "error-handling",
-        "Name":  "error-handling",
-        "Description":  "Patterns for robust error handling across TypeScript, Python, and Go. Covers typed errors, error boundaries, retries, circuit breakers, and user-facing error messages.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "frontend-slides",
-        "Name":  "frontend-slides",
-        "Description":  "|",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "frontend-ui-engineering",
-        "Name":  "frontend-ui-engineering",
-        "Description":  "Builds production-quality UIs. Use when building or modifying user-facing interfaces. Use when creating components, implementing layouts, managing state, or when the output needs to look and feel production-quality rather than AI-generated.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "github-ops",
-        "Name":  "github-ops",
-        "Description":  "GitHub repository operations, automation, and management. Issue triage, PR management, CI/CD operations, release management, and security monitoring using the gh CLI. Use when the user wants to manage GitHub issues, PRs, CI status, releases, contributors, stale items, or any GitHub operational task beyond simple git commands.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "git-workflow-and-versioning",
-        "Name":  "git-workflow-and-versioning",
-        "Description":  "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "incremental-implementation",
-        "Name":  "incremental-implementation",
-        "Description":  "Delivers changes incrementally. Use when implementing any feature or change that touches more than one file. Use when you\u0027re about to write a large amount of code at once, or when a task feels too big to land in one step.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "iterative-retrieval",
-        "Name":  "iterative-retrieval",
-        "Description":  "Pattern for progressively refining context retrieval to solve the subagent context problem",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "latency-critical-systems",
-        "Name":  "latency-critical-systems",
-        "Description":  "Use for latency-sensitive systems such as realtime dashboards, market data, streaming agents, execution gateways, queues, caches, or HFT-like infrastructure where freshness and p95 latency matter.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "login-flow",
-        "Name":  "login-flow",
-        "Description":  "Mobile login and authentication flow screens",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "newapi",
-        "Name":  "newapi",
-        "Description":  "Assistant for newapi (new-api), an open-source unified AI gateway platform (https://github.com/QuantumNous/new-api). Use when the user asks about New API, managing models, groups, balance, or tokens, or securely copying keys, applying them to config files, or using them in commands without exposing secrets.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "performance-optimization",
-        "Name":  "performance-optimization",
-        "Description":  "Optimizes application performance. Use when performance requirements exist, when you suspect performance regressions, or when Core Web Vitals or load times need improvement. Use when profiling reveals bottlenecks that need fixing.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "plankton-code-quality",
-        "Name":  "plankton-code-quality",
-        "Description":  "Write-time code quality enforcement using Plankton — auto-formatting, linting, and Claude-powered fixes on every file edit via hooks.",
-        "Origin":  "community"
-    },
-    {
-        "Dir":  "planning-and-task-breakdown",
-        "Name":  "planning-and-task-breakdown",
-        "Description":  "Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "playwright",
-        "Name":  "playwright",
-        "Description":  "Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "production-audit",
-        "Name":  "production-audit",
-        "Description":  "Local-evidence production readiness audit for shipped apps, pre-launch reviews, post-merge checks, and \"what breaks in prod?\" questions without sending repo data to an external audit service.",
-        "Origin":  "community"
-    },
-    {
-        "Dir":  "ralphinho-rfc-pipeline",
-        "Name":  "ralphinho-rfc-pipeline",
-        "Description":  "RFC-driven multi-agent DAG execution pattern with quality gates, merge queues, and work unit orchestration.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "redesign-existing-projects",
-        "Name":  "redesign-existing-projects",
-        "Description":  "Upgrades existing websites and apps to premium quality. Audits current design, identifies generic AI patterns, and applies high-end design standards without breaking functionality. Works with any CSS framework or vanilla CSS.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "regex-vs-llm-structured-text",
-        "Name":  "regex-vs-llm-structured-text",
-        "Description":  "Decision framework for choosing between regex and LLM when parsing structured text — start with regex, add LLM only for low-confidence edge cases.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "screenshot",
-        "Name":  "screenshot",
-        "Description":  "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "security-and-hardening",
-        "Name":  "security-and-hardening",
-        "Description":  "Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations. Use when building any feature that accepts untrusted data, manages user sessions, or interacts with third-party services.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "security-bounty-hunter",
-        "Name":  "security-bounty-hunter",
-        "Description":  "Hunt for exploitable, bounty-worthy security issues in repositories. Focuses on remotely reachable vulnerabilities that qualify for real reports instead of noisy local-only findings.",
-        "Origin":  "ECC direct-port adaptation"
-    },
-    {
-        "Dir":  "security-scan",
-        "Name":  "security-scan",
-        "Description":  "Scan your Claude Code configuration (.claude/ directory) for security vulnerabilities, misconfigurations, and injection risks using AgentShield. Checks CLAUDE.md, settings.json, MCP servers, hooks, and agent definitions.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "security-threat-model",
-        "Name":  "security-threat-model",
-        "Description":  "Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Trigger only when the user explicitly asks to threat model a codebase or path, enumerate threats/abuse paths, or perform AppSec threat modeling. Do not trigger for general architecture summaries, code review, or non-security design work.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "senior-backend",
-        "Name":  "senior-backend",
-        "Description":  "Comprehensive backend development skill for building scalable backend systems using NodeJS, Express, Go, Python, Postgres, GraphQL, REST APIs. Includes API scaffolding, database optimization, security implementation, and performance tuning. Use when designing APIs, optimizing database queries, implementing business logic, handling authentication/authorization, or reviewing backend code.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "senior-fullstack",
-        "Name":  "senior-fullstack",
-        "Description":  "Comprehensive fullstack development skill for building complete web applications with React, Next.js, Node.js, GraphQL, and PostgreSQL. Includes project scaffolding, code quality analysis, architecture patterns, and complete tech stack guidance. Use when building new projects, analyzing code quality, implementing design patterns, or setting up development workflows.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "sentry",
-        "Name":  "sentry",
-        "Description":  "Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry CLI; perform read-only queries using the `sentry` command.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "shadcn",
-        "Name":  "shadcn",
-        "Description":  "Manages shadcn components and projects — adding, searching, fixing, debugging, styling, and composing UI. Provides project context, component docs, and usage examples. Applies when working with shadcn/ui, component registries, presets, --preset codes, or any project with a components.json file. Also triggers for \"shadcn init\", \"create an app with --preset\", or \"switch to --preset\".",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "shadcn-ui",
-        "Name":  "shadcn-ui",
-        "Description":  "|",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "skill-stocktake",
-        "Name":  "skill-stocktake",
-        "Description":  "Use when auditing Claude skills and commands for quality. Supports Quick Scan (changed skills only) and Full Stocktake modes with sequential subagent batch evaluation.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "source-driven-development",
-        "Name":  "source-driven-development",
-        "Description":  "Grounds every implementation decision in official documentation. Use when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "spec-driven-development",
-        "Name":  "spec-driven-development",
-        "Description":  "Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements are unclear, ambiguous, or only exist as a vague idea.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "strategic-compact",
-        "Name":  "strategic-compact",
-        "Description":  "Suggests manual context compaction at logical intervals to preserve context through task phases rather than arbitrary auto-compaction.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "tauri",
-        "Name":  "tauri",
-        "Description":  "Tauri framework for building cross-platform desktop and mobile apps. Use for desktop app development, native integrations, Rust backend, and web-based UIs.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "terminal-ops",
-        "Name":  "terminal-ops",
-        "Description":  "Evidence-first repo execution workflow for ECC. Use when the user wants a command run, a repo checked, a CI failure debugged, or a narrow fix pushed with exact proof of what was executed and verified.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "vercel-react-best-practices",
-        "Name":  "vercel-react-best-practices",
-        "Description":  "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
-        "Origin":  "unspecified"
-    },
-    {
-        "Dir":  "verification-loop",
-        "Name":  "verification-loop",
-        "Description":  "A comprehensive verification system for Claude Code sessions.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "windows-desktop-e2e",
-        "Name":  "windows-desktop-e2e",
-        "Description":  "E2E testing for Windows native desktop apps (WPF, WinForms, Win32/MFC, Qt) using pywinauto and Windows UI Automation.",
-        "Origin":  "ECC"
-    },
-    {
-        "Dir":  "yonghu-preferences",
-        "Name":  "yonghu-preferences",
-        "Description":  "Use when the user expresses stable preferences, recurring requirements, project habits, UI taste, architecture rules, skill-pack governance opinions, prompt behavior expectations, repeated corrections, or personal workflow patterns that should influence future Codex work without guessing or storing sensitive data.",
-        "Origin":  "unspecified"
-    }
+[
+  {
+    "Dir": "00-router",
+    "Name": "router",
+    "Description": "Route user requests to the right Codex role, output mode, and minimal skill set. Use for every task before deciding whether the answer is simple consultation, architecture, coding, debugging, review, documentation, or rule maintenance.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "01-project-context",
+    "Name": "project-context",
+    "Description": "Inspect and summarize project context before coding. Use when Codex needs to modify a repository, understand structure, follow existing conventions, locate scripts, read AGENTS.md, README, package manifests, or project documentation.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "02-ui-design",
+    "Name": "ui-design",
+    "Description": "Design practical user interfaces, flows, information architecture, layout systems, component states, and design tokens. Use for page design, UX redesign, dashboards, tools, mobile/web UI, interaction design, and before frontend implementation when visual or workflow decisions matter.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "03-frontend",
+    "Name": "frontend",
+    "Description": "Build and modify frontend pages, components, state logic, styling, forms, client-side interactions, and UI behavior in React, Vue, Svelte, vanilla HTML/CSS/JS, or similar frameworks. Use for frontend implementation and frontend bug fixes.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "04-backend-design",
+    "Name": "backend-design",
+    "Description": "Design backend architecture, service boundaries, domain models, data flow, async jobs, reliability strategy, error handling, observability, and deployment shape. Use before implementing significant backend systems, APIs, services, queues, integrations, or refactors.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "05-backend",
+    "Name": "backend",
+    "Description": "Implement backend services, business logic, API handlers, jobs, integrations, file processing, authentication flows, and server-side fixes. Use for backend coding and debugging in Node, Python, Go, Java, Rust, PHP, or similar stacks.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "06-api-design",
+    "Name": "api-design",
+    "Description": "Design REST, GraphQL, RPC, webhook, and internal service APIs. Use for routes, status codes, request/response schemas, error models, pagination, filtering, versioning, idempotency, and OpenAPI or contract documentation.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "07-database",
+    "Name": "database",
+    "Description": "Design and modify database schemas, migrations, SQL queries, indexes, transactions, constraints, and query performance. Use for PostgreSQL, MySQL, SQLite, SQL Server, Prisma, ORM changes, migration planning, and data consistency issues.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "08-security",
+    "Name": "security",
+    "Description": "Analyze and implement security-sensitive code involving authentication, authorization, tokens, sessions, uploads, payment, encryption, secrets, webhooks, sensitive data, dependency risk, injection, XSS, CSRF, SSRF, SQL injection, and audit logging.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "09-testing",
+    "Name": "testing",
+    "Description": "Create, repair, and evaluate tests for unit, integration, end-to-end, contract, regression, CI, and bug-fix workflows. Use when implementing code with meaningful risk, fixing bugs, reviewing test gaps, or investigating failing test suites.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "10-devops",
+    "Name": "devops",
+    "Description": "Work on Docker, deployment, CI/CD, environment variables, server configuration, build pipelines, health checks, logs, monitoring, rollbacks, infrastructure scripts, and production operations.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "11-accessibility",
+    "Name": "accessibility",
+    "Description": "Check and improve accessibility for web and app UI: semantic HTML, keyboard navigation, focus management, accessible names, ARIA, forms, dialogs, error messaging, color contrast, motion preferences, and WCAG 2.2 AA-oriented implementation.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "12-performance",
+    "Name": "performance",
+    "Description": "Diagnose and improve frontend, backend, database, build, memory, CPU, and network performance. Use for slow pages, slow APIs, slow SQL, large bundles, rendering delays, high latency, resource spikes, or performance regressions.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "13-i18n",
+    "Name": "i18n",
+    "Description": "Internationalize and localize user interfaces, APIs, documents, and formatting. Use for multilingual apps, locale-sensitive dates, numbers, currency, pluralization, translation keys, lang/dir attributes, RTL layouts, and avoiding hardcoded text.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "14-docs-rules",
+    "Name": "docs-rules",
+    "Description": "Create and maintain README files, API docs, usage docs, comments, AGENTS.md, .ai_project.md, prompt rules, skill files, and project conventions. Use for documentation, workflow rules, prompt engineering, knowledge distillation into skills, and Codex behavior refinement.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "15-code-review",
+    "Name": "code-review",
+    "Description": "Review code changes for bugs, regressions, security issues, missing tests, API contract breaks, data risks, performance risks, maintainability problems, and release blockers. Use when the user asks for review, audit, risk check, PR review, or to inspect a diff.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "16-ui-polish",
+    "Name": "ui-polish",
+    "Description": "Improve visual quality, spacing, hierarchy, typography, color, motion, icons, empty states, and perceived product quality for desktop and web UI. Use when the user asks for UI beautification, visual polish, making an interface look professional, modernizing screens, or improving design quality without changing core functionality.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "17-api-client",
+    "Name": "api-client",
+    "Description": "Build and maintain API client layers for desktop and web apps, including request wrappers, typed clients, authentication headers, retries, cancellation, streaming, pagination, error normalization, rate limits, and API-driven UI state.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "18-desktop-app",
+    "Name": "desktop-app",
+    "Description": "Build and modify API-driven desktop applications using Electron, Tauri, Qt, .NET, native shells, or similar stacks. Use for desktop UI, native capabilities, local storage, auto-update, packaging, permissions, IPC, filesystem access, and desktop-specific UX.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "19-web-app",
+    "Name": "web-app",
+    "Description": "Build and improve API-driven web applications, dashboards, admin panels, SaaS tools, and browser-based product UI. Use for routing, app shell, auth-gated pages, data views, tables, filters, forms, responsive layouts, and production web UX.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "20-data-fetching-state",
+    "Name": "data-fetching-state",
+    "Description": "Design and implement client-side data fetching and server state for API-driven desktop and web apps: caching, invalidation, optimistic updates, polling, subscriptions, pagination, stale data, offline behavior, and request race handling.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "21-auth-integration",
+    "Name": "auth-integration",
+    "Description": "Implement authentication and authorization integration for API-driven desktop and web apps: login, OAuth/OIDC, API keys, token refresh, session expiry, RBAC/ABAC, protected routes, desktop credential storage, and auth error UX.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "22-release-packaging",
+    "Name": "release-packaging",
+    "Description": "Package, release, and update desktop and web applications: Electron/Tauri builds, installers, auto-update, code signing, web builds, environment config, versioning, release notes, rollback, and distribution checks. Use with ship-pro for release readiness.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "23-ui-polish-pro",
+    "Name": "ui-polish-pro",
+    "Description": "Professional UI beautification and product visual refinement for desktop and web apps. Use when the user asks to make an interface more beautiful, premium, polished, modern, professional, refined, or visually consistent, especially for API-driven tools, dashboards, SaaS, admin panels, and desktop software. Incorporates high-taste anti-generic UI rules.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "24-tauri-pro",
+    "Name": "tauri-pro",
+    "Description": "Professional Tauri desktop application development with Rust commands, webview frontend, permissions, IPC, filesystem access, secure storage, sidecars, updater, packaging, and cross-platform desktop behavior. Use for Tauri apps, Tauri + React/Vue/Svelte, Rust backend commands, desktop APIs, tauri.conf, capabilities, and build/release issues.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "25-api-driven-app",
+    "Name": "api-driven-app",
+    "Description": "Architecture and implementation for API-driven desktop and web applications. Use when the app depends heavily on remote APIs, model/API gateways, auth, request orchestration, server state, offline/slow-network handling, streaming, uploads/downloads, rate limits, and API-backed UI workflows.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "26-database-pro",
+    "Name": "database-pro",
+    "Description": "Professional database design, migration, transaction, indexing, query optimization, and data integrity skill for SQL databases and ORMs. Use for schema design, migrations, indexes, constraints, query performance, data modeling, consistency, backfills, and database review across PostgreSQL, MySQL, SQLite, Prisma, Drizzle, TypeORM, SQLAlchemy, and similar tools.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "27-postgresql-pro",
+    "Name": "postgresql-pro",
+    "Description": "PostgreSQL-specific professional development and optimization. Use for Postgres schema design, migrations, indexes, EXPLAIN, JSONB, full-text search, constraints, transactions, locks, isolation, RLS, partitioning, generated columns, extensions, and query tuning.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "28-diagnose-pro",
+    "Name": "diagnose-pro",
+    "Description": "Disciplined debugging and diagnosis workflow for hard bugs, regressions, flaky behavior, performance issues, and unknown failures. Adapted from Matt Pocock-style diagnosis loops for Codex v4.1. Use when root cause is unclear or the bug is not fixed by a direct local change.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "29-tdd-pro",
+    "Name": "tdd-pro",
+    "Description": "Test-driven development workflow using red-green-refactor for features, bug fixes, and risky behavior changes. Adapted from Matt Pocock-style TDD for Codex v4.1. Use when tests can clarify requirements, prevent regressions, or guide implementation in small vertical slices.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "30-architecture-review-pro",
+    "Name": "architecture-review-pro",
+    "Description": "Review and improve codebase architecture, module boundaries, coupling, domain language, data flow, and long-term maintainability. Adapted from Matt Pocock-style architecture improvement workflows for Codex v4.1. Use for architecture review, refactor planning, complex feature placement, or when code is becoming hard to change.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "31-frontend-design-pro",
+    "Name": "frontend-design-pro",
+    "Description": "Professional frontend design and implementation planning for web apps, dashboards, tools, admin panels, API-driven screens, and desktop-like UI. Use when designing or improving frontend screens before or during implementation, especially when component hierarchy, application layout, data states, and usability need to be explicit.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "32-webapp-testing-pro",
+    "Name": "webapp-testing-pro",
+    "Description": "Professional web application testing with real browser workflows, Playwright-style checks, accessibility smoke tests, responsive screenshots, API mocks, regression coverage, and QA matrices. Use for browser validation, E2E tests, UI regression checks, and release-readiness testing.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "33-figma-to-code",
+    "Name": "figma-to-code",
+    "Description": "Translate Figma designs into production-ready frontend code and design-system rules. Inspired by OpenAI Figma implementation skills and adapted for Codex v4.1. Use when implementing a Figma design, extracting design tokens, matching visual fidelity, or converting design specs to components.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "34-security-review-pro",
+    "Name": "security-review-pro",
+    "Description": "Professional security review and threat modeling for repositories, APIs, desktop apps, web apps, authentication, authorization, secrets, dependency risk, and data flows. Inspired by OpenAI security-best-practices and security-threat-model skills, adapted for Codex v4.1.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "35-project-maintenance",
+    "Name": "project-maintenance",
+    "Description": "Maintain long-lived project context for software projects. Use when creating or modifying project code, adding features, changing architecture, adding files, changing APIs, database schema, deployment, tests, or documentation. Ensures .ai_project.md and docs/ are read before work and updated after meaningful changes.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "36-project-evolution",
+    "Name": "project-evolution",
+    "Description": "Manage project evolution over time: feature lifecycle, ADR decisions, roadmap, technical debt, known issues, refactor candidates, release notes, upgrade history, and durable development process records. Use when adding features, planning upgrades, changing architecture, stabilizing a project, or keeping long-term project knowledge current.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "37-skill-distillation-pro",
+    "Name": "skill-distillation-pro",
+    "Description": "Distill books, articles, external repositories, expert workflows, team conventions, and repeated project experience into concise executable Codex skills. Inspired by kangarooking/cangjie-skill and adapted for Codex v4.3. Use when converting knowledge into SKILL.md files, improving skill packs, or extracting reusable methods from references.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "38-ui-taste-pro",
+    "Name": "ui-taste-pro",
+    "Description": "High-taste UI judgment for avoiding generic AI-looking interfaces and improving product feel. Inspired by Leonxlnx/taste-skill and adapted for Codex v4.3. Use for UI beauty, frontend aesthetics, visual direction, layout taste, avoiding generic slop, and reviewing whether an interface feels polished or amateur.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "39-design-review-pro",
+    "Name": "design-review-pro",
+    "Description": "Professional UI/UX design review for web apps, desktop apps, dashboards, landing pages, and product screens. Inspired by gstack design-review/design-consultation workflows and adapted for Codex v4.3. Use when reviewing screenshots, implemented UI, Figma designs, visual regressions, or proposed layouts.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "40-qa-pro",
+    "Name": "qa-pro",
+    "Description": "Release-quality QA workflow for web and desktop software. Inspired by gstack QA workflows and adapted for Codex v4.3. Use before shipping, after feature completion, for regression sweeps, smoke testing, manual QA plans, automated QA, and acceptance validation.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "41-ship-pro",
+    "Name": "ship-pro",
+    "Description": "Shipping and release readiness workflow for software changes. Inspired by gstack ship workflows and adapted for Codex v4.3. Use when preparing a feature, desktop app, web app, API change, or release for delivery, including final checks, docs, changelog, versioning, rollback, and deployment readiness.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "42-skill-governance",
+    "Name": "skill-governance",
+    "Description": "Govern a growing Codex skill pack: evaluate external skills, prevent duplicate or conflicting skills, version skill changes, track sources, define skill tiers, retire weak skills, and maintain trigger quality. Use when adding, reviewing, merging, pruning, distributing, or upgrading skills.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "43-find-skills-pro",
+    "Name": "find-skills-pro",
+    "Description": "Search, evaluate, and select external agent skills from skills.sh, GitHub repositories, curated lists, and local skill packs. Use when the user asks whether external skills are useful, wants to find professional skills, compare skill repositories, or improve the current skill pack with outside sources.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "44-spec-driven-development-pro",
+    "Name": "spec-driven-development-pro",
+    "Description": "Turn vague requirements into clear specifications before implementation. Inspired by production-grade engineering lifecycle skills. Use for new features, significant changes, API behavior, UI flows, acceptance criteria, and when requirements are ambiguous or likely to grow.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "45-incremental-implementation-pro",
+    "Name": "incremental-implementation-pro",
+    "Description": "Implement software in small, safe, verifiable slices. Use for multi-step features, risky refactors, UI/API/database changes, or any task that should be split into atomic commits or phases.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "46-source-driven-development-pro",
+    "Name": "source-driven-development-pro",
+    "Description": "Prefer existing source code, tests, docs, and project conventions over assumptions. Use before modifying unfamiliar repositories, integrating new features, refactoring, debugging, or when examples in docs may not match local code.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "47-code-simplification-pro",
+    "Name": "code-simplification-pro",
+    "Description": "Simplify code by reducing accidental complexity, removing dead abstractions, clarifying boundaries, and improving readability without changing behavior. Use for cleanup, refactoring, large files, confusing modules, over-engineered code, and maintainability improvements.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "48-migration-deprecation-pro",
+    "Name": "migration-deprecation-pro",
+    "Description": "Plan and execute migrations, deprecations, compatibility transitions, API/schema changes, dependency upgrades, and old-code removal. Use when replacing modules, changing contracts, upgrading frameworks, deprecating features, or moving users/data safely.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "49-context-engineering-pro",
+    "Name": "context-engineering-pro",
+    "Description": "Manage project context, memory, docs, prompts, skills, and working notes so future agent sessions can retrieve the right information with minimal noise. Use when project knowledge is growing, docs are fragmented, skills overlap, context is stale, or a project needs durable AI-readable structure.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "50-project-assistant",
+    "Name": "project-assistant",
+    "Description": "Use when any software project task may require project memory: code/file changes, new features, refactors, debugging, API/database/UI/desktop/deployment changes, docs updates, or final delivery checks that must keep .ai_project.md and docs/ aligned with the codebase.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "51-project-sync-audit",
+    "Name": "project-sync-audit",
+    "Description": "Use when checking whether project memory is synchronized with code after meaningful changes, before final delivery of multi-file work, during project cleanup, or when .ai_project.md/docs may be stale, incomplete, inconsistent, or missing.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "52-docs-index-maintainer",
+    "Name": "docs-index-maintainer",
+    "Description": "Use when creating, moving, renaming, deleting, auditing, or reorganizing documentation files, or when .ai_project.md Docs Index must show what each docs/ file is for and when future Codex sessions should read it.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "53-production-readiness-pro",
+    "Name": "production-readiness-pro",
+    "Description": "Use when a feature, desktop/web app, API, database change, release, or refactor must meet commercial production quality, including reliability, security, performance, UX, observability, rollback, supportability, tests, docs, and go/no-go decisions.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "anthropic-frontend-design",
+    "Name": "anthropic-frontend-design",
+    "Description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "anthropic-skill-creator",
+    "Name": "anthropic-skill-creator",
+    "Description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "anthropic-webapp-testing",
+    "Name": "anthropic-webapp-testing",
+    "Description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "api-and-interface-design",
+    "Name": "api-and-interface-design",
+    "Description": "Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL endpoints, defining type contracts between modules, or establishing boundaries between frontend and backend.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "api-connector-builder",
+    "Name": "api-connector-builder",
+    "Description": "Build a new API connector or provider by matching the target repo's existing integration pattern exactly. Use when adding one more integration without inventing a second architecture.",
+    "Origin": "ECC direct-port adaptation",
+    "SourceReview": "Origin declared in skill frontmatter as ECC direct-port adaptation; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "api-integration-specialist",
+    "Name": "api-integration-specialist",
+    "Description": "Expert in integrating third-party APIs with proper authentication, error handling, rate limiting, and retry logic. Use when integrating REST APIs, GraphQL endpoints, webhooks, or external services. Specializes in OAuth flows, API key management, request/response transformation, and building robust API clients.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "blueprint",
+    "Name": "blueprint",
+    "Description": ">-",
+    "Origin": "community",
+    "SourceReview": "Origin declared in skill frontmatter as community; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "brandkit",
+    "Name": "brandkit",
+    "Description": "Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo systems, identity decks, and visual-world presentations. Trained for minimalist, cinematic, editorial, dark-tech, luxury, cultural, security, gaming, developer-tool, and consumer-app brand systems. Optimized for intentional logo concepting, refined composition, sparse typography, strong symbolic meaning, premium mockups, art-directed imagery, and flexible grid layouts.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "browser-testing-with-devtools",
+    "Name": "browser-testing-with-devtools",
+    "Description": "Tests in real browsers. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analyze network requests, profile performance, or verify visual output with real runtime data via Chrome DevTools MCP.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "brutalist-skill",
+    "Name": "industrial-brutalist-ui",
+    "Description": "Raw mechanical interfaces fusing Swiss typographic print with military terminal aesthetics. Rigid grids, extreme type scale contrast, utilitarian color, analog degradation effects. For data-heavy dashboards, portfolios, or editorial sites that need to feel like declassified blueprints.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "ci-cd-and-automation",
+    "Name": "ci-cd-and-automation",
+    "Description": "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates, configure test runners in CI, or establish deployment strategies.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "clean-code",
+    "Name": "clean-code",
+    "Description": "Pragmatic coding standards - concise, direct, no over-engineering, no unnecessary comments",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "cloudflare-deploy",
+    "Name": "cloudflare-deploy",
+    "Description": "Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "code-tour",
+    "Name": "code-tour",
+    "Description": "Create CodeTour `.tour` files — persona-targeted, step-by-step walkthroughs with real file and line anchors. Use for onboarding tours, architecture walkthroughs, PR tours, RCA tours, and structured \"explain how this works\" requests.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "content-hash-cache-pattern",
+    "Name": "content-hash-cache-pattern",
+    "Description": "Cache expensive file processing results using SHA-256 content hashes — path-independent, auto-invalidating, with service layer separation.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "debugging-and-error-recovery",
+    "Name": "debugging-and-error-recovery",
+    "Description": "Guides systematic root-cause debugging. Use when tests fail, builds break, behavior doesn't match expectations, or you encounter any unexpected error. Use when you need a systematic approach to finding and fixing the root cause rather than guessing.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "deployment-patterns",
+    "Name": "deployment-patterns",
+    "Description": "Deployment workflows, CI/CD pipeline patterns, Docker containerization, health checks, rollback strategies, and production readiness checklists for web applications.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "deprecation-and-migration",
+    "Name": "deprecation-and-migration",
+    "Description": "Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one implementation to another. Use when deciding whether to maintain or sunset existing code.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "documentation-and-adrs",
+    "Name": "documentation-and-adrs",
+    "Description": "Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "e2e-testing",
+    "Name": "e2e-testing",
+    "Description": "Playwright E2E testing patterns, Page Object Model, configuration, CI/CD integration, artifact management, and flaky test strategies.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "error-handling",
+    "Name": "error-handling",
+    "Description": "Patterns for robust error handling across TypeScript, Python, and Go. Covers typed errors, error boundaries, retries, circuit breakers, and user-facing error messages.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "figma-code-connect-components",
+    "Name": "figma-code-connect-components",
+    "Description": "Connects Figma design components to code components using Code Connect mapping tools. Use when user says \"code connect\", \"connect this component to code\", \"map this component\", \"link component to code\", \"create code connect mapping\", or wants to establish mappings between Figma designs and code implementations. For canvas writes via `use_figma`, use `figma-use`.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "figma-create-design-system-rules",
+    "Name": "figma-create-design-system-rules",
+    "Description": "Generates custom design system rules for the user's codebase. Use when user says \"create design system rules\", \"generate rules for my project\", \"set up design rules\", \"customize design system guidelines\", or wants to establish project-specific conventions for Figma-to-code workflows. Requires Figma MCP server connection.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "figma-generate-design",
+    "Name": "figma-generate-design",
+    "Description": "Use this skill alongside figma-use when the task involves translating an application page, view, or multi-section layout into Figma. Triggers: 'write to Figma', 'create in Figma from code', 'push page to Figma', 'take this app/page and build it in Figma', 'create a screen', 'build a landing page in Figma', 'update the Figma screen to match code'. This is the preferred workflow skill whenever the user wants to build or update a full page, screen, or view in Figma from code or a description. Discovers design system components, variables, and styles via search_design_system, imports them, and assembles screens incrementally section-by-section using design system tokens instead of hardcoded values.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "figma-generate-library",
+    "Name": "figma-generate-library",
+    "Description": "Build or update a professional-grade design system in Figma from a codebase. Use when the user wants to create variables/tokens, build component libraries, set up theming (light/dark modes), document foundations, or reconcile gaps between code and Figma. This skill teaches WHAT to build and in WHAT ORDER — it complements the `figma-use` skill which teaches HOW to call the Plugin API. Both skills should be loaded together.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "figma-implement-design",
+    "Name": "figma-implement-design",
+    "Description": "Translates Figma designs into production-ready application code with 1:1 visual fidelity. Use when implementing UI code from Figma files, when user mentions \"implement design\", \"generate code\", \"implement component\", provides Figma URLs, or asks to build components matching Figma specs. For Figma canvas writes via `use_figma`, use `figma-use`.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "figma-use",
+    "Name": "figma-use",
+    "Description": "**MANDATORY prerequisite** — you MUST invoke this skill BEFORE every `use_figma` tool call. NEVER call `use_figma` directly without loading this skill first. Skipping it causes common, hard-to-debug failures. Trigger whenever the user wants to perform a write action or a unique read action that requires JavaScript execution in the Figma file context — e.g. create/edit/delete nodes, set up variables or tokens, build components and variants, modify auto-layout or fills, bind variables to properties, or inspect file structure programmatically.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "frontend-slides",
+    "Name": "frontend-slides",
+    "Description": "|",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "frontend-ui-engineering",
+    "Name": "frontend-ui-engineering",
+    "Description": "Builds production-quality UIs. Use when building or modifying user-facing interfaces. Use when creating components, implementing layouts, managing state, or when the output needs to look and feel production-quality rather than AI-generated.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "git-workflow-and-versioning",
+    "Name": "git-workflow-and-versioning",
+    "Description": "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "github-ops",
+    "Name": "github-ops",
+    "Description": "GitHub repository operations, automation, and management. Issue triage, PR management, CI/CD operations, release management, and security monitoring using the gh CLI. Use when the user wants to manage GitHub issues, PRs, CI status, releases, contributors, stale items, or any GitHub operational task beyond simple git commands.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "high-end-visual-design",
+    "Name": "high-end-visual-design",
+    "Description": "Teaches the AI to design like a high-end agency. Defines the exact fonts, spacing, shadows, card structures, and animations that make a website feel expensive. Blocks all the common defaults that make AI designs look cheap or generic.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "image-to-code",
+    "Name": "image-to-code",
+    "Description": "Elite website image-to-code skill for Codex. For visually important web tasks, it must first generate the design image(s) itself, deeply analyze them, then implement the website to match them as closely as possible. In Codex, it must prefer large, readable, section-specific images instead of tiny compressed boards, generate fresh standalone images for sections or detail views instead of cropping old ones, avoid lazy under-generation, avoid cards-inside-cards-inside-cards UI, and keep the hero clean, spacious, readable, and visible on a small laptop.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "imagegen-frontend-mobile",
+    "Name": "imagegen-frontend-mobile",
+    "Description": "Elite mobile app image-generation skill for creating premium, app-native screen concepts and flows. Designed for iOS, Android, and cross-platform mobile products. Prioritizes clean hierarchy, comfortably readable text, strong multi-screen consistency, controlled color palettes, non-generic creative direction, textured surfaces, image-led composition, tasteful custom iconography, and clean phone mockup framing. By default, screens should be shown inside a subtle premium iPhone or similar phone mockup with a visible frame, while the main focus stays on the app content itself. This skill generates images only. It does not write code.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "imagegen-frontend-web",
+    "Name": "imagegen-frontend-web",
+    "Description": "Elite frontend image-direction skill for generating premium, conversion-aware website design references. CRITICAL OUTPUT RULE — generate ONE separate horizontal image FOR EVERY section. A landing page with 8 sections produces 8 images. Never compress multiple sections into one image. Enforces composition variety (not always left-text / right-image), background-image freedom, varied CTAs, varied hero scales (giant / mid / mini minimalist), narrative concept spine, second-read moments, and a single consistent palette across all images. Optimized for landing pages, marketing sites, and product comps that developers or coding models can accurately recreate.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "incremental-implementation",
+    "Name": "incremental-implementation",
+    "Description": "Delivers changes incrementally. Use when implementing any feature or change that touches more than one file. Use when you're about to write a large amount of code at once, or when a task feels too big to land in one step.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "iterative-retrieval",
+    "Name": "iterative-retrieval",
+    "Description": "Pattern for progressively refining context retrieval to solve the subagent context problem",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "latency-critical-systems",
+    "Name": "latency-critical-systems",
+    "Description": "Use for latency-sensitive systems such as realtime dashboards, market data, streaming agents, execution gateways, queues, caches, or HFT-like infrastructure where freshness and p95 latency matter.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "login-flow",
+    "Name": "login-flow",
+    "Description": "Mobile login and authentication flow screens",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "minimalist-skill",
+    "Name": "minimalist-ui",
+    "Description": "Clean editorial-style interfaces. Warm monochrome palette, typographic contrast, flat bento grids, muted pastels. No gradients, no heavy shadows.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "netlify-deploy",
+    "Name": "netlify-deploy",
+    "Description": "Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "newapi",
+    "Name": "newapi",
+    "Description": "Assistant for newapi (new-api), an open-source unified AI gateway platform (https://github.com/QuantumNous/new-api). Use when the user asks about New API, managing models, groups, balance, or tokens, or securely copying keys, applying them to config files, or using them in commands without exposing secrets.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "performance-optimization",
+    "Name": "performance-optimization",
+    "Description": "Optimizes application performance. Use when performance requirements exist, when you suspect performance regressions, or when Core Web Vitals or load times need improvement. Use when profiling reveals bottlenecks that need fixing.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "plankton-code-quality",
+    "Name": "plankton-code-quality",
+    "Description": "Write-time code quality enforcement using Plankton — auto-formatting, linting, and Claude-powered fixes on every file edit via hooks.",
+    "Origin": "community",
+    "SourceReview": "Origin declared in skill frontmatter as community; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "planning-and-task-breakdown",
+    "Name": "planning-and-task-breakdown",
+    "Description": "Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "playwright",
+    "Name": "playwright",
+    "Description": "Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "playwright-interactive",
+    "Name": "playwright-interactive",
+    "Description": "Persistent browser and Electron interaction through `js_repl` for fast iterative UI debugging.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "production-audit",
+    "Name": "production-audit",
+    "Description": "Local-evidence production readiness audit for shipped apps, pre-launch reviews, post-merge checks, and \"what breaks in prod?\" questions without sending repo data to an external audit service.",
+    "Origin": "community",
+    "SourceReview": "Origin declared in skill frontmatter as community; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "ralphinho-rfc-pipeline",
+    "Name": "ralphinho-rfc-pipeline",
+    "Description": "RFC-driven multi-agent DAG execution pattern with quality gates, merge queues, and work unit orchestration.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "redesign-existing-projects",
+    "Name": "redesign-existing-projects",
+    "Description": "Upgrades existing websites and apps to premium quality. Audits current design, identifies generic AI patterns, and applies high-end design standards without breaking functionality. Works with any CSS framework or vanilla CSS.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "regex-vs-llm-structured-text",
+    "Name": "regex-vs-llm-structured-text",
+    "Description": "Decision framework for choosing between regex and LLM when parsing structured text — start with regex, add LLM only for low-confidence edge cases.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "render-deploy",
+    "Name": "render-deploy",
+    "Description": "Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "screenshot",
+    "Name": "screenshot",
+    "Description": "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "security-and-hardening",
+    "Name": "security-and-hardening",
+    "Description": "Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations. Use when building any feature that accepts untrusted data, manages user sessions, or interacts with third-party services.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "security-best-practices",
+    "Name": "security-best-practices",
+    "Description": "Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "security-bounty-hunter",
+    "Name": "security-bounty-hunter",
+    "Description": "Hunt for exploitable, bounty-worthy security issues in repositories. Focuses on remotely reachable vulnerabilities that qualify for real reports instead of noisy local-only findings.",
+    "Origin": "ECC direct-port adaptation",
+    "SourceReview": "Origin declared in skill frontmatter as ECC direct-port adaptation; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "security-scan",
+    "Name": "security-scan",
+    "Description": "Scan your Claude Code configuration (.claude/ directory) for security vulnerabilities, misconfigurations, and injection risks using AgentShield. Checks CLAUDE.md, settings.json, MCP servers, hooks, and agent definitions.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "security-threat-model",
+    "Name": "security-threat-model",
+    "Description": "Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Trigger only when the user explicitly asks to threat model a codebase or path, enumerate threats/abuse paths, or perform AppSec threat modeling. Do not trigger for general architecture summaries, code review, or non-security design work.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "senior-backend",
+    "Name": "senior-backend",
+    "Description": "Comprehensive backend development skill for building scalable backend systems using NodeJS, Express, Go, Python, Postgres, GraphQL, REST APIs. Includes API scaffolding, database optimization, security implementation, and performance tuning. Use when designing APIs, optimizing database queries, implementing business logic, handling authentication/authorization, or reviewing backend code.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "senior-fullstack",
+    "Name": "senior-fullstack",
+    "Description": "Comprehensive fullstack development skill for building complete web applications with React, Next.js, Node.js, GraphQL, and PostgreSQL. Includes project scaffolding, code quality analysis, architecture patterns, and complete tech stack guidance. Use when building new projects, analyzing code quality, implementing design patterns, or setting up development workflows.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "sentry",
+    "Name": "sentry",
+    "Description": "Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry CLI; perform read-only queries using the `sentry` command.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "shadcn",
+    "Name": "shadcn",
+    "Description": "Manages shadcn components and projects — adding, searching, fixing, debugging, styling, and composing UI. Provides project context, component docs, and usage examples. Applies when working with shadcn/ui, component registries, presets, --preset codes, or any project with a components.json file. Also triggers for \"shadcn init\", \"create an app with --preset\", or \"switch to --preset\".",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "shadcn-ui",
+    "Name": "shadcn-ui",
+    "Description": "|",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "skill-stocktake",
+    "Name": "skill-stocktake",
+    "Description": "Use when auditing Claude skills and commands for quality. Supports Quick Scan (changed skills only) and Full Stocktake modes with sequential subagent batch evaluation.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "soft-skill",
+    "Name": "soft-skill",
+    "Description": "Teaches the AI to design like a high-end agency. Defines the exact fonts, spacing, shadows, card structures, and animations that make a website feel expensive. Blocks all the common defaults that make AI designs look cheap or generic.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "source-driven-development",
+    "Name": "source-driven-development",
+    "Description": "Grounds every implementation decision in official documentation. Use when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "spec-driven-development",
+    "Name": "spec-driven-development",
+    "Description": "Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements are unclear, ambiguous, or only exist as a vague idea.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "stitch-skill",
+    "Name": "stitch-design-taste",
+    "Description": "Semantic Design System Skill for Google Stitch. Generates agent-friendly DESIGN.md files that enforce premium, anti-generic UI standards — strict typography, calibrated color, asymmetric layouts, perpetual micro-motion, and hardware-accelerated performance.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "strategic-compact",
+    "Name": "strategic-compact",
+    "Description": "Suggests manual context compaction at logical intervals to preserve context through task phases rather than arbitrary auto-compaction.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "supabase-postgres-best-practices",
+    "Name": "supabase-postgres-best-practices",
+    "Description": "Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "superpowers-brainstorming",
+    "Name": "superpowers-brainstorming",
+    "Description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "superpowers-executing-plans",
+    "Name": "superpowers-executing-plans",
+    "Description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "superpowers-finishing-a-development-branch",
+    "Name": "superpowers-finishing-a-development-branch",
+    "Description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "superpowers-receiving-code-review",
+    "Name": "superpowers-receiving-code-review",
+    "Description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "superpowers-requesting-code-review",
+    "Name": "superpowers-requesting-code-review",
+    "Description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "superpowers-systematic-debugging",
+    "Name": "superpowers-systematic-debugging",
+    "Description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "superpowers-using-git-worktrees",
+    "Name": "superpowers-using-git-worktrees",
+    "Description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "superpowers-verification-before-completion",
+    "Name": "superpowers-verification-before-completion",
+    "Description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "superpowers-writing-plans",
+    "Name": "superpowers-writing-plans",
+    "Description": "Use when you have a spec or requirements for a multi-step task, before touching code",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "taste-design-frontend",
+    "Name": "taste-design-frontend",
+    "Description": "Senior UI/UX Engineer. Architect digital interfaces overriding default LLM biases. Enforces metric-based rules, strict component architecture, CSS hardware acceleration, and balanced design engineering.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "tauri",
+    "Name": "tauri",
+    "Description": "Tauri framework for building cross-platform desktop and mobile apps. Use for desktop app development, native integrations, Rust backend, and web-based UIs.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "terminal-ops",
+    "Name": "terminal-ops",
+    "Description": "Evidence-first repo execution workflow for ECC. Use when the user wants a command run, a repo checked, a CI failure debugged, or a narrow fix pushed with exact proof of what was executed and verified.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "ui-ux-pro-max",
+    "Name": "ui-ux-pro-max",
+    "Description": "UI/UX design intelligence for web and mobile. Includes 50+ styles, 161 color palettes, 57 font pairings, 161 product types, 99 UX guidelines, and 25 chart types across 10 stacks (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, and HTML/CSS). Actions: plan, build, create, design, implement, review, fix, improve, optimize, enhance, refactor, and check UI/UX code. Projects: website, landing page, dashboard, admin panel, e-commerce, SaaS, portfolio, blog, and mobile app. Elements: button, modal, navbar, sidebar, card, table, form, and chart. Styles: glassmorphism, claymorphism, minimalism, brutalism, neumorphism, bento grid, dark mode, responsive, skeuomorphism, and flat design. Topics: color systems, accessibility, animation, layout, typography, font pairing, spacing, interaction states, shadow, and gradient. Integrations: shadcn/ui MCP for component search and examples.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "vercel-deploy",
+    "Name": "vercel-deploy",
+    "Description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\".",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "vercel-react-best-practices",
+    "Name": "vercel-react-best-practices",
+    "Description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "verification-loop",
+    "Name": "verification-loop",
+    "Description": "A comprehensive verification system for Claude Code sessions.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "web-design-guidelines",
+    "Name": "web-design-guidelines",
+    "Description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\".",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "windows-desktop-e2e",
+    "Name": "windows-desktop-e2e",
+    "Description": "E2E testing for Windows native desktop apps (WPF, WinForms, Win32/MFC, Qt) using pywinauto and Windows UI Automation.",
+    "Origin": "ECC",
+    "SourceReview": "Origin declared in skill frontmatter as ECC; verify upstream license before public redistribution.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  },
+  {
+    "Dir": "yonghu-preferences",
+    "Name": "yonghu-preferences",
+    "Description": "Use when the user expresses stable preferences, recurring requirements, project habits, UI taste, architecture rules, skill-pack governance opinions, prompt behavior expectations, repeated corrections, or personal workflow patterns that should influence future Codex work without guessing or storing sensitive data.",
+    "Origin": "local-packaged",
+    "SourceReview": "Packaged from the local Codex skills set; upstream source was not recorded in the original frontmatter.",
+    "CommercialUse": "allowed",
+    "Redistribution": "manual-license-review-required"
+  }
 ]

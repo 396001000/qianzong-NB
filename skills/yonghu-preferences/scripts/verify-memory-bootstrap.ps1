@@ -50,6 +50,11 @@ function Get-ReadWhen {
   switch ($FileName) {
     'routing-core.md' { return 'Every turn after this index.' }
     'communication-style.md' { return 'Every turn before responding.' }
+    'memory-reliability-style.md' { return 'When resolving global/project memory, project roots, or memory bootstrap repair.' }
+    'memory-stack-style.md' { return 'Every non-trivial turn before project docs, knowledge graph, or professional skill reads.' }
+    'memory-evidence-style.md' { return 'Before writing durable project memory, docs, debug reports, ADRs, roadmap items, or KG nodes/edges.' }
+    'global-memory-capture-style.md' { return 'Every non-trivial turn before final response; always when user asks to remember or sets defaults.' }
+    'knowledge-graph-memory-style.md' { return 'When project work may need relationship lookup, impact analysis, long-term continuity, or cross-layer memory.' }
     'persona-style.md' { return 'Every turn where tone/persona matters; always before emotionally sensitive replies.' }
     'emotion-support-style.md' { return 'When user sounds upset, tired, frustrated, discouraged, or asks for comfort/fun.' }
     'user-profile-growth-style.md' { return 'When user states stable preferences or repeated corrections.' }
@@ -62,6 +67,7 @@ function Get-ReadWhen {
     'project-memory-style.md' { return 'Before software project changes or project memory maintenance.' }
     'debug-reuse-style.md' { return 'Before debugging or after fixing durable/complex bugs.' }
     'skill-router-style.md' { return 'Before any task that may need professional skills.' }
+    'skill-lifecycle-governance-style.md' { return 'Before installing, deleting, archiving, restoring, updating, auditing, or routing skills.' }
     'ui-taste-style.md' { return 'Before UI design, redesign, beautification, frontend screens, or visual QA.' }
     'automation-boundary-style.md' { return 'Before actions that write files, update memory, run high-risk commands, or change persistent rules.' }
     'product-context-style.md' { return 'Before architecture, UI, API, Tauri, backend, database, or product planning.' }
@@ -86,6 +92,7 @@ function New-IndexContent {
   $lines.Add('## Core Rules')
   $lines.Add('')
   $lines.Add('- Every turn starts by reading this index, `routing-core.md`, and `communication-style.md`.')
+  $lines.Add('- Use `memory-reliability-style.md` as the single managed memory gateway whenever memory or project context is involved.')
   $lines.Add('- Then read only the matching user-skill files by `Read When`; do not bulk-load every file.')
   $lines.Add('- User skills guide behavior and routing; they do not replace source code, project docs, official docs, or professional `SKILL.md` files.')
   $lines.Add('- If this index is missing or incomplete, rebuild or complete it from existing global `user-skills/*.md` files.')
@@ -139,7 +146,8 @@ function New-AutoIndexBlock {
 $messages = New-Object System.Collections.Generic.List[string]
 $repaired = $false
 
-$requiredPaths = @($BasePath, $UserSkillsDir, $ProfilePath, $RoutingPath, $CommunicationPath)
+$MemoryReliabilityPath = Join-Path $UserSkillsDir 'memory-reliability-style.md'
+$requiredPaths = @($BasePath, $UserSkillsDir, $ProfilePath, $RoutingPath, $CommunicationPath, $MemoryReliabilityPath)
 $missingRequired = $requiredPaths | Where-Object { -not (Test-Path -LiteralPath $_) }
 
 if ($missingRequired.Count -gt 0) {

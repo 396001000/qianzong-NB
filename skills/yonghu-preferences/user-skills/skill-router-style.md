@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | Status | Active |
-| Version | 1.2 |
+| Version | 1.4 |
 | Owner | 女助理 + 主持人 |
 | Last Updated | 2026-05-30 |
 
@@ -37,30 +37,57 @@ Route to professional skills without bloating the main prompt or preloading unne
 
 | Task | Preferred Skills |
 |---|---|
-| Project memory | `project-assistant`, `docs-index-maintainer`, `project-sync-audit` |
-| Source-first implementation | `source-driven-development`, `incremental-implementation` |
-| Specs/plans | `spec-driven-development-pro`, `spec-driven-development`, `planning-and-task-breakdown` |
-| UI design | `frontend-design-pro`, `ui-taste-pro`, `design-review-pro` |
+| Project context | `project-context`, `source-driven-development-pro`, `project-maintenance` |
+| Project memory | `project-assistant`, `project-maintenance`, `project-sync-audit` |
+| Project evolution | `project-evolution`, `documentation-and-adrs`, `production-readiness-pro` |
+| Source-first implementation | `source-driven-development-pro`, `source-driven-development`, `incremental-implementation-pro` |
+| Specs/plans | `spec-driven-development-pro`, `planning-and-task-breakdown` |
+| Architecture review/refactor | `architecture-review-pro`, `backend-design`, `code-simplification-pro` |
+| Code review | `code-review`, `architecture-review-pro`, `security-review-pro` |
+| Docs/ADR | `docs-rules`, `documentation-and-adrs`, `docs-index-maintainer` |
+| UI design | `frontend-design-pro`, `ui-taste-pro`, `anthropic-frontend-design` |
+| UI implementation | `frontend`, `anthropic-frontend-design`, `frontend-design-pro` |
 | UI polish | `ui-polish-pro`, `ui-taste-pro`, `design-review-pro` |
+| UI accessibility | `accessibility`, `web-design-guidelines`, `frontend-design-pro` |
+| UI redesign | `redesign-existing-projects`, `ui-polish-pro`, `design-review-pro` |
+| Visual mockup/image-to-code | `imagegen-frontend-web`, `imagegen-frontend-mobile`, `image-to-code` |
 | shadcn/ui | `shadcn` |
-| React/Next performance | `vercel-react-best-practices` |
-| Frontend engineering | `frontend-ui-engineering` |
-| Figma | `figma-to-code` |
-| API-driven app | `api-driven-app` |
+| React/Next performance | `vercel-react-best-practices`, `performance` |
+| Frontend engineering | `frontend`, `frontend-design-pro`, `data-fetching-state` |
+| Web app | `web-app`, `auth-integration`, `data-fetching-state` |
+| Desktop app | `desktop-app`, `tauri-pro`, `api-driven-app` |
+| Figma usage | `figma-use`, `figma-to-code`, `figma-implement-design` |
+| Figma design/library | `figma-generate-design`, `figma-generate-library`, `figma-create-design-system-rules` |
+| Figma code connect | `figma-code-connect-components`, `figma-use` |
+| API-driven app | `api-driven-app`, `data-fetching-state`, `error-handling` |
 | NewAPI/media gateway | `newapi`, `api-integration-specialist`, `api-driven-app`, `api-client` |
 | Third-party API/OAuth/webhook | `api-integration-specialist`, `api-driven-app`, `api-connector-builder`, `api-client` |
-| API contract | `api-design`, `api-driven-app` |
-| Tauri | `tauri-pro`, `tauri` |
+| API contract/interface | `api-and-interface-design`, `api-design`, `api-driven-app` |
+| Auth/session | `auth-integration`, `security-review-pro`, `api-driven-app` |
+| Data fetching/state | `data-fetching-state`, `frontend`, `api-driven-app` |
+| Backend implementation | `backend`, `backend-design`, `senior-backend` |
+| Backend architecture | `backend-design`, `senior-backend`, `architecture-review-pro` |
+| Tauri | `tauri-pro`, `tauri`, `desktop-app` |
 | Desktop native QA | `windows-desktop-e2e`, `tauri-pro`, `webapp-testing-pro` |
-| Backend architecture | `backend-design`, `senior-backend` for broad/backend-wide work |
-| Database/Postgres | `database-pro`, `postgresql-pro`, `database` |
-| Security | `security-and-hardening`, `security-threat-model`, `security-review-pro` |
-| Testing/debugging | `tdd-pro`, `testing`, `debugging-and-error-recovery`, `diagnose-pro` |
-| Browser testing | `playwright`, `webapp-testing-pro`, `screenshot` |
-| Performance | `performance-optimization` |
-| CI/CD/deploy | `ci-cd-and-automation`, `deployment-patterns`, `ship-pro`, `release-packaging` |
+| Database/Postgres | `database-pro`, `postgresql-pro`, `supabase-postgres-best-practices` |
+| Migration/deprecation | `migration-deprecation-pro`, `deprecation-and-migration`, `database-pro` |
+| Security review | `security-review-pro`, `security-threat-model`, `security-best-practices` |
+| Security scanning | `security-scan`, `security-bounty-hunter`, `security-review-pro` |
+| Testing/TDD | `tdd-pro`, `testing`, `e2e-testing` |
+| Debugging/error recovery | `diagnose-pro`, `debugging-and-error-recovery`, `error-handling` |
+| Browser testing | `playwright`, `playwright-interactive`, `browser-testing-with-devtools` |
+| UI/browser QA | `webapp-testing-pro`, `anthropic-webapp-testing`, `screenshot` |
+| Performance | `performance`, `vercel-react-best-practices`, `latency-critical-systems` |
+| CI/CD/deploy | `ci-cd-and-automation`, `devops`, `deployment-patterns` |
+| Provider deploy | `cloudflare-deploy`, `vercel-deploy`, `netlify-deploy`, `render-deploy` |
+| Release packaging | `release-packaging`, `ship-pro`, `production-readiness-pro` |
+| Release QA | `qa-pro`, `production-readiness-pro`, `webapp-testing-pro` |
 | Observability | `sentry`, `production-readiness-pro`, `debugging-and-error-recovery` |
-| Prompt/skill governance | `skill-governance`, `skill-distillation-pro`, `context-engineering-pro`, `yonghu-preferences` |
+| Git workflow | `git-workflow-and-versioning`, `github-ops` |
+| GitHub operations | `github-ops` |
+| Structured text parsing | `regex-vs-llm-structured-text` |
+| Prompt/skill governance | `skill-governance`, `anthropic-skill-creator`, `skill-distillation-pro`, `yonghu-preferences` |
+| Context engineering | `context-engineering-pro`, `yonghu-preferences`, `project-context` |
 
 ## Forbidden Behaviors
 
@@ -75,6 +102,7 @@ Route to professional skills without bloating the main prompt or preloading unne
 - High-risk skill use is gated.
 - Missing skills are reported with fallback.
 - Professional skill bodies were loaded only by the execution role that needed them.
+- After changing routes, `node scripts/verify-skill-routes.mjs` passes and every route target resolves to an active `SKILL.md` name.
 
 ## Change Log
 
@@ -83,3 +111,7 @@ Route to professional skills without bloating the main prompt or preloading unne
 | 2026-05-16 | Created V5.0 professional skill router. | User requested skills routing to move out of main prompt. |
 | 2026-05-30 | Trimmed routing to canonical active skills after archiving optional and duplicate skills under the 200-skill target. | User requested cleanup because 400+ installed skills were too many and largely redundant. |
 | 2026-05-30 | Added role-owned, on-demand professional skill loading and restored NewAPI/media-product production routes. | User requested default non-autoload skills and role-based precise calling for lower context cost. |
+| 2026-05-30 | Routed away from archived duplicate and incompatible skills, preferring `*-pro` and qianzong-NB core skills. | User approved cleanup to keep stronger usable skills as default routes. |
+| 2026-05-30 | Added explicit UI implementation route to `anthropic-frontend-design` for generated web interfaces. | User asked whether UI generation can intelligently call UI skills. |
+| 2026-05-30 | Filled specialist routing gaps for review, docs, accessibility, Figma, deploy providers, app state, release QA, migrations, and project context. | User requested all identified routing gaps be completed. |
+| 2026-05-30 | Added reusable route-target validation as an acceptance check. | User requested all routing and skill usability gaps be fully closed. |

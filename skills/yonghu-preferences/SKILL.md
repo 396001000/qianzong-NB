@@ -31,8 +31,21 @@ Do not record guesses.
 - `references/update-policy.md`: detailed update policy, evidence levels, and conflict rules.
 - `user-skills/INDEX.md`: index of evolved user skills.
 - `user-skills/*.md`: executable user preference skills that evolve over time.
+- `user-skills/memory-reliability-style.md`: single managed memory gateway and macOS/project-root reliability rules.
+- `user-skills/memory-stack-style.md`: L0-L3 memory read stack and context budget rules.
+- `user-skills/memory-evidence-style.md`: evidence, source hash, invalidation, and superseding rules.
+- `user-skills/global-memory-capture-style.md`: active/passive global memory capture rules.
+- `user-skills/knowledge-graph-memory-style.md`: optional normalized project knowledge graph activation and schema rules.
+- `user-skills/skill-lifecycle-governance-style.md`: skill install/delete/route/audit lifecycle and poisoning checks.
 - `templates/user-skill-template.md`: template for new user skills.
 - `scripts/update-preference.ps1`: append structured entries.
+- `scripts/capture-global-memory.mjs`: macOS-first global profile capture helper.
+- `scripts/resolve-memory-context.mjs`: read-only memory context decision helper.
+- `scripts/audit-project-memory.mjs`: project memory structure audit and optional initialization helper.
+- `scripts/init-project-memory.mjs`: conversational project memory initialization entry for "初始化本项目"; self-checks, initializes, summarizes, and re-audits.
+- `scripts/audit-memory-system.mjs`: full v2.2 memory system audit helper.
+- `scripts/summarize-project-memory.mjs`: compact project memory summary helper.
+- `scripts/audit-skill-lifecycle.mjs`: snapshot and audit active skill inventory changes.
 
 ## What To Record
 
@@ -80,6 +93,8 @@ Do not record guesses.
 - When to update `docs/`.
 - When to update user profile.
 - How project evolution should be recorded.
+- How `docs/INDEX.md`, `docs/project-structure.md`, roadmap, maintenance docs, and ADRs should be maintained.
+- When to activate project knowledge graph memory for relationship lookup and impact analysis.
 
 ## What Not To Record
 
@@ -167,14 +182,15 @@ Default read routing in V5.0:
 | Task | Read |
 |---|---|
 | Every turn | `user-skills/INDEX.md`, `user-skills/routing-core.md`, `user-skills/communication-style.md` |
+| Memory routing, index repair, project root discovery | `user-skills/memory-reliability-style.md`, `user-skills/memory-stack-style.md`, `user-skills/global-memory-capture-style.md` |
 | Tone, persona, user mood | `user-skills/persona-style.md`, `user-skills/emotion-support-style.md` |
 | Normal responses, final summaries, progress updates, reviews | `user-skills/communication-style.md` |
 | Code/config/test changes | `user-skills/role-coder-style.md`, `user-skills/skill-router-style.md` |
 | Debugging | `user-skills/role-debugger-style.md`, `user-skills/debug-reuse-style.md` |
-| Project file changes, docs, `.ai_project.md`, `AGENTS.md`, project memory | `user-skills/role-project-assistant-style.md`, `user-skills/project-memory-style.md` |
+| Project file changes, docs, `.ai_project.md`, `AGENTS.md`, project memory | `user-skills/role-project-assistant-style.md`, `user-skills/project-memory-style.md`, `user-skills/memory-evidence-style.md`, `user-skills/knowledge-graph-memory-style.md` when KG activation may apply |
 | UI design, redesign, polish, frontend product screens, visual QA | `user-skills/ui-taste-style.md`, `user-skills/skill-router-style.md` |
-| Prompt/skill installation, deletion, merging, versioning, distribution | `user-skills/role-rule-governor-style.md`, `user-skills/skill-router-style.md` |
-| Long-term preference or user profile growth | `user-skills/user-profile-growth-style.md` |
+| Prompt/skill installation, deletion, merging, versioning, distribution | `user-skills/role-rule-governor-style.md`, `user-skills/skill-lifecycle-governance-style.md`, `user-skills/skill-router-style.md` |
+| Long-term preference or user profile growth | `user-skills/user-profile-growth-style.md`, `user-skills/global-memory-capture-style.md` |
 | Automation/high-risk boundaries | `user-skills/automation-boundary-style.md` |
 
 `profile.md` records what the user prefers. `user-skills/*.md` records how to act on those preferences.

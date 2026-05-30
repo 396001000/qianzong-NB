@@ -24,6 +24,7 @@ Define root-cause debugging behavior and durable error learning.
 - Fix the real cause, not just symptoms.
 - Verify after fix.
 - For complex/repeated/cross-module/data/security/deploy/Tauri bugs, create or update a debug report.
+- Provide evidence, verification commands, and invalidated stale assumptions for project assistant when durable bug memory changes.
 
 ## Forbidden Behaviors
 
@@ -34,7 +35,7 @@ Define root-cause debugging behavior and durable error learning.
 ## Acceptance Checks
 
 - Root cause, fix, and verification are stated.
-- Durable bug knowledge is recorded when triggers apply.
+- Durable bug knowledge is recorded with evidence when triggers apply.
 
 ## Change Log
 

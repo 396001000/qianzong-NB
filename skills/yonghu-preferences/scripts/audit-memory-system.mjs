@@ -1,0 +1,113 @@
+#!/usr/bin/env node
+
+import { spawnSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
+
+const cwdIndex = process.argv.indexOf("--cwd");
+const startDir = cwdIndex >= 0 ? process.argv[cwdIndex + 1] : process.cwd();
+
+function existingDir(...parts) {
+  const candidate = path.join(...parts);
+  return fs.existsSync(candidate) && fs.statSync(candidate).isDirectory() ? candidate : null;
+}
+
+function resolveCodexHome() {
+  if (process.env.CODEX_HOME && existingDir(process.env.CODEX_HOME)) return process.env.CODEX_HOME;
+  return path.join(process.env.HOME || process.cwd(), ".codex");
+}
+
+function runNode(script, extraArgs = []) {
+  const result = spawnSync(process.execPath, [script, ...extraArgs], { cwd: startDir, encoding: "utf8" });
+  let parsed = null;
+  try {
+    parsed = JSON.parse(result.stdout);
+  } catch {
+    parsed = { parseError: true, stdout: result.stdout, stderr: result.stderr };
+  }
+  return { ok: result.status === 0, status: result.status, parsed };
+}
+
+function hasAll(root, rels) {
+  return rels.filter((rel) => !fs.existsSync(path.join(root, rel)));
+}
+
+const codexHome = resolveCodexHome();
+const yonghuRoot =
+  existingDir(codexHome, "skills", "yonghu-preferences") ||
+  existingDir(process.env.HOME || "", ".codex", "skills", "yonghu-preferences") ||
+  path.join(codexHome, "skills", "yonghu-preferences");
+const scriptsRoot = path.join(yonghuRoot, "scripts");
+const userSkillsRoot = path.join(yonghuRoot, "user-skills");
+
+const requiredUserSkills = [
+  "INDEX.md",
+  "routing-core.md",
+  "communication-style.md",
+  "memory-reliability-style.md",
+  "memory-stack-style.md",
+  "memory-evidence-style.md",
+  "global-memory-capture-style.md",
+  "project-memory-style.md",
+  "knowledge-graph-memory-style.md",
+  "role-host-style.md",
+  "role-project-assistant-style.md",
+  "role-rule-governor-style.md"
+];
+
+const requiredScripts = [
+  "verify-memory-bootstrap.mjs",
+  "verify-skill-routes.mjs",
+  "audit-skill-lifecycle.mjs",
+  "audit-project-memory.mjs",
+  "init-project-memory.mjs",
+  "capture-global-memory.mjs",
+  "resolve-memory-context.mjs",
+  "audit-memory-system.mjs",
+  "summarize-project-memory.mjs"
+];
+
+const missingUserSkills = hasAll(userSkillsRoot, requiredUserSkills);
+const missingScripts = hasAll(scriptsRoot, requiredScripts);
+const bootstrap = runNode(path.join(scriptsRoot, "verify-memory-bootstrap.mjs"));
+const routes = runNode(path.join(scriptsRoot, "verify-skill-routes.mjs"));
+const lifecycle = runNode(path.join(scriptsRoot, "audit-skill-lifecycle.mjs"));
+const memoryContext = runNode(path.join(scriptsRoot, "resolve-memory-context.mjs"), ["--cwd", startDir, "--task", "memory system audit"]);
+const projectAudit = runNode(path.join(scriptsRoot, "audit-project-memory.mjs"), ["--cwd", startDir]);
+
+const projectless = Boolean(projectAudit.parsed?.projectless);
+const projectOk = projectless || projectAudit.ok;
+const ok =
+  fs.existsSync(yonghuRoot) &&
+  missingUserSkills.length === 0 &&
+  missingScripts.length === 0 &&
+  bootstrap.ok &&
+  routes.ok &&
+  lifecycle.ok &&
+  memoryContext.ok &&
+  projectOk;
+
+process.stdout.write(
+  `${JSON.stringify(
+    {
+      ok,
+      platform: process.platform,
+      codexHome,
+      yonghuRoot,
+      userSkillsRoot,
+      scriptsRoot,
+      missingUserSkills,
+      missingScripts,
+      bootstrap: bootstrap.parsed,
+      routes: routes.parsed,
+      lifecycle: lifecycle.parsed,
+      memoryContext: memoryContext.parsed,
+      projectAudit: projectAudit.parsed,
+      projectAuditAcceptedProjectless: projectless
+    },
+    null,
+    2
+  )}\n`
+);
+
+process.exit(ok ? 0 : 1);
