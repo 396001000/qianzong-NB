@@ -62,6 +62,14 @@ Apply the optional personal overlay only when this install is for the owner:
 bash scripts/install-macos.sh --force --overlay qianzong-personal
 ```
 
+Owner quick install with the personal overlay:
+
+```bash
+git clone https://github.com/396001000/qianzong-NB.git
+cd qianzong-NB
+bash scripts/install-macos.sh --force --overlay qianzong-personal
+```
+
 Verify the package and installed memory layer:
 
 ```bash
@@ -111,6 +119,14 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install.ps1 -Codex
 Apply the optional personal overlay only when this install is for the owner:
 
 ```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install.ps1 -Force -Overlay qianzong-personal
+```
+
+Owner quick install with the personal overlay:
+
+```powershell
+git clone https://github.com/396001000/qianzong-NB.git
+cd qianzong-NB
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install.ps1 -Force -Overlay qianzong-personal
 ```
 
