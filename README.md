@@ -1,13 +1,16 @@
-# qianzong-NB Skills Pack
+# qianzong-NB Prompt + Skills Pack
 
-This repository is a Codex skills-only distribution package.
+This repository is a Codex runtime prompt and skills distribution package.
 
-It includes local `skills/`, installation scripts, verification scripts, project memory docs, and optional personal overlays. It intentionally does not distribute `AGENTS.md`, system prompts, runtime prompts, or built-in prompt templates.
+It includes a reusable runtime prompt template, local `skills/`, installation scripts, verification scripts, project memory docs, and optional personal overlays. The prompt and skills are designed to work together: only installing skills leaves routing passive, while only copying the prompt leaves memory, routing, and maintenance scripts unavailable.
+
+This repository does not distribute project-level `AGENTS.md`. Owner-specific user address, assistant name, and fixed ending are excluded from default files and kept only in explicit overlays.
 
 ## Contents
 
 - `skills/` - packaged Codex user skills and professional skills.
 - `skills/yonghu-preferences/` - global user-skill routing, memory bootstrap, memory stack, evidence rules, communication rules, and preference governance.
+- `prompts/runtime-v5.1.md` - commercial-safe runtime prompt template that coordinates the installed skills.
 - `scripts/install-macos.sh` - macOS installer for copying skills into `$CODEX_HOME/skills`.
 - `scripts/install.ps1` - Windows PowerShell installer for copying skills into `$CODEX_HOME\skills`.
 - `scripts/setup-memory-maintenance-macos.sh` - macOS `launchd` setup for daily light checks and weekly deep audits.
@@ -32,6 +35,8 @@ Install all packaged skills into the default Codex home:
 ```bash
 bash scripts/install-macos.sh --force
 ```
+
+Then apply the runtime prompt by copying `prompts/runtime-v5.1.md` into the Codex custom/runtime instruction location used by your environment.
 
 Install skills and enable global memory maintenance:
 
@@ -82,6 +87,8 @@ Install all packaged skills into the default Codex home:
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install.ps1 -Force
 ```
+
+Then apply the runtime prompt by copying `prompts\runtime-v5.1.md` into the Codex custom/runtime instruction location used by your environment.
 
 Install skills and enable global memory maintenance with Windows Task Scheduler:
 
@@ -158,6 +165,7 @@ node scripts/audit-commercial-content.mjs --root /tmp/qianzong-NB-commercial --n
 - `.system` skills are not included because Codex provides them separately.
 - Plugin cache folders are not included.
 - Empty local directories without `SKILL.md` are not distributed as skills.
+- `prompts/runtime-v5.1.md` is a runtime prompt template, not a project `AGENTS.md` file.
 - Default files are commercial-safe and contain no owner-specific user address, assistant name, or fixed ending phrase.
 - Owner-specific preferences are distributed only through explicit overlays.
 - Memory system v2.2 is file-first: Markdown, JSON, JSONL, and Node scripts. MemPalace, ChromaDB, SQLite, and MCP memory servers are not required dependencies.

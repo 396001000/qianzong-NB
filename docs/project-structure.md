@@ -20,6 +20,7 @@
 ## Top-Level Directories
 
 - `skills/`: Codex professional skills and the `yonghu-preferences` user memory skill.
+- `prompts/`: Commercial-safe runtime prompt templates that coordinate the packaged skills.
 - `scripts/`: Package-level install and verification scripts.
 - `docs/`: Project memory and maintenance docs for this skills pack repository.
 - `overlays/`: Optional owner-specific profile/persona overlays that are not installed by default.
@@ -29,6 +30,7 @@
 - `README.md`: User-facing package overview, install, verify, and restart instructions.
 - `MANIFEST.md`: Package metadata and expected validation commands.
 - `SOURCES.md`: Included source categories and redistribution caution.
+- `prompts/runtime-v5.1.md`: Runtime prompt template for using the installed qianzong-NB skills as a coordinated system.
 - `skills-inventory.json`: Generated inventory of packaged skills.
 - `skills/yonghu-preferences/SKILL.md`: Global user preference and memory governance skill entry.
 - `skills/yonghu-preferences/user-skills/`: Executable global user behavior and routing rules.
@@ -53,7 +55,7 @@
 - Package-level docs describe the distributable pack.
 - `skills/yonghu-preferences/` owns global user memory behavior and scripts.
 - `docs/` owns this repository's project memory only.
-- The repository is skills-only and must not distribute `AGENTS.md`, system prompts, runtime prompts, or prompt templates.
+- The repository distributes a runtime prompt template plus skills and must not distribute project-level `AGENTS.md` or owner-specific system prompts.
 - Default `skills/yonghu-preferences/` files must stay commercial-safe; owner-specific local behavior belongs in `overlays/qianzong-personal/`.
 - Commercial release artifacts must be generated without `overlays/`; personal overlays are applied only on owner-local installs.
 - Maintenance setup scripts are optional and idempotent; they must skip existing config/tasks unless force options are used.
@@ -61,7 +63,7 @@
 ## Avoid Editing Without Reason
 
 - Do not add `.system` skills or plugin cache directories to this repository.
-- Do not add `AGENTS.md` or built-in prompt templates to the distribution package unless the owner changes the packaging rule.
+- Do not add project-level `AGENTS.md` or owner-specific prompt content to the distribution package.
 - Do not distribute empty local directories without `SKILL.md` as skills.
 - Do not route new or external skills by default before safety and lifecycle review.
 - Do not put owner-specific address, assistant name, or fixed ending text back into the default package files.

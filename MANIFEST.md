@@ -3,14 +3,15 @@
 | Field | Value |
 |---|---|
 | Name | qianzong-NB |
-| Type | Codex skills-only pack |
+| Type | Codex runtime prompt + skills pack |
 | Created | 2026-05-30 |
 | Includes AGENTS.md | No |
-| Includes built-in prompt/template | No |
+| Includes runtime prompt template | Yes, `prompts/runtime-v5.1.md` |
 | Includes `.system` skills | No |
 | Includes plugin cache | No |
 | Includes personal overlay | Optional, `overlays/qianzong-personal/` |
 | Skill count | 143 |
+| Runtime prompt | `prompts/runtime-v5.1.md` |
 | Primary macOS install path | `$HOME/.codex/skills` |
 | Primary Windows install path | `$HOME\.codex\skills` |
 | Memory system | v2.2 file-first closed loop |

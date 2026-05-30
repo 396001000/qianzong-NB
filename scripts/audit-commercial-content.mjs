@@ -21,6 +21,7 @@ const scannedRoots = [
   "README.md",
   "MANIFEST.md",
   "SOURCES.md",
+  "prompts",
   "docs",
   "skills/yonghu-preferences"
 ];

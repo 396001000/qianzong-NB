@@ -25,3 +25,4 @@
 - 2026-05-30: Added `init-project-memory.mjs` as the single conversational entrypoint for "初始化本项目"; it runs pre-audit, initializes missing project memory files, writes the retrieval summary, and re-runs final project memory audit.
 - 2026-05-30: Updated the repository as a skills-only package: synced all valid local skill directories, skipped the empty non-skill local runtime directory, removed built-in prompt distribution, added macOS installer usage, and kept Windows installer usage documented.
 - 2026-05-30: Added idempotent memory maintenance setup across macOS and Windows: global launchd/Task Scheduler setup scripts, project maintenance config, pre-push hook setup, and `init-project-memory.mjs --setup-maintenance`.
+- 2026-05-30: Changed the distribution boundary from skills-only to prompt + skills: added `prompts/runtime-v5.1.md`, updated install docs, and extended commercial audits to scan prompt templates.

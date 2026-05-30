@@ -48,9 +48,10 @@ Define how 规则师 governs prompts, skills, user-skills, memory system rules, 
 - `node scripts/audit-skill-lifecycle.mjs` reports no unreviewed added, removed, or changed active skills.
 - `node scripts/verify-skill-routes.mjs` passes after routing or user-skills reference changes.
 - Route targets resolve to active `SKILL.md` names; stale archived skill names are removed or explicitly marked restorable.
-- External prompt references, when present outside this skills-only pack, are version-consistent with user-skills.
-- Final bundle contains skill pack, install docs, security audit, project memory, and docs.
-- Skills-only distributions do not include `AGENTS.md`, system prompts, runtime prompts, or built-in prompt templates.
+- Runtime prompt templates, when distributed with this pack, are version-consistent with user-skills.
+- Runtime prompt template references v2.2 memory stack and single gateway without duplicating full user-skill content.
+- Final bundle contains runtime prompt template, skill pack, install docs, security audit, project memory, and docs.
+- Prompt + skills distributions include only commercial-safe runtime prompt templates and do not include project-level `AGENTS.md` or owner-specific system prompts.
 
 ## Change Log
 
@@ -61,3 +62,4 @@ Define how 规则师 governs prompts, skills, user-skills, memory system rules, 
 | 2026-05-30 | Added reusable skill-route validation gate. | User requested all routing and skill usability gaps be fully closed. |
 | 2026-05-30 | Added skill lifecycle ownership and audit snapshot gate. | User requested safe handling for new/deleted skills and skill poisoning prevention. |
 | 2026-05-30 | Upgraded rule governor to v2.2 memory system governance. | User requested prompt, role, skill, project memory, evidence, and audit scripts to form a full closed loop. |
+| 2026-05-30 | Updated distribution governance for prompt + skills packaging. | User clarified that downstream users need both the runtime prompt and skills for the system to work correctly. |

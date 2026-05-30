@@ -66,7 +66,9 @@ const releaseManifest = {
   sourceRoot: repoRoot,
   outputRoot: outDir,
   personalOverlayExcluded: true,
-  builtInPromptIncluded: false,
+  runtimePromptTemplateIncluded: true,
+  runtimePromptTemplate: "prompts/runtime-v5.1.md",
+  projectAgentsIncluded: false,
   excludedTopLevel: [...exclude].sort(),
   verify: [
     "node scripts/verify-skills.mjs",
@@ -87,7 +89,8 @@ process.stdout.write(
       ok: true,
       outDir,
       personalOverlayExcluded: true,
-      builtInPromptIncluded: false,
+      runtimePromptTemplateIncluded: true,
+      projectAgentsIncluded: false,
       manifest: "COMMERCIAL_RELEASE.json"
     },
     null,
