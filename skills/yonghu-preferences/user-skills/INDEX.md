@@ -79,6 +79,7 @@ Repair is limited to index structure and references to existing `user-skills/*.m
 | Skill | Status | Purpose | Read When |
 |---|---|---|---|
 | `project-memory-style.md` | Active | `.ai_project.md`, `AGENTS.md`, `docs/`, L0-L3 sync, Read When/Owner/Validation rules. | Before software project changes or project memory maintenance. |
+| `project-agents-style.md` | Active | Project `AGENTS.md` rules-only generation, refresh, audit, and maintenance boundary. | When creating, refreshing, auditing, or maintaining project `AGENTS.md`, or when project-local rules, user requirements, safety gates, or verification gates change. |
 | `memory-stack-style.md` | Active | L0-L3 memory read stack, context budget, and downgrade/upgrade rules. | Every non-trivial turn before project docs, knowledge graph, or professional skill reads. |
 | `memory-evidence-style.md` | Active | Evidence, source hash, invalidation, superseding, and verification rules for durable memory. | Before writing durable project memory, docs, debug reports, ADRs, roadmap items, or KG nodes/edges. |
 | `knowledge-graph-memory-style.md` | Active | Normalized project knowledge graph activation, schema, ownership, and update rules. | When project work may need relationship lookup, impact analysis, long-term continuity, or cross-layer memory. |
@@ -102,3 +103,4 @@ Repair is limited to index structure and references to existing `user-skills/*.m
 | 2026-05-30 | Added active/passive global memory capture routing. | User identified incomplete global memory as a serious defect. |
 | 2026-05-30 | Added knowledge graph memory activation routing. | User asked 女助理 to decide when knowledge graph is needed for software development and long-term project updates. |
 | 2026-05-30 | Added v2.2 memory stack and evidence routing. | User requested a complete closed-loop memory system with correct read, write, invalidation, verification, and reuse. |
+| 2026-05-31 | Added project `AGENTS.md` rules-only governance routing. | User clarified project `AGENTS.md` should store project-local rules and user requirements, not project structure, roadmap, or long docs. |

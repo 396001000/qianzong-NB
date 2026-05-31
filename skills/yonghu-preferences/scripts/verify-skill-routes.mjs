@@ -10,11 +10,17 @@ function existingDir(...parts) {
     : null;
 }
 
+function homeDir() {
+  return process.env.HOME || process.env.USERPROFILE || "";
+}
+
 function resolveCodexHome() {
   if (process.env.CODEX_HOME && existingDir(process.env.CODEX_HOME)) {
-    return process.env.CODEX_HOME;
+    return path.resolve(process.env.CODEX_HOME);
   }
-  return path.join(process.env.HOME || process.cwd(), ".codex");
+  const home = homeDir();
+  const defaultHome = home ? existingDir(home, ".codex") : null;
+  return defaultHome || path.join(home || process.cwd(), ".codex");
 }
 
 function readSkillMeta(filePath) {
@@ -206,9 +212,10 @@ function inspectRouterTargets(routerPath, skillNames) {
 
 const codexHome = resolveCodexHome();
 const skillsRoot = path.join(codexHome, "skills");
+const home = homeDir();
 const yonghuRoot =
   existingDir(skillsRoot, "yonghu-preferences") ||
-  existingDir(process.env.HOME || "", ".codex", "skills", "yonghu-preferences") ||
+  (home ? existingDir(home, ".codex", "skills", "yonghu-preferences") : null) ||
   path.join(skillsRoot, "yonghu-preferences");
 const userSkillsDir = path.join(yonghuRoot, "user-skills");
 const routerPath = path.join(userSkillsDir, "skill-router-style.md");

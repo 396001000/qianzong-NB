@@ -19,11 +19,17 @@ function existingDir(...parts) {
     : null;
 }
 
+function homeDir() {
+  return process.env.HOME || process.env.USERPROFILE || "";
+}
+
 function resolveCodexHome() {
   if (process.env.CODEX_HOME && existingDir(process.env.CODEX_HOME)) {
-    return process.env.CODEX_HOME;
+    return path.resolve(process.env.CODEX_HOME);
   }
-  return path.join(process.env.HOME || process.cwd(), ".codex");
+  const home = homeDir();
+  const defaultHome = home ? existingDir(home, ".codex") : null;
+  return defaultHome || path.join(home || process.cwd(), ".codex");
 }
 
 function escapeCell(value) {
@@ -154,9 +160,10 @@ function addChangeLog(lines, evidence) {
 }
 
 const codexHome = resolveCodexHome();
+const home = homeDir();
 const yonghuRoot =
   existingDir(codexHome, "skills", "yonghu-preferences") ||
-  existingDir(process.env.HOME || "", ".codex", "skills", "yonghu-preferences") ||
+  (home ? existingDir(home, ".codex", "skills", "yonghu-preferences") : null) ||
   path.join(codexHome, "skills", "yonghu-preferences");
 const profilePath = arg("profile", path.join(yonghuRoot, "references", "profile.md"));
 let category = arg("category");

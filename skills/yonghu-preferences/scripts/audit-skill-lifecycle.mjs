@@ -14,18 +14,24 @@ function existingDir(...parts) {
     : null;
 }
 
+function homeDir() {
+  return process.env.HOME || process.env.USERPROFILE || "";
+}
+
 function resolveCodexHome() {
   if (process.env.CODEX_HOME && existingDir(process.env.CODEX_HOME)) {
-    return process.env.CODEX_HOME;
+    return path.resolve(process.env.CODEX_HOME);
   }
-  return path.join(process.env.HOME || process.cwd(), ".codex");
+  const home = homeDir();
+  const defaultHome = home ? existingDir(home, ".codex") : null;
+  return defaultHome || path.join(home || process.cwd(), ".codex");
 }
 
 function walk(dir, visit) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const current = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      if ([".git", "node_modules", "__pycache__"].includes(entry.name)) continue;
+      if ([".git", ".system", "node_modules", "__pycache__"].includes(entry.name)) continue;
       walk(current, visit);
     } else if (entry.isFile()) {
       visit(current);
@@ -37,10 +43,14 @@ function sha256(buffer) {
   return crypto.createHash("sha256").update(buffer).digest("hex");
 }
 
+function normalizeRelativePath(filePath) {
+  return filePath.replace(/\\/g, "/");
+}
+
 function hashSkillDir(skillDir) {
   const hashes = [];
   walk(skillDir, (filePath) => {
-    const rel = path.relative(skillDir, filePath);
+    const rel = normalizeRelativePath(path.relative(skillDir, filePath));
     if (rel === "references/skill-inventory-snapshot.json") return;
     const stat = fs.statSync(filePath);
     if (stat.size > 5_000_000) return;
@@ -70,7 +80,7 @@ function collectSkills(skillsRoot) {
       description: meta.description,
       skillDir,
       skillPath: filePath,
-      relativeDir: path.relative(skillsRoot, skillDir),
+      relativeDir: normalizeRelativePath(path.relative(skillsRoot, skillDir)),
       hash: hashSkillDir(skillDir)
     });
   });
@@ -147,7 +157,7 @@ const textExtensions = new Set([
 function scanSkill(skill) {
   const findings = [];
   walk(skill.skillDir, (filePath) => {
-    const rel = path.relative(skill.skillDir, filePath);
+    const rel = normalizeRelativePath(path.relative(skill.skillDir, filePath));
     if (rel === "references/skill-inventory-snapshot.json") return;
     if (rel === "scripts/audit-skill-lifecycle.mjs") return;
     const ext = path.extname(filePath);
@@ -170,9 +180,10 @@ function scanSkill(skill) {
 
 const codexHome = resolveCodexHome();
 const skillsRoot = path.join(codexHome, "skills");
+const home = homeDir();
 const yonghuRoot =
   existingDir(skillsRoot, "yonghu-preferences") ||
-  existingDir(process.env.HOME || "", ".codex", "skills", "yonghu-preferences") ||
+  (home ? existingDir(home, ".codex", "skills", "yonghu-preferences") : null) ||
   path.join(skillsRoot, "yonghu-preferences");
 const referencesDir = path.join(yonghuRoot, "references");
 const snapshotPath = path.join(referencesDir, "skill-inventory-snapshot.json");
@@ -186,7 +197,7 @@ function loadAllowlist(filePath) {
 }
 
 function findingKey(finding) {
-  return `${finding.skill}\0${finding.file}\0${finding.rule}`;
+  return `${finding.skill}\0${normalizeRelativePath(finding.file)}\0${finding.rule}`;
 }
 
 const current = fs.existsSync(skillsRoot) ? collectSkills(skillsRoot) : [];
@@ -213,9 +224,9 @@ if (writeSnapshot && !snapshotWriteBlocked) {
     `${JSON.stringify(
       {
         updatedAt: new Date().toISOString(),
-        skillsRoot,
+        skillsRoot: "$CODEX_HOME/skills",
         skillCount: current.length,
-        allowlistPath,
+        allowlistPath: "$CODEX_HOME/skills/yonghu-preferences/references/skill-lifecycle-allowlist.json",
         skills: current.map((skill) => ({
           name: skill.name,
           description: skill.description,

@@ -18,6 +18,7 @@
 
 ## Log
 
+- 2026-06-01: Synced the current local `skills/` pack for AGENTS5.3-compatible installs. The repository now distributes skills only; `AGENTS5.3.md` and global `AGENTS.md` remain external/manual prompt setup files and are not included in this repository.
 - 2026-05-30: Implemented memory system v2.2 package support: synced `skills/yonghu-preferences/`, initialized project memory, added evidence-layer files, added missing route-target skills, and created Node package verification. Validation is tracked through `docs/memory/evidence/index.jsonl`.
 - 2026-05-30: Hardened the commercial closed loop: package verification now includes lifecycle audit, commercial-content lint, route checks, memory-system audit, and project-memory evidence hash checks; default owner-specific profile/persona content moved into `overlays/qianzong-personal/`.
 - 2026-05-30: Closed review gaps for commercial readiness: lifecycle snapshot writes are blocked on unreviewed suspicious findings, personal overlays require forced backup installs, source-review metadata is audited, release artifacts exclude overlays, and project-memory index coverage includes JSON and JSONL files.

@@ -3,13 +3,13 @@
 | Field | Value |
 |---|---|
 | Status | Active |
-| Version | 2.2 |
+| Version | 2.3 |
 | Owner | 女助理 + 项目助手 |
-| Last Updated | 2026-05-30 |
+| Last Updated | 2026-05-31 |
 
 ## Purpose
 
-Define the single managed memory gateway for Codex work on macOS, separating global user memory from per-project memory and producing a clear read/write destination decision for each non-trivial turn.
+Define the single managed memory gateway for Codex work, separating global user memory from per-project memory and producing a clear read/write destination decision for each non-trivial turn.
 
 ## Trigger Conditions
 
@@ -27,14 +27,16 @@ Define the single managed memory gateway for Codex work on macOS, separating glo
 - Run active/passive global memory capture before final response on non-trivial turns.
 - Resolve the active project root before reading or writing project memory.
 - Keep global memory and project memory in separate destinations.
-- Use macOS-compatible Node repair before PowerShell repair on this machine.
-- Use macOS-compatible Node capture for global profile writes when possible.
+- Use Node repair before PowerShell repair when Node is available.
+- Use Node capture for global profile writes when possible.
+- Do not let a local skills development repository act as `CODEX_HOME`; merge local skill edits into the real global skills directory before runtime use.
 - Treat projectless sessions as scratch/deliverable work unless the user explicitly asks to create project memory.
 
 ## Memory Gateway
 
 - Global memory entry: `$CODEX_HOME/skills/yonghu-preferences/`.
 - Default macOS global memory entry: `$HOME/.codex/skills/yonghu-preferences/`.
+- Default Windows global memory entry: `%USERPROFILE%\.codex\skills\yonghu-preferences\`.
 - Global profile write helper: `scripts/capture-global-memory.mjs`.
 - Project memory entry: the active project's root containing `.ai_project.md`, `AGENTS.md`, `docs/`, `.git`, or a package/build manifest.
 - Platform memory under `$CODEX_HOME/memories/` may be read when the runtime provides it, but user-facing V5.0 memory writes must go through this gateway.
@@ -73,15 +75,17 @@ Destination rules:
 - Do not store global user preferences in a project `.ai_project.md`.
 - Do not create or use a project-local `yonghu-preferences/` as a second global memory entry.
 
-## macOS Path Resolution
+## Global Path Resolution
 
 Resolve global memory in this order:
 
 1. `$CODEX_HOME/skills/yonghu-preferences/`
 2. `$HOME/.codex/skills/yonghu-preferences/`
-3. A searched `.codex/skills/yonghu-preferences/` only when the first two do not exist
+3. `%USERPROFILE%\.codex\skills\yonghu-preferences\` on Windows
+4. A searched `.codex/skills/yonghu-preferences/` only when the first paths do not exist
 
-On macOS, prefer Node scripts over PowerShell scripts. Use `scripts/verify-memory-bootstrap.mjs` for health checks and repair. Use `scripts/verify-memory-bootstrap.ps1` only as a Windows fallback.
+Prefer Node scripts over PowerShell scripts. Use `scripts/verify-memory-bootstrap.mjs` for health checks and repair. Use `scripts/verify-memory-bootstrap.ps1` only as a Windows fallback.
+Do not treat any project-local `skills/yonghu-preferences/` as global memory.
 
 ## Project Root Discovery
 
@@ -97,7 +101,7 @@ If no marker is found, classify the session as projectless and do not create pro
 
 ## Recovery Workflow
 
-1. Resolve the global memory root using macOS path resolution.
+1. Resolve the global memory root using global path resolution.
 2. Read `user-skills/INDEX.md`, `routing-core.md`, and `communication-style.md`.
 3. Read `memory-stack-style.md` before selecting project docs or professional skills.
 4. If `INDEX.md` is missing or incomplete, run:
@@ -137,7 +141,7 @@ node "$CODEX_HOME/skills/yonghu-preferences/scripts/capture-global-memory.mjs" \
 - The final answer can state which global memory root and project root were used when memory was relevant.
 - The selected read level and write destination are clear for non-trivial turns.
 - The final answer states whether global memory was updated, skipped, or routed to project memory when memory was relevant.
-- `INDEX.md` can be verified or repaired on macOS without PowerShell.
+- `INDEX.md` can be verified or repaired with Node, with PowerShell as a Windows fallback.
 - Global and project memory destinations are distinct.
 - Missing memory is reported honestly rather than silently ignored.
 
@@ -148,3 +152,4 @@ node "$CODEX_HOME/skills/yonghu-preferences/scripts/capture-global-memory.mjs" \
 | 2026-05-30 | Created single memory gateway and macOS reliability rules. | User requested one memory entry, correct global/project distinction, and macOS compatibility. |
 | 2026-05-30 | Added active/passive global capture workflow and macOS write helper. | User identified incomplete global memory capture as a serious defect. |
 | 2026-05-30 | Upgraded to v2.2 memory context decision gateway. | User requested a complete memory system that reads, writes, invalidates, verifies, and reuses correctly. |
+| 2026-05-31 | Added Windows/global path clarity and rejected local development fallback. | User clarified local staging workspaces are not global skills roots; runtime paths should resolve to real global skills after local edits are merged. |

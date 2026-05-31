@@ -18,11 +18,24 @@ function has(name) {
   return args.includes(`--${name}`);
 }
 
+function existingDir(...parts) {
+  const candidate = path.join(...parts);
+  return fs.existsSync(candidate) && fs.statSync(candidate).isDirectory()
+    ? candidate
+    : null;
+}
+
+function homeDir() {
+  return process.env.HOME || process.env.USERPROFILE || "";
+}
+
 function resolveCodexHome() {
   const explicit = arg("codex-home");
   if (explicit) return path.resolve(explicit);
-  if (process.env.CODEX_HOME) return path.resolve(process.env.CODEX_HOME);
-  return path.join(process.env.HOME || process.env.USERPROFILE || process.cwd(), ".codex");
+  if (process.env.CODEX_HOME && existingDir(process.env.CODEX_HOME)) return path.resolve(process.env.CODEX_HOME);
+  const home = homeDir();
+  const defaultHome = home ? existingDir(home, ".codex") : null;
+  return defaultHome || path.join(home || process.cwd(), ".codex");
 }
 
 function runNode(scriptName, extraArgs = []) {

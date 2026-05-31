@@ -62,6 +62,10 @@ function walk(dir, visit) {
   }
 }
 
+function normalizeRelativePath(filePath) {
+  return filePath.replace(/\\/g, "/");
+}
+
 function ensureFile(filePath, content, created) {
   if (fs.existsSync(filePath)) return;
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -354,7 +358,7 @@ function initProjectMemory(projectRoot) {
   ensureFile(path.join(projectRoot, "docs/memory/evidence/index.jsonl"), "", created);
   ensureFile(path.join(projectRoot, "docs/memory/invalidations.jsonl"), "", created);
 
-  return created.map((file) => path.relative(projectRoot, file));
+  return created.map((file) => normalizeRelativePath(path.relative(projectRoot, file)));
 }
 
 function initKnowledgeGraph(projectRoot) {
@@ -500,7 +504,7 @@ function initKnowledgeGraph(projectRoot) {
     }
   }
 
-  return created.map((file) => path.relative(projectRoot, file));
+  return created.map((file) => normalizeRelativePath(path.relative(projectRoot, file)));
 }
 
 function readText(filePath) {
@@ -526,7 +530,7 @@ function inspectDocs(projectRoot) {
   const requiredSections = ["## Read When", "## Owner", "## Update Trigger", "## Validation"];
 
   for (const file of files) {
-    const rel = path.relative(projectRoot, file);
+    const rel = normalizeRelativePath(path.relative(projectRoot, file));
     if (rel === "docs/INDEX.md") continue;
     if (path.extname(file) === ".md") {
       const text = readText(file);
@@ -545,7 +549,7 @@ function inspectLargeSourceFiles(projectRoot) {
   walk(projectRoot, (filePath) => {
     if (!extensions.has(path.extname(filePath))) return;
     const lines = readText(filePath).split(/\r?\n/).length;
-    if (lines > 1000) large.push({ path: path.relative(projectRoot, filePath), lines });
+    if (lines > 1000) large.push({ path: normalizeRelativePath(path.relative(projectRoot, filePath)), lines });
   });
   return large;
 }
@@ -614,17 +618,29 @@ function validateJsonl(filePath, requiredFields, options = {}) {
       const record = JSON.parse(trimmed);
       for (const field of requiredFields) {
         if (record[field] === undefined || record[field] === null || record[field] === "") {
-          invalid.push(`${path.relative(path.dirname(path.dirname(filePath)), filePath)}:${index + 1} missing ${field}`);
+          invalid.push(
+            `${normalizeRelativePath(path.relative(path.dirname(path.dirname(filePath)), filePath))}:${
+              index + 1
+            } missing ${field}`
+          );
         }
       }
       if (options.verifySourceHash && record.source && record.source_hash && record.source_hash !== "unknown") {
         const sourcePath = path.resolve(options.projectRoot, record.source);
         if (!fs.existsSync(sourcePath)) {
-          invalid.push(`${path.relative(options.projectRoot, filePath)}:${index + 1} source missing: ${record.source}`);
+          invalid.push(
+            `${normalizeRelativePath(path.relative(options.projectRoot, filePath))}:${
+              index + 1
+            } source missing: ${record.source}`
+          );
         } else {
           const actualHash = sha256File(sourcePath);
           if (actualHash !== record.source_hash) {
-            invalid.push(`${path.relative(options.projectRoot, filePath)}:${index + 1} source_hash mismatch for ${record.source}`);
+            invalid.push(
+              `${normalizeRelativePath(path.relative(options.projectRoot, filePath))}:${
+                index + 1
+              } source_hash mismatch for ${record.source}`
+            );
           }
         }
       }

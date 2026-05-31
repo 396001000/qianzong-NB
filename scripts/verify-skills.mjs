@@ -8,7 +8,6 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const repoRoot = path.dirname(path.dirname(__filename));
 const skillsRoot = path.join(repoRoot, "skills");
-const runtimePromptPath = path.join(repoRoot, "prompts/runtime-v5.1.md");
 
 function walk(dir, visit) {
   if (!fs.existsSync(dir)) return;
@@ -61,7 +60,7 @@ const missingDescription = records.filter((record) => !record.description).map((
 const tinyFiles = records.filter((record) => record.bytes < 300).map((record) => record.path);
 const includesAgents = fs.existsSync(path.join(repoRoot, "AGENTS.md"));
 const includesSystemSkills = fs.existsSync(path.join(skillsRoot, ".system"));
-const includesRuntimePrompt = fs.existsSync(runtimePromptPath);
+const includesRuntimePrompt = false;
 
 function runMemoryScript(script) {
   const result = spawnSync(process.execPath, [path.join(skillsRoot, "yonghu-preferences/scripts", script)], {
@@ -112,7 +111,6 @@ const ok =
   duplicateNames.length === 0 &&
   !includesAgents &&
   !includesSystemSkills &&
-  includesRuntimePrompt &&
   memoryBootstrap.ok &&
   routeCheck.ok &&
   lifecycle.ok &&

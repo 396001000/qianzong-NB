@@ -50,8 +50,8 @@ Define how 规则师 governs prompts, skills, user-skills, memory system rules, 
 - Route targets resolve to active `SKILL.md` names; stale archived skill names are removed or explicitly marked restorable.
 - Runtime prompt templates, when distributed with this pack, are version-consistent with user-skills.
 - Runtime prompt template references v2.2 memory stack and single gateway without duplicating full user-skill content.
-- Final bundle contains runtime prompt template, skill pack, install docs, security audit, project memory, and docs.
-- Prompt + skills distributions include only commercial-safe runtime prompt templates and do not include project-level `AGENTS.md` or owner-specific system prompts.
+- Final bundle contains skill pack, install docs, security audit, project memory, and docs; runtime prompts may be external when the owner chooses manual prompt distribution.
+- Skills-only distributions do not include global `AGENTS.md`, project-level `AGENTS.md`, `AGENTS5.3.md`, or owner-specific system prompts.
 
 ## Change Log
 
@@ -63,3 +63,4 @@ Define how 规则师 governs prompts, skills, user-skills, memory system rules, 
 | 2026-05-30 | Added skill lifecycle ownership and audit snapshot gate. | User requested safe handling for new/deleted skills and skill poisoning prevention. |
 | 2026-05-30 | Upgraded rule governor to v2.2 memory system governance. | User requested prompt, role, skill, project memory, evidence, and audit scripts to form a full closed loop. |
 | 2026-05-30 | Updated distribution governance for prompt + skills packaging. | User clarified that downstream users need both the runtime prompt and skills for the system to work correctly. |
+| 2026-06-01 | Added skills-only distribution boundary with external manual prompt setup. | User clarified `AGENTS5.3.md` should not be pushed to the repository and will be installed manually on other computers. |

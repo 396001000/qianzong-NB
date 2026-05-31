@@ -3,9 +3,9 @@
 | Field | Value |
 |---|---|
 | Status | Active |
-| Version | 1.2 |
+| Version | 1.3 |
 | Owner | 编码师 |
-| Last Updated | 2026-05-30 |
+| Last Updated | 2026-05-31 |
 
 ## Purpose
 
@@ -23,6 +23,7 @@ Define how 编码师 writes code and when professional skills must be used.
 - Choose professional skills by code type via `skill-router-style.md`.
 - UI creation must use `ui-taste-style.md` plus the UI implementation route, normally `frontend`, `anthropic-frontend-design`, and `frontend-design-pro` as needed.
 - UI polish must use `ui-taste-style.md` plus `ui-polish-pro` or `design-review-pro` as needed.
+- React/Next.js interaction animation, GSAP, ScrollTrigger, timeline animation, parallax, or animation cleanup/debugging must use `gsap-react` as the motion implementation skill.
 - Tauri work must use `tauri-pro`; add `tauri` when official API/plugin detail is needed.
 - NewAPI or media-generation gateway work must use `newapi`, `api-integration-specialist`, `api-driven-app`, or `api-client` according to scope.
 - API integration must use `api-driven-app`, `api-connector-builder`, or `api-client`.
@@ -57,3 +58,4 @@ Define how 编码师 writes code and when professional skills must be used.
 | 2026-05-30 | Added NewAPI/media gateway, Windows desktop E2E, and Sentry execution routes. | User described current product direction and approved restoring these production skills. |
 | 2026-05-30 | Repointed database and security rules away from archived baseline skills. | User approved keeping stronger usable skills as defaults. |
 | 2026-05-30 | Made UI creation routing explicit so generated interfaces load UI implementation and taste skills. | User asked whether UI generation can intelligently call UI skills. |
+| 2026-05-31 | Added `gsap-react` as the required React/Next.js motion implementation skill for complex interaction animation and cleanup. | User installed GSAP React skill and requested role-trigger integration. |

@@ -3,9 +3,9 @@
 | Field | Value |
 |---|---|
 | Status | Active |
-| Version | 2.2 |
+| Version | 2.3 |
 | Owner | 项目助手 |
-| Last Updated | 2026-05-30 |
+| Last Updated | 2026-05-31 |
 
 ## Purpose
 
@@ -22,6 +22,7 @@ Define durable project memory as a structured, continuously maintained project b
 - Use `memory-reliability-style.md` before reading or writing project memory.
 - Use `memory-stack-style.md` to choose L0/L1/L2/L3 before reading project memory.
 - Use `memory-evidence-style.md` before durable project memory, debug report, ADR, roadmap, or knowledge graph writes.
+- Use `project-agents-style.md` before creating, refreshing, auditing, or changing project `AGENTS.md`.
 - Detect the active project root by walking upward from the current working directory until a marker is found.
 - Favor structured, modular project development.
 - Keep files preferably under 1000 lines.
@@ -30,7 +31,7 @@ Define durable project memory as a structured, continuously maintained project b
 - Maintain `docs/INDEX.md` as the authoritative docs map.
 - Maintain `docs/project-structure.md` as the human/agent-readable folder, module, and important-file map.
 - Use `knowledge-graph-memory-style.md` when 女助理 determines the task needs relationship lookup, impact analysis, or long-term project continuity.
-- Maintain project-root `AGENTS.md` for project-level AI collaboration rules.
+- Maintain project-root `AGENTS.md` only for project-local AI collaboration rules, user requirements, safety gates, verification gates, edit restrictions, and minimal context pointers.
 - Classify changes as L0/L1/L2/L3.
 - Every durable record must include a future read path.
 - New docs must be reflected in `docs/INDEX.md`; `.ai_project.md` links to the docs index rather than duplicating all detail.
@@ -38,6 +39,7 @@ Define durable project memory as a structured, continuously maintained project b
 - Project memory should support evidence-backed retrieval: durable claims have evidence paths, stale facts can be invalidated, and current source wins over stale memory.
 - Run `audit-project-memory.mjs` when project memory structure is uncertain or after major docs changes.
 - When the user says `初始化本项目`, run `init-project-memory.mjs --cwd .` as the single entrypoint: pre-audit, initialize missing memory skeleton, write retrieval summary, then re-audit.
+- When project `AGENTS.md` is missing, stale, or overgrown, run `generate-project-agents.mjs --cwd . --dry-run` first and `audit-project-agents.mjs --cwd .` after any accepted write.
 - If no project marker exists, classify the session as projectless and do not create project memory unless the user asks or a durable deliverable is produced.
 
 ## Project Memory Architecture
@@ -45,7 +47,7 @@ Define durable project memory as a structured, continuously maintained project b
 | Layer | File/Directory | Purpose | Keep It |
 |---|---|---|---|
 | Entry index | `.ai_project.md` | Compact project entrypoint: identity, stack, commands, active status, key docs, risks, current focus. | Short and scannable. |
-| Collaboration rules | `AGENTS.md` | Project-specific AI behavior, commands, constraints, safety rules. | Rules only; not a changelog. |
+| Collaboration rules | `AGENTS.md` | Project-local AI behavior, user requirements, constraints, safety rules, verification gates, and minimal context pointers. | Rules only; not structure, roadmap, or memory. |
 | Docs map | `docs/INDEX.md` | Structured index of all durable project docs. | Authoritative map. |
 | Structure map | `docs/project-structure.md` | Directory/module/file explanations and ownership boundaries. | Updated when structure changes. |
 | Architecture | `docs/architecture/` | System design, boundaries, data flow, important tradeoffs. | Durable design context. |
@@ -155,7 +157,8 @@ Before work:
 2. Read `.ai_project.md`, `AGENTS.md`, `docs/INDEX.md`, `docs/project-structure.md`, and task-specific docs if they exist.
 3. Select L0/L1/L2/L3 with `memory-stack-style.md`.
 4. Let 女助理 decide KG0/KG1/KG2/KG3 when project relationship context may matter.
-5. If core memory is missing, note the gap and decide whether initialization is appropriate.
+5. Read `project-agents-style.md` when project `AGENTS.md` may be generated, refreshed, audited, or changed.
+6. If core memory is missing, note the gap and decide whether initialization is appropriate.
 
 After work:
 
@@ -165,9 +168,10 @@ After work:
 4. Update `docs/INDEX.md`.
 5. For project structure changes, update `docs/project-structure.md`.
 6. For plans, risks, recurring issues, or future work, update `docs/roadmap.md` or `docs/maintenance/*`.
-7. For cross-layer relationship changes, update `docs/knowledge/*` when KG is active.
-8. For durable memory writes, add evidence or invalidation records when needed.
-9. Run project-memory audit when docs structure changed.
+7. For project-local rule changes, update project `AGENTS.md` under `project-agents-style.md` rather than copying docs content into it; use `generate-project-agents.mjs` and `audit-project-agents.mjs` when available.
+8. For cross-layer relationship changes, update `docs/knowledge/*` when KG is active.
+9. For durable memory writes, add evidence or invalidation records when needed.
+10. Run project-memory audit when docs structure changed.
 
 ## Conversational Initialization
 
@@ -203,7 +207,8 @@ Use the first directory containing a marker as the active project root. Do not w
 
 - Global user preferences and routing rules go to `$CODEX_HOME/skills/yonghu-preferences/`.
 - Project facts, module status, commands, architecture notes, feature docs, debug history, and project risks go to the detected project root.
-- Project-level repeated AI collaboration rules go to project `AGENTS.md`.
+- Project-level repeated AI collaboration rules, local user requirements, safety gates, and verification gates go to project `AGENTS.md`.
+- Project structure, planning, command catalogs, facts, decisions, evidence, and debug history stay in `.ai_project.md` or `docs/`.
 - Never store project-specific facts in global user-skills.
 - Never create a second global memory entry inside a project.
 
@@ -263,6 +268,7 @@ If no update is needed, state the reason:
 - Do not write durable project claims without a reusable evidence path.
 - Do not enable knowledge graph for simple consultations.
 - Do not mix project-specific rules into cross-project user preferences.
+- Do not use project `AGENTS.md` as a project structure map, roadmap, architecture summary, command catalog, evidence store, debug log, or long-form memory file.
 
 ## Acceptance Checks
 
@@ -274,6 +280,7 @@ If no update is needed, state the reason:
 - Missing updates are explained.
 - Task-specific memory rule was applied.
 - Final answer includes sync level and reuse entry for meaningful changes.
+- Project `AGENTS.md` remains rules-only when it is touched.
 
 ## Change Log
 
@@ -285,3 +292,4 @@ If no update is needed, state the reason:
 | 2026-05-30 | Replanned project memory as structured project brain with docs index, structure map, roadmap, and audit loop. | User asked whether project memory should be redesigned for project indexes, file explanations, structured docs, sustainable memory, optimization, and planning. |
 | 2026-05-30 | Added optional normalized knowledge graph layer with 女助理 activation decision. | User asked 女助理 to decide when knowledge graph is needed and avoid messy graphs. |
 | 2026-05-30 | Upgraded to v2.2 evidence-backed project memory. | User requested a complete memory loop with correct writing, reading, invalidation, verification, and reuse. |
+| 2026-05-31 | Clarified project `AGENTS.md` as rules-only project memory layer. | User clarified project structure and planning belong in `.ai_project.md` and `docs/`, not in project `AGENTS.md`. |

@@ -16,11 +16,17 @@ function existingDir(...parts) {
     : null;
 }
 
+function homeDir() {
+  return process.env.HOME || process.env.USERPROFILE || "";
+}
+
 function resolveCodexHome() {
   if (process.env.CODEX_HOME && existingDir(process.env.CODEX_HOME)) {
-    return process.env.CODEX_HOME;
+    return path.resolve(process.env.CODEX_HOME);
   }
-  return path.join(process.env.HOME || process.cwd(), ".codex");
+  const home = homeDir();
+  const defaultHome = home ? existingDir(home, ".codex") : null;
+  return defaultHome || path.join(home || process.cwd(), ".codex");
 }
 
 function filePurpose(filePath) {
@@ -53,6 +59,7 @@ function readWhen(fileName) {
     "role-project-assistant-style.md": "Before/after project file changes, docs changes, or project memory audits.",
     "role-rule-governor-style.md": "Before modifying prompts, skills, user-skills, install docs, manifests, or distribution zips.",
     "project-memory-style.md": "Before software project changes or project memory maintenance.",
+    "project-agents-style.md": "When creating, refreshing, auditing, or maintaining project AGENTS.md, or when project-local rules, user requirements, safety gates, or verification gates change.",
     "debug-reuse-style.md": "Before debugging or after fixing durable/complex bugs.",
     "skill-router-style.md": "Before any task that may need professional skills.",
     "skill-lifecycle-governance-style.md": "Before installing, deleting, archiving, restoring, updating, auditing, or routing skills.",
@@ -138,9 +145,10 @@ function discoverProjectRoot(startDir) {
 }
 
 const codexHome = resolveCodexHome();
+const home = homeDir();
 const basePath =
   existingDir(codexHome, "skills", "yonghu-preferences") ||
-  existingDir(process.env.HOME || "", ".codex", "skills", "yonghu-preferences") ||
+  (home ? existingDir(home, ".codex", "skills", "yonghu-preferences") : null) ||
   path.join(codexHome, "skills", "yonghu-preferences");
 const userSkillsDir = path.join(basePath, "user-skills");
 const indexPath = path.join(userSkillsDir, "INDEX.md");

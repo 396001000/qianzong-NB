@@ -15,9 +15,15 @@ function existingDir(...parts) {
   return fs.existsSync(candidate) && fs.statSync(candidate).isDirectory() ? candidate : null;
 }
 
+function homeDir() {
+  return process.env.HOME || process.env.USERPROFILE || "";
+}
+
 function resolveCodexHome() {
-  if (process.env.CODEX_HOME && existingDir(process.env.CODEX_HOME)) return process.env.CODEX_HOME;
-  return path.join(process.env.HOME || process.cwd(), ".codex");
+  if (process.env.CODEX_HOME && existingDir(process.env.CODEX_HOME)) return path.resolve(process.env.CODEX_HOME);
+  const home = homeDir();
+  const defaultHome = home ? existingDir(home, ".codex") : null;
+  return defaultHome || path.join(home || process.cwd(), ".codex");
 }
 
 const markers = [
@@ -92,12 +98,13 @@ function classifyKgLevel(task, projectRoot, readLevel) {
   return readLevel === "L2" || readLevel === "L3" ? "KG2" : "KG0";
 }
 
+const startDir = arg("cwd", process.cwd());
 const codexHome = resolveCodexHome();
+const home = homeDir();
 const globalMemoryRoot =
   existingDir(codexHome, "skills", "yonghu-preferences") ||
-  existingDir(process.env.HOME || "", ".codex", "skills", "yonghu-preferences") ||
+  (home ? existingDir(home, ".codex", "skills", "yonghu-preferences") : null) ||
   path.join(codexHome, "skills", "yonghu-preferences");
-const startDir = arg("cwd", process.cwd());
 const task = arg("task", args.filter((item) => !item.startsWith("--")).join(" "));
 const discovered = discoverProjectRoot(startDir);
 const projectless = !discovered.projectRoot;
@@ -114,6 +121,9 @@ const userSkillsToRead = [
 ];
 
 if (readLevel !== "L0" && discovered.projectRoot) userSkillsToRead.push("project-memory-style.md");
+if (/(project\s+AGENTS(?:\.md)?|项目\s*AGENTS(?:\.md)?|AGENTS\.md|local rules|本地规则|项目规则|协作规则|verification gates|验证门禁)/i.test(task)) {
+  userSkillsToRead.push("project-agents-style.md");
+}
 if (readLevel === "L2" || readLevel === "L3") userSkillsToRead.push("memory-evidence-style.md");
 if (kgLevel !== "KG0") userSkillsToRead.push("knowledge-graph-memory-style.md");
 if (writeDestination === "global") userSkillsToRead.push("global-memory-capture-style.md");

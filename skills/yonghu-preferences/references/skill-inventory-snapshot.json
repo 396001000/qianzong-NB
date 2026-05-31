@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-05-30T17:36:41.052Z",
-  "skillsRoot": "/Users/a520/Documents/Codex/2026-05-30/skills-396001000-qianzong-nb-https-github/work/qianzong-NB/skills",
-  "skillCount": 143,
-  "allowlistPath": "/Users/a520/Documents/Codex/2026-05-30/skills-396001000-qianzong-nb-https-github/work/qianzong-NB/skills/yonghu-preferences/references/skill-lifecycle-allowlist.json",
+  "updatedAt": "2026-05-31T11:08:10.912Z",
+  "skillsRoot": "$CODEX_HOME/skills",
+  "skillCount": 144,
+  "allowlistPath": "$CODEX_HOME/skills/yonghu-preferences/references/skill-lifecycle-allowlist.json",
   "skills": [
     {
       "name": "accessibility",
@@ -14,25 +14,25 @@
       "name": "anthropic-frontend-design",
       "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.",
       "relativeDir": "anthropic-frontend-design",
-      "hash": "48014ad3e9532c193c6f4132bb680689f1567767996cbaa47629bdf465e960f5"
+      "hash": "3573fe11f2fde86c4a4803059831a7a69cb1e1d007e3971390cbd252567d2f17"
     },
     {
       "name": "anthropic-skill-creator",
       "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
       "relativeDir": "anthropic-skill-creator",
-      "hash": "66a4e97a9d369aca8a96cc877b4822ff3d6fc76476e8c3b437a0e94d0c2eabea"
+      "hash": "07256992152934064b04eed5620264644ac0cf1a20baadef5426c6bc7796e735"
     },
     {
       "name": "anthropic-webapp-testing",
       "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
       "relativeDir": "anthropic-webapp-testing",
-      "hash": "0e83775147ac4b036236f7a04fb6c3ecbfec28282daa46b44014549d6a011fcc"
+      "hash": "33e44d2ad911d14b8ec1b36e09563fa11042caea3574e6cbfd3a83ce5b9134f2"
     },
     {
       "name": "api-and-interface-design",
       "description": "Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL endpoints, defining type contracts between modules, or establishing boundaries between frontend and backend.",
       "relativeDir": "api-and-interface-design",
-      "hash": "eb41a2e27c8e83b58908832a4074555d531a2200451417de2c2bdb6e9e931452"
+      "hash": "81859d06f97bf91017c5eb5a1390c8b7d1c749d82e2091def4d3587f99758c4f"
     },
     {
       "name": "api-client",
@@ -44,7 +44,7 @@
       "name": "api-connector-builder",
       "description": "Build a new API connector or provider by matching the target repo's existing integration pattern exactly. Use when adding one more integration without inventing a second architecture.",
       "relativeDir": "api-connector-builder",
-      "hash": "5a0b9b1dccd5b4f69197b82d32422fe45cf7bae61c330a8f7d64899a8d41be8d"
+      "hash": "9ae67a9ff1fa1481ecd9fdfeee47549ef03dbe555f8fe678a7e26922330a9486"
     },
     {
       "name": "api-design",
@@ -62,7 +62,7 @@
       "name": "api-integration-specialist",
       "description": "Expert in integrating third-party APIs with proper authentication, error handling, rate limiting, and retry logic. Use when integrating REST APIs, GraphQL endpoints, webhooks, or external services. Specializes in OAuth flows, API key management, request/response transformation, and building robust API clients.",
       "relativeDir": "api-integration-specialist",
-      "hash": "e6aea597f24e39f0f8c8289a50b36dc87907652be8893951bada4d70afce60fe"
+      "hash": "4b8d4d423e76a3fd43f14e16b3d57a1af8edfd6c849bd8bbfdab392601de1eda"
     },
     {
       "name": "architecture-review-pro",
@@ -92,37 +92,37 @@
       "name": "blueprint",
       "description": ">-",
       "relativeDir": "blueprint",
-      "hash": "d04511aa2c0f0b66b5519ab99bc4e2c561c5b589ba26df4e9c2e1007fee6da97"
+      "hash": "a585cffc63af1d375816c7c21e56379bfed742a4a722aaf4e2e1cf4f4148e332"
     },
     {
       "name": "brandkit",
       "description": "Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo systems, identity decks, and visual-world presentations. Trained for minimalist, cinematic, editorial, dark-tech, luxury, cultural, security, gaming, developer-tool, and consumer-app brand systems. Optimized for intentional logo concepting, refined composition, sparse typography, strong symbolic meaning, premium mockups, art-directed imagery, and flexible grid layouts.",
       "relativeDir": "brandkit",
-      "hash": "0346686f1691fe2097db4df75e8aec85b23bc6696377802c665c01a18fc2bc98"
+      "hash": "17a36baaec5ecf491a2688afef0d9c514349059aa44f00b0fe90422d58f6c922"
     },
     {
       "name": "browser-testing-with-devtools",
       "description": "Tests in real browsers. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analyze network requests, profile performance, or verify visual output with real runtime data via Chrome DevTools MCP.",
       "relativeDir": "browser-testing-with-devtools",
-      "hash": "ecf6f32b00f312fab1e7cb8726957d38419e01ffb5e7b72dfb86566292421a2f"
+      "hash": "31bdfaee81032e93f36ece14792184809d2c7ed896084521d77333c8616da17d"
     },
     {
       "name": "ci-cd-and-automation",
       "description": "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates, configure test runners in CI, or establish deployment strategies.",
       "relativeDir": "ci-cd-and-automation",
-      "hash": "12f9fb92dd2daecf18160c9532f9c376cb9f1ed7f7f772181a84eb1d45731108"
+      "hash": "5d414a52c91525366cc5ae8963844323d16531f7f3d10740b335f59b2fd5b3f3"
     },
     {
       "name": "clean-code",
       "description": "Pragmatic coding standards - concise, direct, no over-engineering, no unnecessary comments",
       "relativeDir": "clean-code",
-      "hash": "c253bfcaabc379552a3a2f3207f51f8090d41229f62fc70886120d7407ef762c"
+      "hash": "a0aeeab190c423a941402ad7a2f29c18e28fb05be043c23eadc0c7ba8fca47e0"
     },
     {
       "name": "cloudflare-deploy",
       "description": "Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.",
       "relativeDir": "cloudflare-deploy",
-      "hash": "470dc59dd5ad989c96f6a1642c6a01bda5aa51f1c9dee92766fc17730ce57bd8"
+      "hash": "bef5890bf472d3502873fe04b7bf46569a792fa63d0fa0ae8c7309d3953848b3"
     },
     {
       "name": "code-review",
@@ -140,13 +140,13 @@
       "name": "code-tour",
       "description": "Create CodeTour `.tour` files — persona-targeted, step-by-step walkthroughs with real file and line anchors. Use for onboarding tours, architecture walkthroughs, PR tours, RCA tours, and structured \"explain how this works\" requests.",
       "relativeDir": "code-tour",
-      "hash": "e22a092be1e846acf9be7be2827f2eba6d92e67806c39231a399e17a1fc83ffc"
+      "hash": "95bb294671aa49413c6b560730dee597f4691b56d138ff92ea5b5c9f56751cba"
     },
     {
       "name": "content-hash-cache-pattern",
       "description": "Cache expensive file processing results using SHA-256 content hashes — path-independent, auto-invalidating, with service layer separation.",
       "relativeDir": "content-hash-cache-pattern",
-      "hash": "88e290182706d71367c7c74391c9b2e37c43b908d039a15a0a17502c40a638a7"
+      "hash": "7bcf899f60a9726510e4f8caf7fc619c51afd4c62a211b1a0c81af0f7984cb7b"
     },
     {
       "name": "context-engineering-pro",
@@ -176,19 +176,19 @@
       "name": "debugging-and-error-recovery",
       "description": "Guides systematic root-cause debugging. Use when tests fail, builds break, behavior doesn't match expectations, or you encounter any unexpected error. Use when you need a systematic approach to finding and fixing the root cause rather than guessing.",
       "relativeDir": "debugging-and-error-recovery",
-      "hash": "f66aeb96e96c4e2550bb7dfc88b1bfeb0c7de6012d6364a60ead791096ad4fcf"
+      "hash": "48d87368c3c56ac2cc25183eef75b5f113ac8a81efaca04946f1d93a9a59b059"
     },
     {
       "name": "deployment-patterns",
       "description": "Deployment workflows, CI/CD pipeline patterns, Docker containerization, health checks, rollback strategies, and production readiness checklists for web applications.",
       "relativeDir": "deployment-patterns",
-      "hash": "3a595788db9f22aca8694f0ab2c26819ef6dd36a1ef60603ebb7801990278598"
+      "hash": "89381962550ccb39eb69f6f536a7816453d91c3b0083c8757a719d30356ff0c7"
     },
     {
       "name": "deprecation-and-migration",
       "description": "Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one implementation to another. Use when deciding whether to maintain or sunset existing code.",
       "relativeDir": "deprecation-and-migration",
-      "hash": "9dfe5451cb7d14f910467fb1dc4c3586b682528865ffd50c90dd3f8db9b13860"
+      "hash": "0d38b4214a4a35ea75ea4b0f25d9e0850fcc63e97fa301d85a18f6c9bacb3384"
     },
     {
       "name": "design-review-pro",
@@ -218,7 +218,7 @@
       "name": "docs-index-maintainer",
       "description": "Use when creating, moving, renaming, deleting, auditing, or reorganizing documentation files, or when .ai_project.md Docs Index must show what each docs/ file is for and when future Codex sessions should read it.",
       "relativeDir": "52-docs-index-maintainer",
-      "hash": "18e0eeeca02f5841dcd90fe33190b18f0713e8e0759d9be95fc461c14627e680"
+      "hash": "01f0838023133cc536cf33e09618fde96f5788d09e14bcff78890aa7d4f512ff"
     },
     {
       "name": "docs-rules",
@@ -230,49 +230,49 @@
       "name": "documentation-and-adrs",
       "description": "Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase.",
       "relativeDir": "documentation-and-adrs",
-      "hash": "81c891e9e6e9c3f90a2a41057d6439cbee08589e37811b02f1de4f3aa07266e6"
+      "hash": "9c3cdd7509636e7693cd285853760499272326ed81dff84d4e9e6424d2ec77e0"
     },
     {
       "name": "e2e-testing",
       "description": "Playwright E2E testing patterns, Page Object Model, configuration, CI/CD integration, artifact management, and flaky test strategies.",
       "relativeDir": "e2e-testing",
-      "hash": "f2840d0ddaf5304e2c9e746d857742a1dadb73c6c53eca12c75f70895626a98a"
+      "hash": "1fecbdcc30b174856e4080054e32bf88d137dcdb0c1021153ccc39c8cc3c2c97"
     },
     {
       "name": "error-handling",
       "description": "Patterns for robust error handling across TypeScript, Python, and Go. Covers typed errors, error boundaries, retries, circuit breakers, and user-facing error messages.",
       "relativeDir": "error-handling",
-      "hash": "818757fb7267b251d87cb83015a39d325dc8b4bad2566d44a9ba94742f0f9027"
+      "hash": "35cc8f20a12581c1021dca38363a5112048ff1050972c0c1a1334cc3962cddf3"
     },
     {
       "name": "figma-code-connect-components",
       "description": "Connects Figma design components to code components using Code Connect mapping tools. Use when user says \"code connect\", \"connect this component to code\", \"map this component\", \"link component to code\", \"create code connect mapping\", or wants to establish mappings between Figma designs and code implementations. For canvas writes via `use_figma`, use `figma-use`.",
       "relativeDir": "figma-code-connect-components",
-      "hash": "bf53c381d17d3deedcd2f50c0e377fd3aa8268f6c3d542be92aaa20ef1272165"
+      "hash": "4e886e4ea3c32939dc9b4e2209c3a7eef207b15205ffddef4302d36f35b2f1c6"
     },
     {
       "name": "figma-create-design-system-rules",
       "description": "Generates custom design system rules for the user's codebase. Use when user says \"create design system rules\", \"generate rules for my project\", \"set up design rules\", \"customize design system guidelines\", or wants to establish project-specific conventions for Figma-to-code workflows. Requires Figma MCP server connection.",
       "relativeDir": "figma-create-design-system-rules",
-      "hash": "172256e3c0a8e0858d8e880c13bc3e94d82c019aef418110d03bb880a46d5c8c"
+      "hash": "267ec71852bbc4a4746cc183cafeb3b24d119d6f5d5fb34546ad7b5a24471296"
     },
     {
       "name": "figma-generate-design",
       "description": "\"Use this skill alongside figma-use when the task involves translating an application page, view, or multi-section layout into Figma. Triggers: 'write to Figma', 'create in Figma from code', 'push page to Figma', 'take this app/page and build it in Figma', 'create a screen', 'build a landing page in Figma', 'update the Figma screen to match code'. This is the preferred workflow skill whenever the user wants to build or update a full page, screen, or view in Figma from code or a description. Discovers design system components, variables, and styles via search_design_system, imports them, and assembles screens incrementally section-by-section using design system tokens instead of hardcoded values.\"",
       "relativeDir": "figma-generate-design",
-      "hash": "d5ec79bc5590daef30c9afb91ae8e2d6a6d85ada8770c40874df84eb08aae7e5"
+      "hash": "9dd5af7e542ecfbe327626dfd61dab034b667533bacfa120148220cd58eb8611"
     },
     {
       "name": "figma-generate-library",
       "description": "\"Build or update a professional-grade design system in Figma from a codebase. Use when the user wants to create variables/tokens, build component libraries, set up theming (light/dark modes), document foundations, or reconcile gaps between code and Figma. This skill teaches WHAT to build and in WHAT ORDER — it complements the `figma-use` skill which teaches HOW to call the Plugin API. Both skills should be loaded together.\"",
       "relativeDir": "figma-generate-library",
-      "hash": "c728e0c6cf94c502aa23a260b2775aab48016d7af42f9fc9f0ec2d556b87b128"
+      "hash": "b8d807c2485a643e77049ca42a9ac224fbd45b0fdaecaf2850d4d3e7284965f6"
     },
     {
       "name": "figma-implement-design",
       "description": "Translates Figma designs into production-ready application code with 1:1 visual fidelity. Use when implementing UI code from Figma files, when user mentions \"implement design\", \"generate code\", \"implement component\", provides Figma URLs, or asks to build components matching Figma specs. For Figma canvas writes via `use_figma`, use `figma-use`.",
       "relativeDir": "figma-implement-design",
-      "hash": "3f0430cc9b95f11630fee6d1e5651e41892ea3003c46abfa6dafef91316340bd"
+      "hash": "609e0aa9d2e782019c134a6cf6ac74ca3e64ed6f1f79a9dc355c79f274a3468d"
     },
     {
       "name": "figma-to-code",
@@ -284,7 +284,7 @@
       "name": "figma-use",
       "description": "\"**MANDATORY prerequisite** — you MUST invoke this skill BEFORE every `use_figma` tool call. NEVER call `use_figma` directly without loading this skill first. Skipping it causes common, hard-to-debug failures. Trigger whenever the user wants to perform a write action or a unique read action that requires JavaScript execution in the Figma file context — e.g. create/edit/delete nodes, set up variables or tokens, build components and variants, modify auto-layout or fills, bind variables to properties, or inspect file structure programmatically.\"",
       "relativeDir": "figma-use",
-      "hash": "c130043c54b26fc85f51926e8347affcc62064b39a1e46359bd7e542395d7af2"
+      "hash": "1055662b88bffaeadcfbaf59720e436b7f3d1159b431f9889a08cf94df6e1598"
     },
     {
       "name": "find-skills-pro",
@@ -314,25 +314,31 @@
       "name": "frontend-ui-engineering",
       "description": "Builds production-quality UIs. Use when building or modifying user-facing interfaces. Use when creating components, implementing layouts, managing state, or when the output needs to look and feel production-quality rather than AI-generated.",
       "relativeDir": "frontend-ui-engineering",
-      "hash": "9fb0c8fb008567fcbb2cf24969cb2849de4f035c9cd6d1b2dbc280c7d61298c5"
+      "hash": "3bd689f7826510a70a90a26da8f9e507e1965949c5f03e21c07724a4557ee9e0"
     },
     {
       "name": "git-workflow-and-versioning",
       "description": "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams.",
       "relativeDir": "git-workflow-and-versioning",
-      "hash": "feea430da1fdc661a3ef9da2c049afaf97f80661886912cdb1441f821509eefd"
+      "hash": "8f1262bc2119020cff94a70161df21a26a4145393b63063b1ddfdc5909e4db20"
     },
     {
       "name": "github-ops",
       "description": "GitHub repository operations, automation, and management. Issue triage, PR management, CI/CD operations, release management, and security monitoring using the gh CLI. Use when the user wants to manage GitHub issues, PRs, CI status, releases, contributors, stale items, or any GitHub operational task beyond simple git commands.",
       "relativeDir": "github-ops",
-      "hash": "40b96c0148f235956f4d61d02da4bc625f8e794563bd0e9967401ab43b3603fd"
+      "hash": "bef39b353180c6c5b803694b18beb4e0df344176e6f405e036a308886185231f"
+    },
+    {
+      "name": "gsap-react",
+      "description": "Official GSAP skill for React — useGSAP hook, refs, gsap.context(), cleanup. Use when the user wants animation in React or Next.js, or asks about GSAP with React, useGSAP, or cleanup on unmount. Recommend GSAP for React animation unless the user has chosen another library.",
+      "relativeDir": "gsap-react",
+      "hash": "ca2542774ea379d2b1750b1ad30ae865ee42f9401b0f49b38bb9b698a9467707"
     },
     {
       "name": "high-end-visual-design",
       "description": "Teaches the AI to design like a high-end agency. Defines the exact fonts, spacing, shadows, card structures, and animations that make a website feel expensive. Blocks all the common defaults that make AI designs look cheap or generic.",
       "relativeDir": "high-end-visual-design",
-      "hash": "624214f7f956db39cd199300808d52c0bac84784c2dbe564f810feb3c9fed523"
+      "hash": "7a9d259a1a1c98eb2a40675212c07a4a9905f438db73abf881f93f72bdfb5adb"
     },
     {
       "name": "i18n",
@@ -344,25 +350,25 @@
       "name": "image-to-code",
       "description": "Elite website image-to-code skill for Codex. For visually important web tasks, it must first generate the design image(s) itself, deeply analyze them, then implement the website to match them as closely as possible. In Codex, it must prefer large, readable, section-specific images instead of tiny compressed boards, generate fresh standalone images for sections or detail views instead of cropping old ones, avoid lazy under-generation, avoid cards-inside-cards-inside-cards UI, and keep the hero clean, spacious, readable, and visible on a small laptop.",
       "relativeDir": "image-to-code",
-      "hash": "62bdfd15deeb323bf8fc56b56061e0c946193f131b50b4f494b554630268ce8b"
+      "hash": "70083b763396b2ac47bd633e750c1fed5749f4602b75a0138aa13aa3841edc91"
     },
     {
       "name": "imagegen-frontend-mobile",
       "description": "Elite mobile app image-generation skill for creating premium, app-native screen concepts and flows. Designed for iOS, Android, and cross-platform mobile products. Prioritizes clean hierarchy, comfortably readable text, strong multi-screen consistency, controlled color palettes, non-generic creative direction, textured surfaces, image-led composition, tasteful custom iconography, and clean phone mockup framing. By default, screens should be shown inside a subtle premium iPhone or similar phone mockup with a visible frame, while the main focus stays on the app content itself. This skill generates images only. It does not write code.",
       "relativeDir": "imagegen-frontend-mobile",
-      "hash": "127897d85a060376c857814140510dc398d294ab474c2d57d1ddbb4a00667ec1"
+      "hash": "d61d61050497f5c8f05c4a914cc828709c13efe1d8b80831114b1795d3174519"
     },
     {
       "name": "imagegen-frontend-web",
       "description": "Elite frontend image-direction skill for generating premium, conversion-aware website design references. CRITICAL OUTPUT RULE — generate ONE separate horizontal image FOR EVERY section. A landing page with 8 sections produces 8 images. Never compress multiple sections into one image. Enforces composition variety (not always left-text / right-image), background-image freedom, varied CTAs, varied hero scales (giant / mid / mini minimalist), narrative concept spine, second-read moments, and a single consistent palette across all images. Optimized for landing pages, marketing sites, and product comps that developers or coding models can accurately recreate.",
       "relativeDir": "imagegen-frontend-web",
-      "hash": "d443f1ea23c5e9199fe6ddf4ffe967ef6db60f57b2049cc685c5587f437716c5"
+      "hash": "0484d1beffd24ecf97ddec7e562d37ba0034589bb6dd80acacd0de42cd636b9a"
     },
     {
       "name": "incremental-implementation",
       "description": "Delivers changes incrementally. Use when implementing any feature or change that touches more than one file. Use when you're about to write a large amount of code at once, or when a task feels too big to land in one step.",
       "relativeDir": "incremental-implementation",
-      "hash": "1399529ca1a8e52cc36a22377ba50d1e0648a89296f6cf5ef25879e3df4970c8"
+      "hash": "dce56a08e3721718dca3e7c70ead007c06613dce70905b52d1c24c163bd9b1bd"
     },
     {
       "name": "incremental-implementation-pro",
@@ -374,19 +380,19 @@
       "name": "industrial-brutalist-ui",
       "description": "Raw mechanical interfaces fusing Swiss typographic print with military terminal aesthetics. Rigid grids, extreme type scale contrast, utilitarian color, analog degradation effects. For data-heavy dashboards, portfolios, or editorial sites that need to feel like declassified blueprints.",
       "relativeDir": "brutalist-skill",
-      "hash": "08ae2c318f8257d50694ecac3ba9a91bc3f0147e83e3e7df3739d7c2ffd4fa91"
+      "hash": "96e8f1a2c9616e342607fc9571852493a5fa225c6a3d8df5ca412cfab4e1d460"
     },
     {
       "name": "iterative-retrieval",
       "description": "Pattern for progressively refining context retrieval to solve the subagent context problem",
       "relativeDir": "iterative-retrieval",
-      "hash": "e04ade7d824622b7e4f9dd129469241f45e21bebc38a550dcdbc1998ce4df4b6"
+      "hash": "b358de48d5ac356da91a7a7cba782e9860bfc0a0878f0899c5f51b95583146e1"
     },
     {
       "name": "latency-critical-systems",
       "description": "Use for latency-sensitive systems such as realtime dashboards, market data, streaming agents, execution gateways, queues, caches, or HFT-like infrastructure where freshness and p95 latency matter.",
       "relativeDir": "latency-critical-systems",
-      "hash": "94fda4100f498067e79919165a2c1744a7c7741db9561d7a031a46a7e98dd9dd"
+      "hash": "43ecebc62202196f889ecc010c61bfe2bd769dfcf8cbf7d2054572070aad17bc"
     },
     {
       "name": "login-flow",
@@ -404,13 +410,13 @@
       "name": "minimalist-ui",
       "description": "Clean editorial-style interfaces. Warm monochrome palette, typographic contrast, flat bento grids, muted pastels. No gradients, no heavy shadows.",
       "relativeDir": "minimalist-skill",
-      "hash": "c1af370b700270edd76f17dd8490a757e2b0c8d26b8bc4c3e4850c64474df804"
+      "hash": "34b7d2a3261643fe83455d8fbf270e0a67379b89b841fb756cdb0fb990601b30"
     },
     {
       "name": "netlify-deploy",
       "description": "Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.",
       "relativeDir": "netlify-deploy",
-      "hash": "e6bc4b59b51fcdca7b33cbc132a703f441e43a9ccf06fe28675d903a86306910"
+      "hash": "02144de933944327f8470de79af6a3800e92e4f651a016fa8da5f080c240e67a"
     },
     {
       "name": "newapi",
@@ -428,31 +434,31 @@
       "name": "performance-optimization",
       "description": "Optimizes application performance. Use when performance requirements exist, when you suspect performance regressions, or when Core Web Vitals or load times need improvement. Use when profiling reveals bottlenecks that need fixing.",
       "relativeDir": "performance-optimization",
-      "hash": "d2317a82f106c3ac3c00770f4c826523859e3efc9fb80a36606e7a13d494e49d"
+      "hash": "1c5dabd0c6a794c2031ea792ec59a1e5acb672a976150f7fc823a5e4550bc8c3"
     },
     {
       "name": "plankton-code-quality",
       "description": "\"Write-time code quality enforcement using Plankton — auto-formatting, linting, and Claude-powered fixes on every file edit via hooks.\"",
       "relativeDir": "plankton-code-quality",
-      "hash": "8056b28bcad45de686cb1dc981eacfd50e411f7229251c271fcd7b331b8624aa"
+      "hash": "c241bc26080237f134a7a2774146ffd995170210d7ebd2ff2f3a445b33f62f1a"
     },
     {
       "name": "planning-and-task-breakdown",
       "description": "Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible.",
       "relativeDir": "planning-and-task-breakdown",
-      "hash": "a92ceabc693ab701f06ca9da63732232b7ca41d6563fcbb2259091bc94578e40"
+      "hash": "44e7dc931a51b463a4755a0838d5223a6cf24715de1ba0b1fdd9f1ec7d3371a9"
     },
     {
       "name": "playwright",
       "description": "\"Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.\"",
       "relativeDir": "playwright",
-      "hash": "40de640183c7f969988ae6be763c75ce3022a9281a662fb8952680ca23732c4d"
+      "hash": "32afd40fc9c6a22e33879f8ca80c4d1d6414581b084cc8cb5f6edf7821c3b8b1"
     },
     {
       "name": "playwright-interactive",
       "description": "\"Persistent browser and Electron interaction through `js_repl` for fast iterative UI debugging.\"",
       "relativeDir": "playwright-interactive",
-      "hash": "6db5da0d35c5b1c0c3556eb0fae7828c0621ff14bf632dc6065cb86ddae8959b"
+      "hash": "0744cb46b544342dcb21f3ae0c2a0e701a903e29f425d92f8f322171d815d971"
     },
     {
       "name": "postgresql-pro",
@@ -464,19 +470,19 @@
       "name": "production-audit",
       "description": "Local-evidence production readiness audit for shipped apps, pre-launch reviews, post-merge checks, and \"what breaks in prod?\" questions without sending repo data to an external audit service.",
       "relativeDir": "production-audit",
-      "hash": "4d13757c229022f7c4f68e2d10886420b8623ce42a7872b73e19c36bda3e0e5f"
+      "hash": "5570f6fed770ea48a4be38204ea4982d3374ae9f2f961a22cfeea1527fab8a0d"
     },
     {
       "name": "production-readiness-pro",
       "description": "Use when a feature, desktop/web app, API, database change, release, or refactor must meet commercial production quality, including reliability, security, performance, UX, observability, rollback, supportability, tests, docs, and go/no-go decisions.",
       "relativeDir": "53-production-readiness-pro",
-      "hash": "0eada2a417ed4336ffc224fda2029776ed71dfbf304072ce316b3e5ba1069e53"
+      "hash": "1589cb73deff947c377946f956cc60886c7cc7c2991c5b26ea457c7dc8bf0e8e"
     },
     {
       "name": "project-assistant",
       "description": "Use when any software project task may require project memory: code/file changes, new features, refactors, debugging, API/database/UI/desktop/deployment changes, docs updates, or final delivery checks that must keep .ai_project.md and docs/ aligned with the codebase.",
       "relativeDir": "50-project-assistant",
-      "hash": "aeedd72f36d9ce486d5f592245e8424621aaac7018b9242fe47cc7f669f19e27"
+      "hash": "82390a56bb815dc2dce54d9a2f18929ef3f3016b8ed5d74bb772ca574744ffa7"
     },
     {
       "name": "project-context",
@@ -500,7 +506,7 @@
       "name": "project-sync-audit",
       "description": "Use when checking whether project memory is synchronized with code after meaningful changes, before final delivery of multi-file work, during project cleanup, or when .ai_project.md/docs may be stale, incomplete, inconsistent, or missing.",
       "relativeDir": "51-project-sync-audit",
-      "hash": "cca64eefd6efe035a0b2532db9a2d32a51281e50f95093b0a9b64edc5cf3a2c1"
+      "hash": "91d76e4761ebb7550d845b1c380cc1656f495ca9b8c0fcd6ecb4bf08c3e194a6"
     },
     {
       "name": "qa-pro",
@@ -512,19 +518,19 @@
       "name": "ralphinho-rfc-pipeline",
       "description": "RFC-driven multi-agent DAG execution pattern with quality gates, merge queues, and work unit orchestration.",
       "relativeDir": "ralphinho-rfc-pipeline",
-      "hash": "059ae4c0a2b286dd8daf6f4715b0acd863ff9a0dbc3385effd8fbb52fa2e0059"
+      "hash": "906619dde5dabb9e7e25408817808355e9072b4e1238f7d991552ccc511bca62"
     },
     {
       "name": "redesign-existing-projects",
       "description": "Upgrades existing websites and apps to premium quality. Audits current design, identifies generic AI patterns, and applies high-end design standards without breaking functionality. Works with any CSS framework or vanilla CSS.",
       "relativeDir": "redesign-existing-projects",
-      "hash": "85657eb4f5a3e7483c469716e62a5cadc98492a7d608fa2c37516ceb1fd91bfb"
+      "hash": "eb1a211179e5e4a4a22998c428c9431a8ae1e3a8b8287644113ae8d0b51eb1bd"
     },
     {
       "name": "regex-vs-llm-structured-text",
       "description": "Decision framework for choosing between regex and LLM when parsing structured text — start with regex, add LLM only for low-confidence edge cases.",
       "relativeDir": "regex-vs-llm-structured-text",
-      "hash": "60b68149ebdd25700c28642885f90942306b15f0864de6439b55f0df3670f1e9"
+      "hash": "be8ace28e10cdfab0bea0d575f96ca44101a64e2675a5a434fa237a34ec70a4c"
     },
     {
       "name": "release-packaging",
@@ -536,7 +542,7 @@
       "name": "render-deploy",
       "description": "Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform.",
       "relativeDir": "render-deploy",
-      "hash": "10d2e68c292879596e8c272817984f40e145c31727d92f340fc0f4a95428881c"
+      "hash": "2d6acfcb2e1da8a3bb2b4692f7e7289f34721709ee28bef42f8fc676b67d6fe8"
     },
     {
       "name": "router",
@@ -548,7 +554,7 @@
       "name": "screenshot",
       "description": "\"Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.\"",
       "relativeDir": "screenshot",
-      "hash": "94ea98d0f6c8701650595afc5b0688d0174b77aad9a2464785e758138bc0b0f1"
+      "hash": "6a2a2fbb466e1e2e41a50d6dbad1fe9610f53e328954e3d935701ac642f3a5da"
     },
     {
       "name": "security",
@@ -560,19 +566,19 @@
       "name": "security-and-hardening",
       "description": "Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations. Use when building any feature that accepts untrusted data, manages user sessions, or interacts with third-party services.",
       "relativeDir": "security-and-hardening",
-      "hash": "f1d5c1b853867ff4a84a5996f608ce864ae75c41c641440949a3d2a36b2e0872"
+      "hash": "ab8dc64046a9a4f5fed586973192bdf8b472c3a82efb4bb6808d1cf35c753cad"
     },
     {
       "name": "security-best-practices",
       "description": "\"Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks.\"",
       "relativeDir": "security-best-practices",
-      "hash": "8a132725628338f9313d211901b175d6077744a56eed8e42f414098e57bf5160"
+      "hash": "39a25bbe8bf1a85920db7a63264191d09d9d62f59cccf6edbdcf5e86bf09e502"
     },
     {
       "name": "security-bounty-hunter",
       "description": "Hunt for exploitable, bounty-worthy security issues in repositories. Focuses on remotely reachable vulnerabilities that qualify for real reports instead of noisy local-only findings.",
       "relativeDir": "security-bounty-hunter",
-      "hash": "67e593c098f4a73afbabc8c481d135a6f5c716bc6589e5e20139da1bb40c4270"
+      "hash": "6d8eeca25da793795d8bb28e5e42127bd713624257f8c09ea774c21d5403bdaa"
     },
     {
       "name": "security-review-pro",
@@ -584,37 +590,37 @@
       "name": "security-scan",
       "description": "Scan your Claude Code configuration (.claude/ directory) for security vulnerabilities, misconfigurations, and injection risks using AgentShield. Checks CLAUDE.md, settings.json, MCP servers, hooks, and agent definitions.",
       "relativeDir": "security-scan",
-      "hash": "8a4b9c1e38c14568aeb4f0cabb6079ccefda2907ae46a94021a8ca33ea0562cd"
+      "hash": "1e765ea26d0261e2deb9eb9a2efe6fa61ba64e838d193b12502fc1f87ec19998"
     },
     {
       "name": "security-threat-model",
       "description": "\"Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Trigger only when the user explicitly asks to threat model a codebase or path, enumerate threats/abuse paths, or perform AppSec threat modeling. Do not trigger for general architecture summaries, code review, or non-security design work.\"",
       "relativeDir": "security-threat-model",
-      "hash": "a6abc47c2ccc861c3ab9ab4e0b08169b381c63cb499c582a38c81c67364ec2b3"
+      "hash": "030fe6fe59d0be189f030e5ff934d0179809b572352cd13f52f7a7bc7b5eaeb1"
     },
     {
       "name": "senior-backend",
       "description": "Comprehensive backend development skill for building scalable backend systems using NodeJS, Express, Go, Python, Postgres, GraphQL, REST APIs. Includes API scaffolding, database optimization, security implementation, and performance tuning. Use when designing APIs, optimizing database queries, implementing business logic, handling authentication/authorization, or reviewing backend code.",
       "relativeDir": "senior-backend",
-      "hash": "e00cdf1e08f189ec4081494b224c43f942dcf1f230cd6546fc6416118726f2da"
+      "hash": "6e608202735d4c9589bb77203002a320f58016f8dccea424e1f710e24f46eac1"
     },
     {
       "name": "senior-fullstack",
       "description": "Comprehensive fullstack development skill for building complete web applications with React, Next.js, Node.js, GraphQL, and PostgreSQL. Includes project scaffolding, code quality analysis, architecture patterns, and complete tech stack guidance. Use when building new projects, analyzing code quality, implementing design patterns, or setting up development workflows.",
       "relativeDir": "senior-fullstack",
-      "hash": "c53562c41b185cdd385e43c89d2ce36b69d51ffc791003a3647548268f69447f"
+      "hash": "afaa9cd5f8c092d321914a151be8d7fc1e445d11028be896c5acf827398b1288"
     },
     {
       "name": "sentry",
       "description": "\"Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry CLI; perform read-only queries using the `sentry` command.\"",
       "relativeDir": "sentry",
-      "hash": "74b1b27ce533c1feabf60e222f739c36b999154ab7c58f943258faf16e36c656"
+      "hash": "23699a10c8ccadab659a8fa92cd6704fb19e8309353808acc53d019a83620b3e"
     },
     {
       "name": "shadcn",
       "description": "Manages shadcn components and projects — adding, searching, fixing, debugging, styling, and composing UI. Provides project context, component docs, and usage examples. Applies when working with shadcn/ui, component registries, presets, --preset codes, or any project with a components.json file. Also triggers for \"shadcn init\", \"create an app with --preset\", or \"switch to --preset\".",
       "relativeDir": "shadcn",
-      "hash": "3e8ca56eb3af0f18b9cca3ae002f2b52f5dd23bceb286dd7403e18ae2fb38d08"
+      "hash": "52fd531c81658bf8cf43e62869753e9e90423ab2d92978ff18e21fb749ec8711"
     },
     {
       "name": "shadcn-ui",
@@ -644,19 +650,19 @@
       "name": "skill-stocktake",
       "description": "\"Use when auditing Claude skills and commands for quality. Supports Quick Scan (changed skills only) and Full Stocktake modes with sequential subagent batch evaluation.\"",
       "relativeDir": "skill-stocktake",
-      "hash": "ca5c6055803cf202e70e9465df3e106cb7217e5e16e10faff7fb795f04d0f313"
+      "hash": "4e4f6d9da5cba7c88b3d548a769c3d39092a266fabdcacc532df91bdd7c09afc"
     },
     {
       "name": "soft-skill",
       "description": "Teaches the AI to design like a high-end agency. Defines the exact fonts, spacing, shadows, card structures, and animations that make a website feel expensive. Blocks all the common defaults that make AI designs look cheap or generic.",
       "relativeDir": "soft-skill",
-      "hash": "0f4128b7ea5ff1e7ab7ccc77555c30e4093d848ac5a491a6a6806b3c6b062bde"
+      "hash": "80ddd6a45df4d1c9b3fadc8f9c9960cc1a0d6981b771b1458736b47c29fb5fcf"
     },
     {
       "name": "source-driven-development",
       "description": "Grounds every implementation decision in official documentation. Use when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters.",
       "relativeDir": "source-driven-development",
-      "hash": "543917d56c57b76412d6a1329b79caafdff1254b3b55ebcfc0a7252c039188ef"
+      "hash": "d96f56714e85baf1dca08ab0b6b1fd050b2e50b1aee24db11ea906af30d537cd"
     },
     {
       "name": "source-driven-development-pro",
@@ -668,7 +674,7 @@
       "name": "spec-driven-development",
       "description": "Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements are unclear, ambiguous, or only exist as a vague idea.",
       "relativeDir": "spec-driven-development",
-      "hash": "2734159312041552a0bc9cc3be924cd7a220f1e89d0c03437c494b8e10b633ff"
+      "hash": "24ae9b132800fe6989bf3a779b87593e8ad33e5a17acf23a9513dfc6a577eac5"
     },
     {
       "name": "spec-driven-development-pro",
@@ -680,85 +686,85 @@
       "name": "stitch-design-taste",
       "description": "Semantic Design System Skill for Google Stitch. Generates agent-friendly DESIGN.md files that enforce premium, anti-generic UI standards — strict typography, calibrated color, asymmetric layouts, perpetual micro-motion, and hardware-accelerated performance.",
       "relativeDir": "stitch-skill",
-      "hash": "033ab2b7c9790de5ff962d622464d9c67ace3a1682b009a5793ea98bcb94292a"
+      "hash": "6ca5729c8e465794883430d3ccca2c9798c8a828645c133a7cec982b847fb4c0"
     },
     {
       "name": "strategic-compact",
       "description": "Suggests manual context compaction at logical intervals to preserve context through task phases rather than arbitrary auto-compaction.",
       "relativeDir": "strategic-compact",
-      "hash": "41c63872ca19c7d1733d9b19bf6b357931c2390bc2c023f450e49e1562b4be02"
+      "hash": "7d9770a0a6699603f6fd71f3db7a05fcc254ad8a42e817182045e320d8f246fb"
     },
     {
       "name": "supabase-postgres-best-practices",
       "description": "Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.",
       "relativeDir": "supabase-postgres-best-practices",
-      "hash": "4ce5656fb3a2a3c9fd231f215a1f0b2a87eb3601a0a5a3d36ee3a4c2541c2430"
+      "hash": "6066c62af8ddc5e98f424de6f2c574494ea926461619cc1d74d1586e805c3a91"
     },
     {
       "name": "superpowers-brainstorming",
       "description": "\"You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.\"",
       "relativeDir": "superpowers-brainstorming",
-      "hash": "3d74da50f343c9bfc65ae763a7479f0b25d12b91ed470469f094235fa78d73f1"
+      "hash": "2e9f561f17475771b1cf7e1a2d33f7310a35f3da1208ff11f3e44d0fc684fdea"
     },
     {
       "name": "superpowers-executing-plans",
       "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
       "relativeDir": "superpowers-executing-plans",
-      "hash": "8b096cdf04fb817c329e4a7815bb03e4d0b476c5992740808f0847d8f2bf0535"
+      "hash": "f44781f992b89c3a47295d3c7b6f55abf94abecdf49f798839f5cd1a1b9b21ef"
     },
     {
       "name": "superpowers-finishing-a-development-branch",
       "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup",
       "relativeDir": "superpowers-finishing-a-development-branch",
-      "hash": "024c491062ccf6c12ad2a6a182c5fcc000be018bdf6230fc79931b2ded776677"
+      "hash": "d7c788e3c5278b62ce9105691eac938abbabf1f699e0f7f88b16764a87df4710"
     },
     {
       "name": "superpowers-receiving-code-review",
       "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
       "relativeDir": "superpowers-receiving-code-review",
-      "hash": "d7c2069465d425e7655cbfc65cd9c7aa34e06f267294d47f90470e750928ec8e"
+      "hash": "05d0d65171dbae1a1df86a24ca2e57b9f58c4ea7c04c8a816847ef4ecc59a2d3"
     },
     {
       "name": "superpowers-requesting-code-review",
       "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
       "relativeDir": "superpowers-requesting-code-review",
-      "hash": "297f2fd8c7cc886cf262f2228b7cc68a26ba4a8be78c299fe7e2d7e92643eb0c"
+      "hash": "3c3e26c7ef29c115f3711c0c5b398e617f876e3053fd80c744c1d20ee24b71a4"
     },
     {
       "name": "superpowers-systematic-debugging",
       "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
       "relativeDir": "superpowers-systematic-debugging",
-      "hash": "ab8823694572b5e57f47d2cd853f4e534ffc8aacd9a0672b64ad885a6d1f8e5d"
+      "hash": "d8d24734f1c248da02456b3890fe56a94f47ec56aa6a221988e936dc950e7681"
     },
     {
       "name": "superpowers-using-git-worktrees",
       "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback",
       "relativeDir": "superpowers-using-git-worktrees",
-      "hash": "16751316f6e2a92102226aa121edd69b29b35310adadc1441bc0b87330d57fbf"
+      "hash": "5719e6094c6b05f814736e682b1cf22e714c27a91b5b1926d892072b0daf35b6"
     },
     {
       "name": "superpowers-verification-before-completion",
       "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
       "relativeDir": "superpowers-verification-before-completion",
-      "hash": "198bafbdc4524320c557d5333b087b9c5123e9305772547d6d5f26f05c5c3a6f"
+      "hash": "b6af43cd5a3d579f5288a9381e2bc210217e0d8aa191ced98dc2a7c6074fab9d"
     },
     {
       "name": "superpowers-writing-plans",
       "description": "Use when you have a spec or requirements for a multi-step task, before touching code",
       "relativeDir": "superpowers-writing-plans",
-      "hash": "396f56f62cd4d8d487290a38f39737a35700e2736bde71ab771f0c7fa8d5b421"
+      "hash": "c95e6ad88ca9e26dd76d5be97556891a165a3efa9cea338577296fd7b76b76a7"
     },
     {
       "name": "taste-design-frontend",
       "description": "Senior UI/UX Engineer. Architect digital interfaces overriding default LLM biases. Enforces metric-based rules, strict component architecture, CSS hardware acceleration, and balanced design engineering.",
       "relativeDir": "taste-design-frontend",
-      "hash": "54cfed112cd667467e889bfc3a6fea8d0db2ba72f0f372bb635a6910a3e0dc80"
+      "hash": "0a6c963a88c3f2f469e08409300459fa6442f34f67563c1f49bd360c72e1cc3d"
     },
     {
       "name": "tauri",
       "description": "Tauri framework for building cross-platform desktop and mobile apps. Use for desktop app development, native integrations, Rust backend, and web-based UIs.",
       "relativeDir": "tauri",
-      "hash": "db79329a29703b0a2f000c6bfd11c5aacb3a851aac12069a5eed1f2764f950ee"
+      "hash": "2e81db74222da2b011f672379afdcf0e5ccaf1eaa6afed87e2d544bf45de5e1a"
     },
     {
       "name": "tauri-pro",
@@ -776,7 +782,7 @@
       "name": "terminal-ops",
       "description": "Evidence-first repo execution workflow for ECC. Use when the user wants a command run, a repo checked, a CI failure debugged, or a narrow fix pushed with exact proof of what was executed and verified.",
       "relativeDir": "terminal-ops",
-      "hash": "be5187ce182f943cf257f195ae00c0b2595df75433ec9bb5bf96389e73696808"
+      "hash": "9c55a5ad9b14fc4f0c28ae77af18493006d38569eab7e802cc750fd45ea9a76c"
     },
     {
       "name": "testing",
@@ -812,25 +818,25 @@
       "name": "ui-ux-pro-max",
       "description": "\"UI/UX design intelligence for web and mobile. Includes 50+ styles, 161 color palettes, 57 font pairings, 161 product types, 99 UX guidelines, and 25 chart types across 10 stacks (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, and HTML/CSS). Actions: plan, build, create, design, implement, review, fix, improve, optimize, enhance, refactor, and check UI/UX code. Projects: website, landing page, dashboard, admin panel, e-commerce, SaaS, portfolio, blog, and mobile app. Elements: button, modal, navbar, sidebar, card, table, form, and chart. Styles: glassmorphism, claymorphism, minimalism, brutalism, neumorphism, bento grid, dark mode, responsive, skeuomorphism, and flat design. Topics: color systems, accessibility, animation, layout, typography, font pairing, spacing, interaction states, shadow, and gradient. Integrations: shadcn/ui MCP for component search and examples.\"",
       "relativeDir": "ui-ux-pro-max",
-      "hash": "c4b7f8d7e8362bec80ecd371de84c5b342e93d0a2ce52aec71af4564781570a2"
+      "hash": "067413215b34d1efd821346d68107291cef5c35107fafce2c489fe89d72ae084"
     },
     {
       "name": "vercel-deploy",
       "description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\".",
       "relativeDir": "vercel-deploy",
-      "hash": "94aa3e6532bcc9f8a4ecbec5a4d4fce6176de7c87349834262c59eb556d2715e"
+      "hash": "cf0bd107ec8533fb5379a6f6c8838ee65e3f39851af306b662d7861d99284d21"
     },
     {
       "name": "vercel-react-best-practices",
       "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
       "relativeDir": "vercel-react-best-practices",
-      "hash": "d0cb32b3a320623d468cbac8f1319c79104faaa4c45633d996a7395bf9931f66"
+      "hash": "1f92366a236bba823436291a25e65a2ba82c68ba0e28cf5a371285f39317d1f1"
     },
     {
       "name": "verification-loop",
       "description": "\"A comprehensive verification system for Claude Code sessions.\"",
       "relativeDir": "verification-loop",
-      "hash": "8fef64510c418e584c87397e340cfef13145b73b02aad9745c6f5b109f776288"
+      "hash": "893c3f9c55ad6a0b7660b68fbb3930b03cf15cde62a77b53b0677f1554b88d9a"
     },
     {
       "name": "web-app",
@@ -842,7 +848,7 @@
       "name": "web-design-guidelines",
       "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\".",
       "relativeDir": "web-design-guidelines",
-      "hash": "f0fac2445cc43534f55ae7c643abd701626758877ae8a554f44eec852c1c3f7e"
+      "hash": "6f017bbc3a6a4c40f3916cdbcad138f1d5192b38b17de20fa2fdc4eb25f8ca84"
     },
     {
       "name": "webapp-testing-pro",
@@ -854,13 +860,13 @@
       "name": "windows-desktop-e2e",
       "description": "E2E testing for Windows native desktop apps (WPF, WinForms, Win32/MFC, Qt) using pywinauto and Windows UI Automation.",
       "relativeDir": "windows-desktop-e2e",
-      "hash": "439491ed07a9fdf043ff7e516ecd590238da60c3f4373537cd67ffbe261dee36"
+      "hash": "1ab8d2feacdfba42a86e4dac945a5c53530ba1e824042c1ca52de446978b2a08"
     },
     {
       "name": "yonghu-preferences",
       "description": "Use when the user expresses stable preferences, recurring requirements, project habits, UI taste, architecture rules, skill-pack governance opinions, prompt behavior expectations, repeated corrections, or personal workflow patterns that should influence future Codex work without guessing or storing sensitive data.",
       "relativeDir": "yonghu-preferences",
-      "hash": "1cda00a3e299985522f444c8523d50025d4860b674a1981451c87c45320accc6"
+      "hash": "c986131201b464273fcc49d03bd25b67306433ea1032c5e494b361a41e6fc375"
     }
   ]
 }

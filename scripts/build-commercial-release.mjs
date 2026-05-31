@@ -66,8 +66,8 @@ const releaseManifest = {
   sourceRoot: repoRoot,
   outputRoot: outDir,
   personalOverlayExcluded: true,
-  runtimePromptTemplateIncluded: true,
-  runtimePromptTemplate: "prompts/runtime-v5.1.md",
+  runtimePromptTemplateIncluded: false,
+  runtimePromptTemplate: "external AGENTS5.3.md, not distributed",
   projectAgentsIncluded: false,
   excludedTopLevel: [...exclude].sort(),
   verify: [
@@ -89,7 +89,7 @@ process.stdout.write(
       ok: true,
       outDir,
       personalOverlayExcluded: true,
-      runtimePromptTemplateIncluded: true,
+      runtimePromptTemplateIncluded: false,
       projectAgentsIncluded: false,
       manifest: "COMMERCIAL_RELEASE.json"
     },

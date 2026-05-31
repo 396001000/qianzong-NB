@@ -3,9 +3,9 @@
 | Field | Value |
 |---|---|
 | Status | Active |
-| Version | 1.4 |
+| Version | 1.5 |
 | Owner | 女助理 + 主持人 |
-| Last Updated | 2026-05-30 |
+| Last Updated | 2026-05-31 |
 
 ## Purpose
 
@@ -48,6 +48,7 @@ Route to professional skills without bloating the main prompt or preloading unne
 | UI design | `frontend-design-pro`, `ui-taste-pro`, `anthropic-frontend-design` |
 | UI implementation | `frontend`, `anthropic-frontend-design`, `frontend-design-pro` |
 | UI polish | `ui-polish-pro`, `ui-taste-pro`, `design-review-pro` |
+| UI motion / React animation | `gsap-react`, `frontend`, `ui-polish-pro` |
 | UI accessibility | `accessibility`, `web-design-guidelines`, `frontend-design-pro` |
 | UI redesign | `redesign-existing-projects`, `ui-polish-pro`, `design-review-pro` |
 | Visual mockup/image-to-code | `imagegen-frontend-web`, `imagegen-frontend-mobile`, `image-to-code` |
@@ -92,6 +93,7 @@ Route to professional skills without bloating the main prompt or preloading unne
 ## Forbidden Behaviors
 
 - Do not call UI skills for non-UI tasks.
+- Do not call `gsap-react` for ordinary static UI design; use it only for React/Next.js animation implementation, GSAP, ScrollTrigger, timeline animation, parallax, complex interaction motion, or animation cleanup/debugging.
 - Do not call deployment skills unless the user requests deploy/hosting/publish/setup.
 - Do not use user-skills as replacement for professional skills.
 - Do not eagerly read professional skill bodies just because a task is broad; route first, load only after the active role is selected.
@@ -115,3 +117,4 @@ Route to professional skills without bloating the main prompt or preloading unne
 | 2026-05-30 | Added explicit UI implementation route to `anthropic-frontend-design` for generated web interfaces. | User asked whether UI generation can intelligently call UI skills. |
 | 2026-05-30 | Filled specialist routing gaps for review, docs, accessibility, Figma, deploy providers, app state, release QA, migrations, and project context. | User requested all identified routing gaps be completed. |
 | 2026-05-30 | Added reusable route-target validation as an acceptance check. | User requested all routing and skill usability gaps be fully closed. |
+| 2026-05-31 | Added narrow `gsap-react` route for React/Next.js interaction animation without making ordinary UI design auto-load animation skills. | User installed GSAP React skill and requested role-trigger integration. |

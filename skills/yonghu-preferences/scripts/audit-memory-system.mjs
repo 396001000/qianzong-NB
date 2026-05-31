@@ -12,13 +12,23 @@ function existingDir(...parts) {
   return fs.existsSync(candidate) && fs.statSync(candidate).isDirectory() ? candidate : null;
 }
 
+function homeDir() {
+  return process.env.HOME || process.env.USERPROFILE || "";
+}
+
 function resolveCodexHome() {
-  if (process.env.CODEX_HOME && existingDir(process.env.CODEX_HOME)) return process.env.CODEX_HOME;
-  return path.join(process.env.HOME || process.cwd(), ".codex");
+  if (process.env.CODEX_HOME && existingDir(process.env.CODEX_HOME)) return path.resolve(process.env.CODEX_HOME);
+  const home = homeDir();
+  const defaultHome = home ? existingDir(home, ".codex") : null;
+  return defaultHome || path.join(home || process.cwd(), ".codex");
 }
 
 function runNode(script, extraArgs = []) {
-  const result = spawnSync(process.execPath, [script, ...extraArgs], { cwd: startDir, encoding: "utf8" });
+  const result = spawnSync(process.execPath, [script, ...extraArgs], {
+    cwd: startDir,
+    env: { ...process.env, CODEX_HOME: codexHome },
+    encoding: "utf8"
+  });
   let parsed = null;
   try {
     parsed = JSON.parse(result.stdout);
@@ -33,9 +43,10 @@ function hasAll(root, rels) {
 }
 
 const codexHome = resolveCodexHome();
+const home = homeDir();
 const yonghuRoot =
   existingDir(codexHome, "skills", "yonghu-preferences") ||
-  existingDir(process.env.HOME || "", ".codex", "skills", "yonghu-preferences") ||
+  (home ? existingDir(home, ".codex", "skills", "yonghu-preferences") : null) ||
   path.join(codexHome, "skills", "yonghu-preferences");
 const scriptsRoot = path.join(yonghuRoot, "scripts");
 const userSkillsRoot = path.join(yonghuRoot, "user-skills");
@@ -49,6 +60,7 @@ const requiredUserSkills = [
   "memory-evidence-style.md",
   "global-memory-capture-style.md",
   "project-memory-style.md",
+  "project-agents-style.md",
   "knowledge-graph-memory-style.md",
   "role-host-style.md",
   "role-project-assistant-style.md",
@@ -64,6 +76,8 @@ const requiredScripts = [
   "capture-global-memory.mjs",
   "resolve-memory-context.mjs",
   "audit-memory-system.mjs",
+  "generate-project-agents.mjs",
+  "audit-project-agents.mjs",
   "summarize-project-memory.mjs",
   "maintain-memory.mjs",
   "setup-project-maintenance.mjs"

@@ -3,9 +3,9 @@
 | Field | Value |
 |---|---|
 | Status | Active |
-| Version | 2.2 |
+| Version | 2.3 |
 | Owner | 女助理 |
-| Last Updated | 2026-05-30 |
+| Last Updated | 2026-05-31 |
 
 ## Purpose
 
@@ -42,11 +42,12 @@ Resolve user-skills in this order:
 
 1. `$CODEX_HOME/skills/yonghu-preferences/`
 2. `$HOME/.codex/skills/yonghu-preferences/`
-3. A searched `.codex/skills/yonghu-preferences/` directory if the first paths are unavailable
-4. `%USERPROFILE%\.codex\skills\yonghu-preferences\` on Windows
+3. `%USERPROFILE%\.codex\skills\yonghu-preferences\` on Windows
+4. A searched `.codex/skills/yonghu-preferences/` directory if the first paths are unavailable
 
 Do not treat a missing project-local `yonghu-preferences/` directory as missing memory.
 Do not create or use a project-local `yonghu-preferences/` as a second global memory entry.
+Do not use the local skills development repository as `CODEX_HOME`; local edits must be merged into the real global skills directory before runtime use.
 
 ## Read Failure Recovery
 
@@ -72,6 +73,7 @@ An index is incomplete when it lacks the always-read entries, omits existing act
 - If the user shows frustration, fatigue, sadness, anxiety, impatience, or asks for comfort, read `emotion-support-style.md`.
 - If the task involves code, config, tests, build, UI, API, database, Tauri, deployment, prompt, skills, or docs, read `skill-router-style.md` for routing only.
 - If the task changes project files or long-lived project state, read `memory-reliability-style.md`, `memory-stack-style.md`, `project-memory-style.md`, `memory-evidence-style.md`, and the matching role file.
+- If the task creates, refreshes, audits, or changes project `AGENTS.md` or project-local collaboration rules, read `project-agents-style.md`, `project-memory-style.md`, `memory-reliability-style.md`, and the matching role file.
 - If the user says `初始化本项目`, route to 项目助手 and use `init-project-memory.mjs --cwd .` after 主持人 confirms no high-risk overwrite; this entrypoint performs pre-audit, fill, summary, and final audit.
 - If project work may need relationship lookup, impact analysis, cross-layer continuity, or long-term project updates, read `knowledge-graph-memory-style.md` so 女助理 can choose KG0/KG1/KG2/KG3.
 - If the task is debugging, read `role-debugger-style.md` and `debug-reuse-style.md`.
@@ -118,6 +120,7 @@ The host decides whether to accept or correct the suggestion.
 - Knowledge graph activation was skipped or selected deliberately for project work, not used automatically for simple consultations.
 - Professional skill bodies are deferred until the execution role needs them.
 - Skill lifecycle tasks route to 规则师 with lifecycle audit and poisoning checks before default routing.
+- Project `AGENTS.md` work routes through `project-agents-style.md`; project rules, global runtime, and project docs stay separate.
 
 ## Change Log
 
@@ -132,3 +135,4 @@ The host decides whether to accept or correct the suggestion.
 | 2026-05-30 | Added active/passive global memory capture route. | User identified incomplete global memory capture as a serious defect. |
 | 2026-05-30 | Added knowledge graph activation route. | User asked 女助理 to decide whether knowledge graph is needed depending on task depth and project longevity. |
 | 2026-05-30 | Upgraded routing to v2.2 memory stack and evidence governance. | User requested a complete memory loop with correct read, write, invalidation, verification, and reuse. |
+| 2026-05-31 | Added global-path-only routing and project `AGENTS.md` rules-only routing. | User clarified local staging workspaces must not become `CODEX_HOME`; runtime paths should resolve to the real global Codex skills directory. |
